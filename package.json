@@ -29,7 +29,9 @@
     "@ionic/pro": "2.0.3",
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "^10.0.2",
+    "cordova-sqlite-storage": "2.5.0",
     "core-js": "^2.5.3",
+    "ngx-logger": "^3.3.3",
     "rxjs": "6.2.2",
     "sjcl": "^1.0.7",
     "wallet-base": "^1.0.0",
@@ -61,5 +63,10 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-sqlite-storage": {}
+    }
   }
 }
