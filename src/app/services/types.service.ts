@@ -5,6 +5,16 @@ export enum Action {
   RECEIVED = "received"
 }
 
+// profile类型
+export type ProfileType = {
+  status: statusType;
+  config: configType;
+  setting: settingType;
+  wallet: walletType;
+  asset: assetType;
+  history: historyType;
+}
+
 // 钱包存储类型
 export type walletType = {
   walletId: string; // 钱包ID
@@ -141,9 +151,6 @@ export type configType = {
   downloadUrl: string;
   releaseUrl: string;
   network: string;
-  log: {
-    weight: number;
-  };
 };
 
 // 状态存储类型
