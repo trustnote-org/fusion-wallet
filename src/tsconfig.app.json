@@ -4,9 +4,5 @@
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "module": "es2015"
-  },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+  }
 }

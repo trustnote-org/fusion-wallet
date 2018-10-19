@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
     selector: 'app-home',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private logger: NGXLogger
+  ) { }
 
   ngOnInit() {
+    this.logger.debug("homepage");
   }
-
 }
