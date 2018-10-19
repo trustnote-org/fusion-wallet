@@ -1,0 +1,33 @@
+.imgBox {
+    height: 80px;
+    text-align: center;
+}
+.imgBox img {
+    height: 100%;
+}
+h1 {
+    font-size: 24px;
+    color: #263568;
+    text-align: center;
+}
+h2 {
+    font-size: 18px;
+    color: #666C82;
+    text-align: center;
+}
+.bottomBtnBox {
+    position: absolute;
+    bottom: 200px;
+    width: 100%;
+}
+.bottomBtn {
+    margin: 0 auto;
+    width: 320px;
+    height: 48px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 48px;
+    text-align: center;
+    background: url(assets/icon/bottomBtn.png) no-repeat center center;
+    background-size:320px 48px;
+}
