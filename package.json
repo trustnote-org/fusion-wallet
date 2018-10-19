@@ -5,6 +5,7 @@
   "homepage": "https://trustnote.org",
   "description": "Universal TrustNote Wallet",
   "scripts": {
+    "patch": "node patch.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
