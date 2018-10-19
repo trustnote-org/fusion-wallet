@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
-import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,9 @@ import { StorageService } from '../../services/storage.service';
 })
 export class HomePage implements OnInit {
 
-  constructor(private logger: NGXLogger, private storage: StorageService) { }
+  constructor(
+    private logger: NGXLogger
+  ) { }
 
   ngOnInit() {
     this.logger.debug("homepage");

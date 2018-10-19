@@ -8,6 +8,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+// Services
+import { ProfileService } from './services/profile.service';
+
+// Components
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,10 +28,12 @@ import { AppRoutingModule } from './app-routing.module';
     }),
     LoggerModule.forRoot({
       level: NgxLoggerLevel.TRACE
-    })],
+    })
+  ],
   providers: [
     StatusBar,
     SplashScreen,
+    ProfileService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
