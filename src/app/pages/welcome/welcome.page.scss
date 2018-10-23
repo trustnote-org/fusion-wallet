@@ -1,25 +1,37 @@
+.topSafe {
+    margin-top: 80px;
+    // 顶部安全区
+    padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
+}
+
 .imgBox {
     height: 80px;
     text-align: center;
 }
+
 .imgBox img {
     height: 100%;
 }
+
 h1 {
     font-size: 24px;
     color: #263568;
     text-align: center;
 }
+
 h2 {
     font-size: 18px;
     color: #666C82;
     text-align: center;
 }
+
 .bottomBtnBox {
     position: absolute;
-    bottom: 200px;
+    bottom: 120px;
     width: 100%;
 }
+
 .bottomBtn {
     margin: 0 auto;
     width: 320px;
@@ -29,5 +41,5 @@ h2 {
     line-height: 48px;
     text-align: center;
     background: url(assets/icon/bottomBtn.png) no-repeat center center;
-    background-size:320px 48px;
+    background-size: 320px 48px;
 }
