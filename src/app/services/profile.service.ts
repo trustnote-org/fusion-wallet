@@ -21,24 +21,64 @@ import * as sjcl from "sjcl";
 
 export class ProfileService {
 
-  public static profile: ProfileType;
+  private static profile: ProfileType;
   private isLoaded: boolean;
 
   constructor(
     private storage: StorageService,
-    private config: ConfigService,
+    private configService: ConfigService,
     private result: ResultService,
     private logger: NGXLogger
   ) {
     this.isLoaded = false;
     ProfileService.profile = {
-      status: this.config.statusDefault,
-      config: this.config.configDefault,
-      setting: this.config.settingDefault,
-      wallet: this.config.walletDefault,
-      asset: this.config.assetDefault,
+      status: this.configService.statusDefault,
+      config: this.configService.configDefault,
+      setting: this.configService.settingDefault,
+      wallet: this.configService.walletDefault,
+      asset: this.configService.assetDefault,
       history: {}
     };
+  }
+
+  get profile(): ProfileType {
+    return ProfileService.profile;
+  }
+
+  set profile(profile: ProfileType) {
+    ProfileService.profile = profile;
+  }
+
+  get wallet(): walletType {
+    return ProfileService.profile.wallet;
+  }
+
+  set wallet(wallet: walletType) {
+    ProfileService.profile.wallet = wallet;
+  }
+
+  get config(): configType {
+    return ProfileService.profile.config;
+  }
+
+  set config(config: configType) {
+    ProfileService.profile.config = config;
+  }
+
+  get setting(): settingType {
+    return ProfileService.profile.setting;
+  }
+
+  set setting(setting: settingType) {
+    ProfileService.profile.setting = setting;
+  }
+
+  get status(): statusType {
+    return ProfileService.profile.status;
+  }
+
+  set status(status: statusType) {
+    ProfileService.profile.status = status;
   }
 
   async loadProfile(): Promise<ProfileType> {
