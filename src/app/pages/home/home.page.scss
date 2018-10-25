@@ -4,6 +4,7 @@
     background: url(assets/icon/bannarBG.png) no-repeat center center;
     background-size: 105% 205px;
 }
+
 .banner h2 {
     font-family: PingFangSC-Medium;
     font-size: 18px;
@@ -12,8 +13,12 @@
     text-align: center;
     line-height: 22px;
     margin: 0;
-    margin-top: 10px;
+    padding-top: 10px;
+    // 顶部安全区
+    padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
 }
+
 .banner p {
     opacity: 0.5;
     font-family: PingFangSC-Regular;
@@ -25,6 +30,7 @@
     margin-top: 40px;
     padding-left: 15px;
 }
+
 .banner h1 {
     font-family: DINAlternate-Bold;
     font-size: 46px;
@@ -36,6 +42,7 @@
     margin-top: 25px;
     padding-left: 15px;
 }
+
 // banner 部分 结束
 
 // 账单 部分
@@ -45,15 +52,18 @@
     background-size: 105% 75px;
     line-height: 60px;
 }
+
 .details div {
     float: left;
     line-height: 70px;
     padding-left: 15px;
     margin-right: 10px;
 }
+
 .details div img {
     width: 22px;
 }
+
 .details h3 {
     font-family: PingFangSC-Regular;
     font-size: 16px;
@@ -63,35 +73,56 @@
     line-height: 30px;
     float: left;
 }
+
 .details div.right {
     float: right;
 }
+
 // 账单 部分 结束
 
 // 领取测试
 .gettt {
     height: 56px;
+    line-height: 66px;
     background: url(assets/icon/gett.png) no-repeat;
     background-size: contain;
 }
 
-
-
-
-
-
-
-
-
-
-ion-col{
-    border: 1px solid #000;
+.gettt p {
+    float: left;
+    padding-left: 56px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #263568;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 26px;
 }
+
+.gettt img {
+    width: 26px;
+}
+
+
+
+
+
+
+
+
+
+
+
+ion-col {
+    // border: 1px solid #000;
+}
+
 ion-col div {
     width: 60px;
-    background: red;
+    // background: red;
     margin: 0 auto;
 }
+
 ion-col p {
     font-family: PingFangSC-Regular;
     font-size: 14px;
@@ -99,4 +130,11 @@ ion-col p {
     letter-spacing: 0;
     text-align: center;
     margin: 5px 10px;
+}
+
+
+// 底部安全区
+.safeBottom {
+    padding-bottom: constant(safe-area-inset-bottom) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
 }
