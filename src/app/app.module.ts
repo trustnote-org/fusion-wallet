@@ -21,7 +21,6 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslatePoHttpLoader(http, "../assets/i18n", ".po");
 }
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

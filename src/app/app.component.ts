@@ -4,6 +4,10 @@ import { Platform } from "@ionic/angular";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
 
+import { ProfileService } from "./services/profile.service";
+
+import { Router } from "@angular/router";
+
 @Component({
   selector: "app-root",
   templateUrl: "app.component.html"
@@ -12,12 +16,29 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private ProfileService: ProfileService,
+    private route: Router
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
+    this.ProfileService.loadProfile()
+      .then(res => {
+        if (res.wallet) {
+          this.ProfileService.profile = res;
+          this.route.navigate(["/home"]);
+        } else {
+          this.ProfileService.storeProfile(this.ProfileService.profile).then(
+            res => {
+              this.route.navigate(["/welcome"]);
+            }
+          );
+        }
+      })
+      .catch(reject => {});
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
