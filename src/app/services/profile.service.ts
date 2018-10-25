@@ -14,6 +14,7 @@ import { ResultService } from "./result.service";
 import { ConfigService } from "./config.service";
 import { NGXLogger } from "ngx-logger";
 import * as sjcl from "sjcl";
+import _ from "lodash";
 
 @Injectable({
   providedIn: 'root',
@@ -121,11 +122,21 @@ export class ProfileService {
   // 往数据库中写入 profile
   async storeProfile(profile: ProfileType) {
     try {
+      if (_.isEmpty(profile))
+        throw "profile cannot be empty"
+      if (_.isEmpty(profile.status))
+        throw "profile.status cannot be empty"
+      if (_.isEmpty(profile.config))
+        throw "profile.config cannot be empty"
+      if (_.isEmpty(profile.setting))
+        throw "profile.setting cannot be empty"
+
       await this.storeStatus(profile.status);
       await this.storeConfig(profile.config);
       await this.storeSetting(profile.setting);
       return this.result.success(profile);
     } catch (error) {
+      this.logger.error(error);
       return this.result.error("storeProfile fault");
     }
   }
