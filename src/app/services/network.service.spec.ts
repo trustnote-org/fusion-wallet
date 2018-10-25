@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { NetworkService } from './network.service';
 
-describe('ConfigService', () => {
+describe('NetworkService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
