@@ -22,6 +22,8 @@ import * as sjcl from "sjcl";
 export class ProfileService {
 
   private static profile: ProfileType;
+  private static history: historyType;
+  private static asset: assetType;
   private isLoaded: boolean;
 
   constructor(
@@ -35,10 +37,10 @@ export class ProfileService {
       status: this.configService.statusDefault,
       config: this.configService.configDefault,
       setting: this.configService.settingDefault,
-      wallet: this.configService.walletDefault,
-      asset: this.configService.assetDefault,
-      history: {}
+      wallet: this.configService.walletDefault
     };
+    ProfileService.history = {};
+    ProfileService.asset = this.configService.assetDefault;
   }
 
   get profile(): ProfileType {
@@ -81,6 +83,23 @@ export class ProfileService {
     ProfileService.profile.status = status;
   }
 
+  get history(): historyType {
+    return ProfileService.history;
+  }
+
+  set history(history: historyType) {
+    ProfileService.history = history;
+  }
+
+  get asset(): assetType {
+    return ProfileService.asset;
+  }
+
+  set asset(asset: assetType) {
+    ProfileService.asset = asset;
+  }
+
+  // 从数据库中读取 profile 并返回
   async loadProfile(): Promise<ProfileType> {
     let profile: any = {};
     try {
@@ -99,6 +118,7 @@ export class ProfileService {
     }
   }
 
+  // 往数据库中写入 profile
   async storeProfile(profile: ProfileType) {
     try {
       await this.storeStatus(profile.status);
@@ -151,7 +171,7 @@ export class ProfileService {
   }
 
   storeAsset(asset: assetType): Promise<resultType> {
-    ProfileService.profile.asset = asset;
+    ProfileService.asset = asset;
     return this.storage.set(StorageKeys.ASSET, asset);
   }
 
@@ -160,7 +180,7 @@ export class ProfileService {
   }
 
   storeHistory(history: historyType): Promise<resultType> {
-    ProfileService.profile.history = history;
+    ProfileService.history = history;
     return this.storage.set(StorageKeys.HISTORY, history);
   }
 
