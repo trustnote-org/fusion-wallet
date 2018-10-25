@@ -9,7 +9,7 @@ const statusDefault: statusType = {
 
 const configDefault: configType = {
   restAPI: "https://beta.itoken.top/api/v1",
-  restAPI_dev: "https://beta.itoken.top/api/v1",
+  restAPI_dev: "http://150.109.57.242:6001/api/v1", //http://150.109.57.242:6001/api/v1/asset/balance/QSOMNL7YPFQCYDKFUO63Y7RBLXDRDVJX/TTT
   assetAPI: "https://itoken.top/token/query-token-detal.htm",
   assetAPI_dev: "https://beta.itoken.top//v1/token/query-token-detal",
   rateUrl: "https://api.coinmarketcap.com/v2/ticker/2701/?convert=CNY",
