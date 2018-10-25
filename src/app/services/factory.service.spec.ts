@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NetworkService } from './network.service';
+import { FactoryService } from './factory.service';
 
-describe('NetworkService', () => {
+describe('FactoryService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: NetworkService = TestBed.get(NetworkService);
+    const service: FactoryService = TestBed.get(FactoryService);
     expect(service).toBeTruthy();
   });
 });

@@ -82,17 +82,18 @@ export class ProfileService {
   }
 
   async loadProfile(): Promise<ProfileType> {
+    let profile: any = {};
     try {
       let status = await this.loadStatus();
-      ProfileService.profile.status = status;
+      profile.status = status;
       let wallet = await this.loadWallet();
-      ProfileService.profile.wallet = wallet;
+      profile.wallet = wallet;
       let config = await this.loadConfig();
-      ProfileService.profile.config = config;
+      profile.config = config;
       let setting = await this.loadSetting();
-      ProfileService.profile.setting = setting;
+      profile.setting = setting;
       this.isLoaded = true;
-      return ProfileService.profile;
+      return profile;
     } catch (error) {
       throw this.result.error(error);
     }

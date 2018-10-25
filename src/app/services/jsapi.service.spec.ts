@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NetworkService } from './network.service';
+import { JSApiService } from './jsapi.service';
 
-describe('NetworkService', () => {
+describe('JSApiService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: NetworkService = TestBed.get(NetworkService);
+    const service: JSApiService = TestBed.get(JSApiService);
     expect(service).toBeTruthy();
   });
 });

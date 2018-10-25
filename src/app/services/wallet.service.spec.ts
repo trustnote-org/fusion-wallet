@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { WalletService } from './wallet.service';
 
-describe('ConfigService', () => {
+describe('WalletService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
