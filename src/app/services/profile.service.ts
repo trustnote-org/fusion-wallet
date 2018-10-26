@@ -14,6 +14,7 @@ import { ResultService } from "./result.service";
 import { ConfigService } from "./config.service";
 import { NGXLogger } from "ngx-logger";
 import * as sjcl from "sjcl";
+import _ from "lodash";
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,8 @@ import * as sjcl from "sjcl";
 export class ProfileService {
 
   private static profile: ProfileType;
+  private static history: historyType;
+  private static asset: assetType;
   private isLoaded: boolean;
 
   constructor(
@@ -35,10 +38,10 @@ export class ProfileService {
       status: this.configService.statusDefault,
       config: this.configService.configDefault,
       setting: this.configService.settingDefault,
-      wallet: this.configService.walletDefault,
-      asset: this.configService.assetDefault,
-      history: {}
+      wallet: this.configService.walletDefault
     };
+    ProfileService.history = {};
+    ProfileService.asset = this.configService.assetDefault;
   }
 
   get profile(): ProfileType {
@@ -81,6 +84,23 @@ export class ProfileService {
     ProfileService.profile.status = status;
   }
 
+  get history(): historyType {
+    return ProfileService.history;
+  }
+
+  set history(history: historyType) {
+    ProfileService.history = history;
+  }
+
+  get asset(): assetType {
+    return ProfileService.asset;
+  }
+
+  set asset(asset: assetType) {
+    ProfileService.asset = asset;
+  }
+
+  // 从数据库中读取 profile 并返回
   async loadProfile(): Promise<ProfileType> {
     let profile: any = {};
     try {
@@ -99,13 +119,24 @@ export class ProfileService {
     }
   }
 
+  // 往数据库中写入 profile
   async storeProfile(profile: ProfileType) {
     try {
+      if (_.isEmpty(profile))
+        throw "profile cannot be empty"
+      if (_.isEmpty(profile.status))
+        throw "profile.status cannot be empty"
+      if (_.isEmpty(profile.config))
+        throw "profile.config cannot be empty"
+      if (_.isEmpty(profile.setting))
+        throw "profile.setting cannot be empty"
+
       await this.storeStatus(profile.status);
       await this.storeConfig(profile.config);
       await this.storeSetting(profile.setting);
       return this.result.success(profile);
     } catch (error) {
+      this.logger.error(error);
       return this.result.error("storeProfile fault");
     }
   }
@@ -151,7 +182,7 @@ export class ProfileService {
   }
 
   storeAsset(asset: assetType): Promise<resultType> {
-    ProfileService.profile.asset = asset;
+    ProfileService.asset = asset;
     return this.storage.set(StorageKeys.ASSET, asset);
   }
 
@@ -160,7 +191,7 @@ export class ProfileService {
   }
 
   storeHistory(history: historyType): Promise<resultType> {
-    ProfileService.profile.history = history;
+    ProfileService.history = history;
     return this.storage.set(StorageKeys.HISTORY, history);
   }
 

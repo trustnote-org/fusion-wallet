@@ -11,8 +11,6 @@ export type ProfileType = {
   config: configType;
   setting: settingType;
   wallet: walletType;
-  asset: assetType;
-  history: historyType;
 }
 
 // 钱包存储类型
