@@ -1,3 +1,7 @@
+.BGcolor {
+    background: #F6F7F9;
+}
+
 // banner 部分
 .banner {
     height: 205px;
@@ -124,6 +128,12 @@ ion-col p {
     text-align: center;
     margin: 5px 10px;
 }
+
+ion-col p.tobeAdded {
+    color: #ACBBCF;
+}
+
+
 
 
 // 底部安全区

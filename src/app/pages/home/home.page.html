@@ -1,5 +1,5 @@
 <ion-content>
-  <div style='display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;'>
+  <div class="BGcolor" style='display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;'>
 
     <div class="banner">
       <h2>钱包</h2>
@@ -16,14 +16,14 @@
 
     <div style='flex: 1;overflow: auto;'>
       <div class="gettt">
-        <p>领取测试TTT</p>
+        <p (click)="goDrawttt()">领取测试TTT</p>
         <img src="assets/icon/waitTo.png">
       </div>
 
       <ion-grid>
         <ion-row>
           <ion-col>
-            <div><img src="assets/icon/shili.png"></div>
+            <div><img src="assets/icon/shili.png" (click)="goExamples()"></div>
             <p>示例程序</p>
           </ion-col>
 
@@ -41,33 +41,33 @@
         <ion-row>
           <ion-col>
             <div><img src="assets/icon/tianjia.png"></div>
-            <p>待添加</p>
+            <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
             <div><img src="assets/icon/tianjia.png"></div>
-            <p>待添加</p>
+            <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
             <div><img src="assets/icon/tianjia.png"></div>
-            <p>待添加</p>
+            <p class="tobeAdded">待添加</p>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
             <div><img src="assets/icon/tianjia.png"></div>
-            <p>待添加</p>
+            <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
             <div><img src="assets/icon/tianjia.png"></div>
-            <p>待添加</p>
+            <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
             <div><img src="assets/icon/gegnduo.png"></div>
-            <p>更多</p>
+            <p class="tobeAdded">更多</p>
           </ion-col>
         </ion-row>
       </ion-grid>

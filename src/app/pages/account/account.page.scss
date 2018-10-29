@@ -1,3 +1,7 @@
+.BGcolor {
+    background: #F6F7F9;
+}
+
 .banner {
     height: 150px;
     background: url(assets/icon/arch.png) no-repeat center center;
@@ -25,4 +29,72 @@
     letter-spacing: 0;
     text-align: center;
     line-height: 40px;
+}
+
+.account {
+    margin: -70px auto 0;
+    padding-left: 35px;
+    height: 177px;
+    width: 90%;
+    background: url(assets/icon/accountBG.png) no-repeat center center;
+    background-size: 100% 177px;
+    position: relative;
+}
+
+.account p {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #9196A5;
+    letter-spacing: 0;
+    margin: 0px;
+    padding-top: 30px;
+}
+
+.account p span {
+    font-size: 10px;
+    color: #6786EE;
+    letter-spacing: 0;
+    background: #EEF0FF;
+    border: 1px solid #CAD1FF;
+    border-radius: 10px;
+    padding: 0 5px;
+    margin-left: 10px;
+}
+
+.account h3 {
+    font-family: DINAlternate-Bold;
+    font-size: 24px;
+    color: #666C82;
+    letter-spacing: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.account h1 {
+    font-family: PingFangSC-Medium;
+    font-size: 26px;
+    color: #010D34;
+    letter-spacing: 0;
+    position: absolute;
+    bottom: 10px;
+}
+
+.noAccount {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.noAccount img {
+    height: 127px;
+}
+
+.noAccount p {
+    font-family: PingFangSC-Light;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
 }
