@@ -56,7 +56,15 @@ export class HomePage implements OnInit {
   }
 
   // 点击进入 账单
-  goAccount(){
+  goAccount() {
     this.router.navigate(["/account"]);
+  }
+  // 进入 示例程序
+  goExamples() {
+    this.router.navigate(["/examples"]);
+  }
+  // 领取 TTT
+  goDrawttt(){
+    this.router.navigate(["/faucet"]);
   }
 }

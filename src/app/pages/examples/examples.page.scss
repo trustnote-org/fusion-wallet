@@ -1,0 +1,22 @@
+.content {
+    position: relative;
+    // 顶部安全区
+    padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+}
+
+.con {
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 40px;
+}
