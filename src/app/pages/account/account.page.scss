@@ -4,7 +4,7 @@
 
 .banner {
     height: 150px;
-    background: url(assets/icon/arch.png) no-repeat center center;
+    background: url(assets/pic/arch.png) no-repeat center center;
     background-size: 100% 150px;
 }
 
@@ -18,7 +18,7 @@
 .left {
     position: absolute;
     left: 0;
-    top: 0;
+    // top: 0;
     width: 50px;
 }
 
@@ -36,7 +36,7 @@
     padding-left: 35px;
     height: 177px;
     width: 90%;
-    background: url(assets/icon/accountBG.png) no-repeat center center;
+    background: url(assets/pic/accountBG.png) no-repeat center center;
     background-size: 100% 177px;
     position: relative;
 }

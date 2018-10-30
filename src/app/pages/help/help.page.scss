@@ -2,14 +2,9 @@
     background: #F6F7F9;
 }
 
-.banner {
-    height: 150px;
-    background: url(assets/pic/arch.png) no-repeat center center;
-    background-size: 100% 150px;
-}
-
 .content {
     position: relative;
+    background: #fff;
     // 顶部安全区
     padding-top: constant(safe-area-inset-top) !important;
     padding-top: env(safe-area-inset-top) !important;
@@ -25,8 +20,20 @@
 .con {
     font-family: PingFangSC-Medium;
     font-size: 18px;
-    color: #FFFFFF;
     letter-spacing: 0;
     text-align: center;
     line-height: 40px;
+}
+
+ion-list {
+    margin-top: 20px;
+}
+
+ion-lable {
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: left;
+    line-height: 18px;
 }

@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: 'welcome', loadChildren: './pages/welcome/welcome.module#WelcomePageModule' },
   { path: 'account', loadChildren: './pages/account/account.module#AccountPageModule' },
   { path: 'examples', loadChildren: './pages/examples/examples.module#ExamplesPageModule' },
-  { path: 'faucet', loadChildren: './pages/faucet/faucet.module#FaucetPageModule' }
+  { path: 'faucet', loadChildren: './pages/faucet/faucet.module#FaucetPageModule' },
+  { path: 'doc', loadChildren: './pages/doc/doc.module#DocPageModule' },
+  { path: 'help', loadChildren: './pages/help/help.module#HelpPageModule' }
 ];
 
 @NgModule({
