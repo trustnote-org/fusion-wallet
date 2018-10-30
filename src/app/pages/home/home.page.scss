@@ -1,18 +1,18 @@
 .BGcolor {
-    background: #F6F7F9;
+    background: #f6f7f9;
 }
 
 // banner 部分
 .banner {
     height: 205px;
-    background: url(assets/icon/bannarBG.png) no-repeat center center;
+    background: url(../../../assets/icon/bannarBG.png) no-repeat center center;
     background-size: 105% 205px;
 }
 
 .banner h2 {
     font-family: PingFangSC-Medium;
     font-size: 18px;
-    color: #FFFFFF;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: center;
     line-height: 40px;
@@ -26,7 +26,7 @@
     opacity: 0.5;
     font-family: PingFangSC-Regular;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: left;
     margin: 0;
@@ -37,7 +37,7 @@
 .banner h1 {
     font-family: DINAlternate-Bold;
     font-size: 46px;
-    color: #FFFFFF;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: left;
     line-height: 46px;
@@ -55,7 +55,7 @@
 // 账单 部分
 .details {
     height: 70px;
-    background: url(assets/icon/details.png) no-repeat center center;
+    background: url(../../../assets/icon/details.png) no-repeat center center;
     background-size: 105% 75px;
     line-height: 60px;
 }
@@ -74,7 +74,7 @@
 .details h3 {
     font-family: PingFangSC-Regular;
     font-size: 16px;
-    color: #FFFFFF;
+    color: #ffffff;
     letter-spacing: 0;
     text-align: left;
     line-height: 30px;
@@ -91,7 +91,7 @@
 .gettt {
     height: 56px;
     line-height: 66px;
-    background: url(assets/icon/gett.png) no-repeat;
+    background: url(../../../assets/icon/gett.png) no-repeat;
     background-size: contain;
 }
 
@@ -123,18 +123,15 @@ ion-col div {
 ion-col p {
     font-family: PingFangSC-Regular;
     font-size: 14px;
-    color: #5180F0;
+    color: #5180f0;
     letter-spacing: 0;
     text-align: center;
     margin: 5px 10px;
 }
 
 ion-col p.tobeAdded {
-    color: #ACBBCF;
+    color: #acbbcf;
 }
-
-
-
 
 // 底部安全区
 .safeBottom {

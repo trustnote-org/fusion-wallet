@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 export enum Action {
-  SENT = "sent",
-  RECEIVED = "received"
+  SENT = 'sent',
+  RECEIVED = 'received'
 }
 
 // profile类型
@@ -11,7 +11,7 @@ export type ProfileType = {
   config: configType;
   setting: settingType;
   wallet: walletType;
-}
+};
 
 // 钱包存储类型
 export type walletType = {
@@ -55,7 +55,7 @@ export type txType = {
   assetId: string; // 资产ID,TTT默认为 null
   unit: string; // unit
   from: string[]; // 支付方
-  to: txToType[]; //收款方
+  to: txToType[]; // 收款方
   amount: txAmountType; // 支付金额
   message: string; // 附加消息
   fee: number; // 费用
@@ -154,6 +154,7 @@ export type configType = {
 // 状态存储类型
 export type statusType = {
   agree: boolean;
+  wallet: boolean; // 是否创建钱包
   isLock: boolean; // 是否设置支付密码
 };
 
@@ -171,7 +172,6 @@ export type ResponseType = {
 };
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-
-export class TypesService { }
+export class TypesService {}

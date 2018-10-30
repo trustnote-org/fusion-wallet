@@ -1,28 +1,34 @@
-import { ResultService } from "./result.service";
-import { Injectable } from "@angular/core";
-import { walletType } from "./types.service";
-import * as Core from "wallet-base";
+import { ResultService } from './result.service';
+import { Injectable } from '@angular/core';
+import { walletType } from './types.service';
+import * as Core from 'wallet-base';
+import { NGXLogger } from 'ngx-logger';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-
 export class WalletService {
   wallet: walletType;
-  constructor(private result: ResultService) { }
+  constructor(private result: ResultService, private logger: NGXLogger) {}
 
   public createWallet(password: string, mnemonic?: string): Promise<walletType> {
     return new Promise((resolve, rejects) => {
       try {
-        let _mnemonic = Core.mnemonic(mnemonic);
-        if (!_mnemonic) throw "Create Mnemonic Error";
-        let _privKey = Core.xPrivKey(_mnemonic, password);
-        if (!_privKey) throw "Create PrivateKey Error";
-        let _walletPubKey = Core.walletPubKey(_privKey, 0);
-        if (!_walletPubKey) throw "Create Wallet PubKey Error";
-        let _walletAddress = Core.walletAddress(_walletPubKey, 0, 0);
-        let _addressPubKey = Core.walletAddressPubkey(_walletPubKey, 0, 0);
-        let _walletId = Core.walletID(_walletPubKey);
+        const _mnemonic = Core.mnemonic(mnemonic);
+        if (!_mnemonic) {
+          throw new Error('Create Mnemonic Error');
+        }
+        const _privKey = Core.xPrivKey(_mnemonic, password);
+        if (!_privKey) {
+          throw new Error('Create PrivateKey Error');
+        }
+        const _walletPubKey = Core.walletPubKey(_privKey, 0);
+        if (!_walletPubKey) {
+          throw new Error('Create Wallet PubKey Error');
+        }
+        const _walletAddress = Core.walletAddress(_walletPubKey, 0, 0);
+        const _addressPubKey = Core.walletAddressPubkey(_walletPubKey, 0, 0);
+        const _walletId = Core.walletID(_walletPubKey);
         this.wallet = {
           mnemonic: _mnemonic,
           privkey: _privKey,
@@ -33,7 +39,8 @@ export class WalletService {
         };
         resolve(this.wallet);
       } catch (error) {
-        rejects(this.result.error(error));
+        this.logger.debug(error);
+        rejects(this.result.error(error.message));
       }
     });
   }
@@ -41,11 +48,14 @@ export class WalletService {
   public sign(unitHash: string, privateKey: string): Promise<any> {
     return new Promise((resolve, rejects) => {
       try {
-        let sig = Core.sign(unitHash, privateKey, "m/44'/0'/0'/0/0");
-        if (!sig) throw "Sign Error";
+        const sig = Core.sign(unitHash, privateKey, "m/44'/0'/0'/0/0");
+        if (!sig) {
+          throw new Error('Sign Error');
+        }
         resolve(sig);
       } catch (error) {
-        rejects(this.result.error(error));
+        this.logger.debug(error);
+        rejects(this.result.error(error.message));
       }
     });
   }
@@ -55,8 +65,8 @@ export class WalletService {
   }
 
   // TODO: BTC wallet
-  public createBTCWallet() { }
+  public createBTCWallet() {}
 
   // TODO: ETH wallet
-  public createETHWallet() { }
+  public createETHWallet() {}
 }

@@ -1,58 +1,58 @@
-import { Component, OnInit } from "@angular/core";
-import { NGXLogger } from "ngx-logger";
+import { Component, OnInit } from '@angular/core';
+import { NGXLogger } from 'ngx-logger';
 
-import { Router } from "@angular/router";
-import { WalletService } from "../../services/wallet.service";
-import { AlertController } from "@ionic/angular";
-import { ProfileService } from "../../services/profile.service";
+import { Router } from '@angular/router';
+import { WalletService } from '../../services/wallet.service';
+import { AlertController } from '@ionic/angular';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
-  selector: "app-welcome",
-  templateUrl: "./welcome.page.html",
-  styleUrls: ["./welcome.page.scss"]
+  selector: 'app-welcome',
+  templateUrl: './welcome.page.html',
+  styleUrls: ['./welcome.page.scss']
 })
 export class WelcomePage implements OnInit {
   constructor(
     private route: Router,
     private wallet: WalletService,
     private alertController: AlertController,
-    private NGXLogger: NGXLogger,
-    private ProfileService: ProfileService
-  ) {} // 初始化 Router
+    private logger: NGXLogger,
+    private profileService: ProfileService
+  ) {}
 
   ngOnInit() {}
 
   //  输入密码创建钱包 并进入主页
   async presentAlertPrompt() {
     const alert = await this.alertController.create({
-      header: "请输入密码",
+      header: '请输入密码',
       inputs: [
         {
-          name: "pass1",
-          type: "text",
-          placeholder: "请输入密码"
+          name: 'password',
+          type: 'number',
+          placeholder: '请输入密码'
         },
         {
-          name: "pass2",
-          type: "text",
-          placeholder: "再一次输入密码"
+          name: 're_password',
+          type: 'number',
+          placeholder: '再一次输入密码'
         }
       ],
       buttons: [
         {
-          text: "Cancel",
-          role: "cancel",
-          cssClass: "secondary",
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
           handler: () => {
-            this.NGXLogger.info("Confirm Cancel");
+            this.logger.debug('click Cancel');
           }
         },
         {
-          text: "Ok",
+          text: 'Ok',
           handler: res => {
-            this.NGXLogger.info("Confirm Ok");
-            if (res.pass1 && res.pass2 && res.pass1 == res.pass2) {
-              this.goWallet(res.pass1);
+            this.logger.debug('click Ok');
+            if (res.password && res.re_password && res.password === res.re_password) {
+              this.createWallet(res.password);
             } else {
               this.presentAlertPrompt();
             }
@@ -64,22 +64,26 @@ export class WelcomePage implements OnInit {
     await alert.present();
   }
 
-  goWallet(val) {
+  createWallet(password) {
     this.wallet
-      .createWallet(val)
+      .createWallet(password)
       .then(res => {
-        this.NGXLogger.info(res);
-        this.ProfileService.storeWallet(res)
-          .then(res => {
-            this.NGXLogger.info("store 成功", res);
-            this.route.navigate(["/home"]);
+        this.logger.debug(res);
+        this.profileService
+          .storeWallet(res)
+          .then(ret => {
+            this.logger.debug('store 成功', ret);
+            const status = this.profileService.status;
+            status.wallet = true;
+            this.profileService.storeStatus(status);
+            this.route.navigate(['/home']);
           })
           .catch(reject => {
-            this.NGXLogger.info(reject);
+            this.logger.debug(reject);
           });
       })
       .catch(reject => {
-        this.NGXLogger.info(reject);
+        this.logger.debug(reject);
       });
   }
 }
