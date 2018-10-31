@@ -1,0 +1,49 @@
+.BGcolor {
+    background: #F6F7F9;
+}
+
+.content {
+    position: relative;
+    background: #fff;
+    // 顶部安全区
+    padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+    // top: 0;
+    width: 50px;
+}
+
+.con {
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 40px;
+}
+
+ion-col {
+    // border: 1px solid #000;
+}
+
+ion-col div {
+    width: 60px;
+    // background: red;
+    margin: 0 auto;
+}
+
+ion-col p {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #5180f0;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 5px 10px;
+}
+
+ion-col p.tobeAdded {
+    color: #acbbcf;
+}

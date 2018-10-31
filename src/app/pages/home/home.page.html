@@ -66,13 +66,14 @@
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/icon/gegnduo.png" (press)="goHelp()"></div>
+            <div>
+              <img src="../../../assets/icon/gegnduo.png" (press)="onPress($event)" (pressup)="onPressUp($event)" (tap)="onTap()">
+            </div>
             <p class="tobeAdded">更多</p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-    <ion-button (press)="onPress($event)" (pressup)="onPressUp($event)" (tap)="onPressUpclick($event)">Press Me</ion-button>
 
   </div>
 </ion-content>
