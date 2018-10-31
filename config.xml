@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.trustnote.utw" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>utw</name>
+<widget id="org.trustnote.fusion" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>fusion</name>
     <description>Universal TrustNote Wallet</description>
     <author email="community@trustnote.org" href="https://trustnote.org/">TrustNote Team</author>
     <content src="index.html" />
