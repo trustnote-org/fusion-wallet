@@ -8,71 +8,72 @@
     </div>
 
     <div class="details" (click)='goAccount();'>
-      <div><img src="assets/pic/detailsIcon.png"></div>
+      <div><img src="../../../assets/img/detailsIcon.png"></div>
       <h3>账单</h3>
-      <div class="right"><img src="assets/icon/arrorDetails.png"></div>
+      <div class="right"><img src="../../../assets/icon/arrorDetails.png"></div>
     </div>
 
 
     <div style='flex: 1;overflow: auto;'>
       <div class="gettt">
         <p (click)="goDrawttt()">领取测试TTT</p>
-        <img src="assets/icon/waitTo.png">
+        <img src="../../../assets/icon/waitTo.png">
       </div>
 
       <ion-grid>
         <ion-row>
           <ion-col>
-            <div><img src="assets/pic/shili.png" (click)="goExamples()"></div>
+            <div><img src="../../../assets/img/shili.png" (click)="goExamples()"></div>
             <p>示例程序</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/pic/wendang.png" (click)="goDocs()"></div>
+            <div><img src="../../../assets/img/wendang.png" (click)="goDocs()"></div>
             <p>文档中心</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/pic/help.png" (click)="goHelp()"></div>
+            <div><img src="../../../assets/img/help.png" (click)="goHelp()"></div>
             <p>帮助</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col>
-            <div><img src="assets/icon/tianjia.png"></div>
+            <div><img src="../../../assets/icon/tianjia.png"></div>
             <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/tianjia.png"></div>
+            <div><img src="../../../assets/icon/tianjia.png"></div>
             <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/tianjia.png"></div>
+            <div><img src="../../../assets/icon/tianjia.png"></div>
             <p class="tobeAdded">待添加</p>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <div><img src="assets/icon/tianjia.png"></div>
+            <div><img src="../../../assets/icon/tianjia.png"></div>
             <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/tianjia.png"></div>
+            <div><img src="../../../assets/icon/tianjia.png"></div>
             <p class="tobeAdded">待添加</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/gegnduo.png" (press)="onPress($event)" (pressup)="onPressUp($event)" (tap)="onTap()"></div>
+            <div>
+              <img src="../../../assets/icon/gegnduo.png" (press)="onPress($event)" (pressup)="onPressUp($event)" (tap)="onTap()">
+            </div>
             <p class="tobeAdded">更多</p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-    <!-- <ion-button (press)="onPress($event)" (pressup)="onPressUp($event)" (tap)="onPressUpclick($event)">Press Me</ion-button> -->
 
   </div>
 </ion-content>

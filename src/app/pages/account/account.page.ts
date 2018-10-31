@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import { NetworkService } from "../../services/network.service";
-import { FactoryService } from "../../services/factory.service";
+import { NetworkService } from '../../services/network.service';
+import { FactoryService } from '../../services/factory.service';
 
-import { historyType, txType } from "../../services/types.service";
-import { ProfileService } from "../../services/profile.service";
-import _ from "lodash";
+import { historyType, txType } from '../../services/types.service';
+import { ProfileService } from '../../services/profile.service';
+import _ from 'lodash';
 
 @Component({
-  selector: "app-account",
-  templateUrl: "./account.page.html",
-  styleUrls: ["./account.page.scss"]
+  selector: 'app-account',
+  templateUrl: './account.page.html',
+  styleUrls: ['./account.page.scss']
 })
 export class AccountPage implements OnInit {
   history: historyType;
@@ -33,8 +33,8 @@ export class AccountPage implements OnInit {
 
     return;
 
-    var addr = "ZDKNB2DQJPQR7PKYI37A5M2MTU5SIZ2A";
-    this.NetworkService.getHistory(addr, "TTT", 1, 5).subscribe(res => {
+    var addr = 'ZDKNB2DQJPQR7PKYI37A5M2MTU5SIZ2A';
+    this.NetworkService.getHistory(addr, 'TTT', 1, 5).subscribe(res => {
       // console.log(this.FactoryService.unpackUnit(res.data.history[0].unit));
       // console.log(res.data.history);
       res.data.history.forEach(item => {
@@ -49,12 +49,12 @@ export class AccountPage implements OnInit {
         historyList.push(this.history[key]);
       }
       historyList = historyList.sort(this.compare);
-      console.log("----------", historyList);
+      console.log('----------', historyList);
       for (var i = 0; i < historyList.length; i++) {
         this.historyStore[historyList[i].unit] = _.clone(historyList[i]);
       }
 
-      console.log("****************************");
+      console.log('****************************');
       // console.log(this.historyStore);
       for (const key of Object.keys(this.historyStore)) {
         console.log(this.historyStore[key]);
