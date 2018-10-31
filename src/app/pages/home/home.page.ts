@@ -75,15 +75,16 @@ export class HomePage implements OnInit {
   goHelp() {
     this.router.navigate(['/help']);
   }
-
+  // on press
   onPress($event) {
     console.log('onPress', $event.timeStamp);
   }
-
   onPressUp($event) {
     console.log('onPressUp', $event.timeStamp);
+    this.router.navigate(['/setting']);
   }
-  onPressUpclick($event) {
-    console.log('------------------');
+  // on tap
+  onTap($event) {
+    this.router.navigate(['/more']);
   }
 }
