@@ -25,36 +25,25 @@
     line-height: 40px;
 }
 
-ion-list {
-    margin-top: 20px;
+ion-col {
+    // border: 1px solid #000;
 }
 
-ion-item {
-    padding-top: 5px;
+ion-col div {
+    width: 60px;
+    // background: red;
+    margin: 0 auto;
 }
 
-div.imgleft {
-    width: 44px;
-    margin-right: 15px;
-}
-
-div.titright p.tit {
-    margin: 0;
-    font-family: PingFangSC-Regular;
-    font-size: 16px;
-    color: #333333;
-    letter-spacing: 0;
-    text-align: left;
-    line-height: 18px;
-    margin-bottom: 5px;
-}
-
-div.titright p.txt {
-    margin: 0;
+ion-col p {
     font-family: PingFangSC-Regular;
     font-size: 14px;
-    color: #BBBBBB;
+    color: #5180f0;
     letter-spacing: 0;
-    text-align: left;
-    line-height: 16px;
+    text-align: center;
+    margin: 5px 10px;
+}
+
+ion-col p.tobeAdded {
+    color: #acbbcf;
 }
