@@ -1,43 +1,46 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NGXLogger } from 'ngx-logger';
 
-import { Platform } from "@ionic/angular";
-import { SplashScreen } from "@ionic-native/splash-screen/ngx";
-import { StatusBar } from "@ionic-native/status-bar/ngx";
+import { ProfileService } from './services/profile.service';
 
-import { ProfileService } from "./services/profile.service";
-
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "app.component.html"
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private ProfileService: ProfileService,
+    private profileService: ProfileService,
+    private logger: NGXLogger,
     private route: Router
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.ProfileService.loadProfile()
-      .then(res => {
-        if (res.wallet) {
-          this.ProfileService.profile = res;
-          this.route.navigate(["/home"]);
+    this.profileService
+      .loadProfile()
+      .then(profile => {
+        if (profile.status && profile.status.wallet) {
+          this.profileService.profile = profile;
+          this.route.navigate(['/home']);
         } else {
-          this.ProfileService.storeProfile(this.ProfileService.profile).then(
-            res => {
-              this.route.navigate(["/welcome"]);
-            }
-          );
+          this.route.navigate(['/welcome']);
+          this.profileService.storeProfile(this.profileService.profile).catch(err => {
+            this.logger.debug(err);
+          });
         }
       })
-      .catch(reject => {});
+      .catch(err => {
+        this.logger.debug(err);
+      });
 
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

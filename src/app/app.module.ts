@@ -3,11 +3,15 @@ import {
   BrowserModule,
   HAMMER_GESTURE_CONFIG
 } from '@angular/platform-browser';
+
 import { RouteReuseStrategy } from '@angular/router';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslatePoHttpLoader } from '@biesbjerg/ngx-translate-po-http-loader';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';

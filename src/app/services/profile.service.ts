@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { StorageService, StorageKeys } from "./storage.service";
+import { Injectable } from '@angular/core';
+import { StorageService, StorageKeys } from './storage.service';
 import {
   ProfileType,
   statusType,
@@ -9,19 +9,17 @@ import {
   assetType,
   resultType,
   historyType
-} from "./types.service";
-import { ResultService } from "./result.service";
-import { ConfigService } from "./config.service";
-import { NGXLogger } from "ngx-logger";
-import * as sjcl from "sjcl";
-import _ from "lodash";
+} from './types.service';
+import { ResultService } from './result.service';
+import { ConfigService } from './config.service';
+import { NGXLogger } from 'ngx-logger';
+import * as sjcl from 'sjcl';
+import _ from 'lodash';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-
 export class ProfileService {
-
   private static profile: ProfileType;
   private static history: historyType;
   private static asset: assetType;
@@ -102,15 +100,15 @@ export class ProfileService {
 
   // 从数据库中读取 profile 并返回
   async loadProfile(): Promise<ProfileType> {
-    let profile: any = {};
+    const profile: any = {};
     try {
-      let status = await this.loadStatus();
+      const status = await this.loadStatus();
       profile.status = status;
-      let wallet = await this.loadWallet();
+      const wallet = await this.loadWallet();
       profile.wallet = wallet;
-      let config = await this.loadConfig();
+      const config = await this.loadConfig();
       profile.config = config;
-      let setting = await this.loadSetting();
+      const setting = await this.loadSetting();
       profile.setting = setting;
       this.isLoaded = true;
       return profile;
@@ -122,14 +120,18 @@ export class ProfileService {
   // 往数据库中写入 profile
   async storeProfile(profile: ProfileType) {
     try {
-      if (_.isEmpty(profile))
-        throw "profile cannot be empty"
-      if (_.isEmpty(profile.status))
-        throw "profile.status cannot be empty"
-      if (_.isEmpty(profile.config))
-        throw "profile.config cannot be empty"
-      if (_.isEmpty(profile.setting))
-        throw "profile.setting cannot be empty"
+      if (_.isEmpty(profile)) {
+        throw new Error('profile cannot be empty');
+      }
+      if (_.isEmpty(profile.status)) {
+        throw new Error('profile.status cannot be empty');
+      }
+      if (_.isEmpty(profile.config)) {
+        throw new Error('profile.config cannot be empty');
+      }
+      if (_.isEmpty(profile.setting)) {
+        throw new Error('profile.setting cannot be empty');
+      }
 
       await this.storeStatus(profile.status);
       await this.storeConfig(profile.config);
@@ -137,7 +139,7 @@ export class ProfileService {
       return this.result.success(profile);
     } catch (error) {
       this.logger.error(error);
-      return this.result.error("storeProfile fault");
+      return this.result.error('storeProfile fault');
     }
   }
 
@@ -198,7 +200,7 @@ export class ProfileService {
   lock(password: string): Promise<resultType> {
     return new Promise((resolve, rejects) => {
       if (ProfileService.profile.status.isLock) {
-        rejects(this.result.warn("Already is locked"));
+        rejects(this.result.warn('Already is locked'));
       } else {
         try {
           ProfileService.profile.wallet.privkeyEncrypted = sjcl.encrypt(
@@ -209,17 +211,17 @@ export class ProfileService {
           ProfileService.profile.status.isLock = true;
           this.storeWallet(ProfileService.profile.wallet).then(ret => {
             this.logger.info(ret);
-            if (ret.status == "success") {
-              this.storeStatus(ProfileService.profile.status).then(ret => {
-                resolve(this.result.success("locked"));
+            if (ret.status === 'success') {
+              this.storeStatus(ProfileService.profile.status).then(() => {
+                resolve(this.result.success('locked'));
               });
             } else {
-              rejects(this.result.error("Store wallet error"));
+              rejects(this.result.error('Store wallet error'));
             }
           });
         } catch (error) {
           this.logger.error(error);
-          rejects(this.result.error("Set password error"));
+          rejects(this.result.error('Set password error'));
         }
       }
     });
@@ -228,7 +230,7 @@ export class ProfileService {
   unlock(password: string): Promise<resultType> {
     return new Promise((resolve, rejects) => {
       if (!ProfileService.profile.status.isLock) {
-        rejects(this.result.warn("Already is unlocked"));
+        rejects(this.result.warn('Already is unlocked'));
       } else {
         try {
           ProfileService.profile.wallet.privkey = sjcl.decrypt(
@@ -239,17 +241,17 @@ export class ProfileService {
           ProfileService.profile.status.isLock = false;
           this.storeWallet(ProfileService.profile.wallet).then(ret => {
             this.logger.info(ret);
-            if (ret.status == "success") {
-              this.storeStatus(ProfileService.profile.status).then(ret => {
-                resolve(this.result.success("Unlocked"));
+            if (ret.status === 'success') {
+              this.storeStatus(ProfileService.profile.status).then(() => {
+                resolve(this.result.success('Unlocked'));
               });
             } else {
-              rejects(this.result.error("Store wallet error"));
+              rejects(this.result.error('Store wallet error'));
             }
           });
         } catch (error) {
           this.logger.error(error);
-          rejects(this.result.error("Wrong password"));
+          rejects(this.result.error('Wrong password'));
         }
       }
     });
