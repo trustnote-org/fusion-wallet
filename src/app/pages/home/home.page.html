@@ -8,7 +8,7 @@
     </div>
 
     <div class="details" (click)='goAccount();'>
-      <div><img src="assets/icon/detailsIcon.png"></div>
+      <div><img src="assets/pic/detailsIcon.png"></div>
       <h3>账单</h3>
       <div class="right"><img src="assets/icon/arrorDetails.png"></div>
     </div>
@@ -23,17 +23,17 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <div><img src="assets/icon/shili.png" (click)="goExamples()"></div>
+            <div><img src="assets/pic/shili.png" (click)="goExamples()"></div>
             <p>示例程序</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/wendang.png"></div>
+            <div><img src="assets/pic/wendang.png" (click)="goDocs()"></div>
             <p>文档中心</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/help.png"></div>
+            <div><img src="assets/pic/help.png" (click)="goHelp()"></div>
             <p>帮助</p>
           </ion-col>
         </ion-row>
@@ -66,12 +66,13 @@
           </ion-col>
 
           <ion-col>
-            <div><img src="assets/icon/gegnduo.png"></div>
+            <div><img src="assets/icon/gegnduo.png" (press)="goHelp()"></div>
             <p class="tobeAdded">更多</p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
+    <ion-button (press)="onPress($event)" (pressup)="onPressUp($event)" (tap)="onPressUpclick($event)">Press Me</ion-button>
 
   </div>
 </ion-content>
