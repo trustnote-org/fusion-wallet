@@ -1,4 +1,5 @@
-import { Action, txType, txToType, unitType, unitMessagePayloadType } from './types.service';
+import { Action, txType, txToType, jointType, unitMessagePayloadType } from './types.service';
+
 import { NGXLogger } from 'ngx-logger';
 import { Injectable } from '@angular/core';
 import { ProfileService } from './profile.service';
@@ -13,13 +14,14 @@ export class FactoryService {
     this.data = <txType>{};
   }
 
-  unpackUnit(unit: unitType): txType {
+  unpackUnit(joint: jointType): txType {
+    const unit = joint.unit;
     this.data.unit = unit.unit;
     this.data.timestamp = unit.timestamp;
     this.data.fee = unit.headers_commission + unit.payload_commission;
     this.data.assetId = null;
     this.data.asset = 'TTT';
-    this.data.stable = false;
+    this.data.stable = !!joint.ball;
     this.data.amount = {
       TTT: 0
     };

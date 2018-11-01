@@ -68,6 +68,12 @@ export type historyType = {
   [key: string]: txType;
 };
 
+// joint单元类型
+export type jointType = {
+  unit: unitType;
+  ball?: string;
+};
+
 // 交易单元类型
 export type unitType = {
   version: string;
