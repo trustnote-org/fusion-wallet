@@ -98,3 +98,49 @@
     text-align: center;
     line-height: 22px;
 }
+
+// 账单历史
+div.item {
+    width: 95%;
+    // background: red;
+    float: right;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+div p.tit {
+    width: 80%;
+    // background: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+div p.date {
+    // width: 80%;
+    // background: gray;
+    overflow: hidden;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #BBBBBB;
+    letter-spacing: 0;
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+div p.amount {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    font-family: ArialMT;
+    font-size: 20px;
+    color: #111111;
+    letter-spacing: 0;
+}

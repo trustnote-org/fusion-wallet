@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NetworkService } from '../../services/network.service';
 import { FactoryService } from '../../services/factory.service';
 
-import { historyType, txType } from '../../services/types.service';
+import { historyType, txType, Action } from '../../services/types.service';
 import { ProfileService } from '../../services/profile.service';
 import _ from 'lodash';
 
@@ -15,33 +15,56 @@ import _ from 'lodash';
 export class AccountPage implements OnInit {
   history: historyType;
   historyStore: historyType;
+  historyArr: Array<any>;
+  tit: string;
+  date: any;
+  amount: any;
   constructor(
-    private NetworkService: NetworkService,
-    private ProfileService: ProfileService,
-    private FactoryService: FactoryService
+    private network: NetworkService,
+    private profile: ProfileService,
+    private factory: FactoryService
   ) {
     this.history = {};
     this.historyStore = {};
+    this.historyArr = [];
   }
 
   ngOnInit() {
-    this.ProfileService.loadHistory().then(ret => {
-      for (const key of Object.keys(ret)) {
-        console.log(ret[key]);
+    this.profile.loadHistory().then(ret => {
+      // 本地存储 账单
+      if (Object.keys(ret).length > 0) {
+        for (const key of Object.keys(ret)) {
+          console.log(ret[key]);
+          if (ret[key].action === Action.RECEIVED) {
+            // this.tit = 'from ' + ret[key].from[0];
+            this.tit = '收款';
+          }
+          if (ret[key].action === Action.SENT) {
+            // this.tit = 'to ' + ret[key].to[0];
+            this.tit = '转账';
+          }
+          this.date = this.formatDateTime(ret[key].timestamp);
+          this.amount = ret[key].amount.TTT;
+
+          const obj = { tit: this.tit, date: this.date, amount: this.amount };
+          this.historyArr.push(obj);
+        }
+      } else {
+        // 本地 没有账单
       }
     });
-
+    console.log(this.historyArr);
     return;
 
     var addr = 'ZDKNB2DQJPQR7PKYI37A5M2MTU5SIZ2A';
-    this.NetworkService.getHistory(addr, 'TTT', 1, 5).subscribe(res => {
-      // console.log(this.FactoryService.unpackUnit(res.data.history[0].unit));
+    this.network.getHistory(addr, 'TTT', 1, 5).subscribe(res => {
+      // console.log(this.factory.unpackUnit(res.data.history[0].unit));
       // console.log(res.data.history);
       res.data.history.forEach(item => {
-        //console.log(item);
-        let tx = this.FactoryService.unpackUnit(item.unit);
+        // console.log(item);
+        let tx = this.factory.unpackUnit(item.unit);
         this.history[tx.unit] = _.clone(tx);
-        //console.log(this.history);
+        // console.log(this.history);
       });
 
       var historyList = [];
@@ -60,7 +83,7 @@ export class AccountPage implements OnInit {
         console.log(this.historyStore[key]);
       }
 
-      this.ProfileService.storeHistory(this.history);
+      this.profile.storeHistory(this.history);
     });
   }
 
@@ -79,5 +102,20 @@ export class AccountPage implements OnInit {
     } else {
       return 0;
     }
+  }
+  formatDateTime(inputTime) {
+    let date = new Date(inputTime * 1000);
+    let y = date.getFullYear();
+    let m: any = date.getMonth() + 1;
+    m = m < 10 ? '0' + m : m;
+    let d: any = date.getDate();
+    d = d < 10 ? '0' + d : d;
+    let h: any = date.getHours();
+    h = h < 10 ? '0' + h : h;
+    let minute: any = date.getMinutes();
+    let second: any = date.getSeconds();
+    minute = minute < 10 ? '0' + minute : minute;
+    second = second < 10 ? '0' + second : second;
+    return y + '-' + m + '-' + d + ' ' + '　' + h + ':' + minute + ':' + second;
   }
 }
