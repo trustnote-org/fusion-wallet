@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-examples',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./examples.page.scss']
 })
 export class ExamplesPage implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
   goBack() {
-    history.go(-1);
+    // history.go(-1);
+    this.router.navigate(['/home']);
+  }
+  openOnBrowser() {
+    this.router.navigate(['/browser']);
   }
 }

@@ -40,9 +40,7 @@ export class HomePage implements OnInit {
         this.balance = strBalance.replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
         this.balanceDot = '.00';
       } else {
-        this.balance = strBalance
-          .substr(0, dotNum)
-          .replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
+        this.balance = strBalance.substr(0, dotNum).replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
         this.balanceDot = strBalance.substr(dotNum, 3);
       }
       // console.log(this.balance, this.balanceDot);
@@ -77,10 +75,10 @@ export class HomePage implements OnInit {
   }
   // on press
   onPress($event) {
-    console.log('onPress', $event.timeStamp);
+    // console.log('onPress', $event.timeStamp);
   }
   onPressUp($event) {
-    console.log('onPressUp', $event.timeStamp);
+    // console.log('onPressUp', $event.timeStamp);
     this.router.navigate(['/setting']);
   }
   // on tap
