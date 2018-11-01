@@ -13,6 +13,7 @@ import _ from 'lodash';
   styleUrls: ['./account.page.scss']
 })
 export class AccountPage implements OnInit {
+  addr: string;
   history: historyType;
   historyStore: historyType;
   historyArr: Array<any>;
@@ -51,40 +52,40 @@ export class AccountPage implements OnInit {
         }
       } else {
         // 本地 没有账单
+        // this.addr = 'ZDKNB2DQJPQR7PKYI37A5M2MTU5SIZ2A';
+        this.addr = this.profile.wallet.address;
+        this.network.getHistory(this.addr, 'TTT', 1, 5).subscribe(res => {
+          // console.log(this.factory.unpackUnit(res.data.history[0].unit));
+          // console.log(res.data.history);
+          res.data.history.forEach(item => {
+            // console.log(item);
+            let tx = this.factory.unpackUnit(item);
+            this.history[tx.unit] = _.clone(tx);
+            // console.log(this.history);
+          });
+
+          var historyList = [];
+          for (const key of Object.keys(this.history)) {
+            historyList.push(this.history[key]);
+          }
+          historyList = historyList.sort(this.compare);
+          console.log('----------', historyList);
+          for (var i = 0; i < historyList.length; i++) {
+            this.historyStore[historyList[i].unit] = _.clone(historyList[i]);
+          }
+
+          console.log('****************************');
+          // console.log(this.historyStore);
+          for (const key of Object.keys(this.historyStore)) {
+            console.log(this.historyStore[key]);
+          }
+
+          this.profile.storeHistory(this.history);
+        });
       }
     });
-    console.log(this.historyArr);
-    return;
-
-    var addr = 'ZDKNB2DQJPQR7PKYI37A5M2MTU5SIZ2A';
-    this.network.getHistory(addr, 'TTT', 1, 5).subscribe(res => {
-      // console.log(this.factory.unpackUnit(res.data.history[0].unit));
-      // console.log(res.data.history);
-      res.data.history.forEach(item => {
-        // console.log(item);
-        let tx = this.factory.unpackUnit(item.unit);
-        this.history[tx.unit] = _.clone(tx);
-        // console.log(this.history);
-      });
-
-      var historyList = [];
-      for (const key of Object.keys(this.history)) {
-        historyList.push(this.history[key]);
-      }
-      historyList = historyList.sort(this.compare);
-      console.log('----------', historyList);
-      for (var i = 0; i < historyList.length; i++) {
-        this.historyStore[historyList[i].unit] = _.clone(historyList[i]);
-      }
-
-      console.log('****************************');
-      // console.log(this.historyStore);
-      for (const key of Object.keys(this.historyStore)) {
-        console.log(this.historyStore[key]);
-      }
-
-      this.profile.storeHistory(this.history);
-    });
+    // console.log(this.historyArr);
+    // console.log(this.profile.wallet.address);
   }
 
   // 点击返回
@@ -93,8 +94,8 @@ export class AccountPage implements OnInit {
   }
   // 排序
   compare(obj1, obj2) {
-    var val1 = obj1.timestamp;
-    var val2 = obj2.timestamp;
+    let val1 = obj1.timestamp;
+    let val2 = obj2.timestamp;
     if (val1 < val2) {
       return 1;
     } else if (val1 > val2) {
@@ -103,6 +104,7 @@ export class AccountPage implements OnInit {
       return 0;
     }
   }
+  // 时间戳 转换
   formatDateTime(inputTime) {
     let date = new Date(inputTime * 1000);
     let y = date.getFullYear();
