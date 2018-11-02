@@ -28,9 +28,12 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.logger.debug('homepage');
-    // this.logger.debug('钱包的地址是：', this.profileservice.wallet.address);
-    // this.logger.debug(this.profileservice.wallet.addressPubkey);
-    this.loginDate = { pubkey: this.profileservice.wallet.pubkey };
+    this.logger.debug(this.profileservice.wallet.address);
+    this.logger.debug(this.profileservice.wallet.addressPubkey);
+
+    this.loginDate = {
+      pubkey: this.profileservice.wallet.pubkey
+    };
     const address = this.profileservice.wallet.address;
 
     this.network.getBalance(address).subscribe(res => {
@@ -43,11 +46,9 @@ export class HomePage implements OnInit {
         this.balance = strBalance.substr(0, dotNum).replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
         this.balanceDot = strBalance.substr(dotNum, 3);
       }
-      // console.log(this.balance, this.balanceDot);
     });
 
     // 登录注册
-    this.logger.info('ionViewDidLoad Home---------');
     this.network.login(this.loginDate).subscribe(response => {
       this.logger.info(response);
     });
@@ -73,12 +74,9 @@ export class HomePage implements OnInit {
   goHelp() {
     this.router.navigate(['/help']);
   }
-  // on press
-  onPress($event) {
-    // console.log('onPress', $event.timeStamp);
-  }
+
+  // long press
   onPressUp($event) {
-    // console.log('onPressUp', $event.timeStamp);
     this.router.navigate(['/setting']);
   }
   // on tap
