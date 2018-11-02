@@ -23,8 +23,8 @@
 
     <!-- 历史记录 -->
     <ion-list *ngIf="hasHistory">
-      <div class="item" *ngFor='let item of historyArr'>
-        <p class="tit">{{item.tit}}</p>
+      <div class="item" *ngFor='let item of arrHistory'>
+        <p class="title">{{item.action}}</p>
         <p class="date">{{item.date}}</p>
         <p class="amount">{{item.amount}}</p>
       </div>
