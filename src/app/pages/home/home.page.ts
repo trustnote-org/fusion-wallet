@@ -22,36 +22,25 @@ export class HomePage implements OnInit {
   constructor(
     private logger: NGXLogger,
     private network: NetworkService,
-    private profileservice: ProfileService,
+    private profile: ProfileService,
     private router: Router
   ) {}
 
   ngOnInit() {
     this.logger.debug('homepage');
-    this.logger.debug(this.profileservice.wallet.address);
-    this.logger.debug(this.profileservice.wallet.addressPubkey);
-
-    this.loginDate = {
-      pubkey: this.profileservice.wallet.pubkey
-    };
-    const address = this.profileservice.wallet.address;
-
-    this.network.getBalance(address).subscribe(res => {
-      const strBalance = (res.data.stable / 1000000).toString();
-      const dotNum = strBalance.indexOf('.');
-      if (dotNum === -1) {
-        this.balance = strBalance.replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
-        this.balanceDot = '.00';
-      } else {
-        this.balance = strBalance.substr(0, dotNum).replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
-        this.balanceDot = strBalance.substr(dotNum, 3);
-      }
-    });
+    this.logger.debug('wallet.address:', this.profile.wallet.address);
+    this.logger.debug('wallet.addressPubkey:', this.profile.wallet.addressPubkey);
 
     // 登录注册
+    this.loginDate = {
+      pubkey: this.profile.wallet.pubkey
+    };
     this.network.login(this.loginDate).subscribe(response => {
       this.logger.info(response);
     });
+
+    // 刷新余额
+    this.fetchBalance();
   }
 
   // 进入 账单
@@ -75,12 +64,53 @@ export class HomePage implements OnInit {
     this.router.navigate(['/help']);
   }
 
-  // long press
+  // long press(长按)
   onPressUp($event) {
     this.router.navigate(['/setting']);
   }
-  // on tap
+  // on tap(点击)
   onTap($event) {
     this.router.navigate(['/more']);
+  }
+  // 格式化 余额显示
+  formatBalance(res) {
+    const strBalance = (res.data.stable / 1000000).toString();
+    const dotNum = strBalance.indexOf('.');
+    if (dotNum === -1) {
+      this.balance = strBalance.replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
+      this.balanceDot = '.00';
+    } else {
+      this.balance = strBalance.substr(0, dotNum).replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
+      this.balanceDot = strBalance.substr(dotNum, 3);
+    }
+  }
+  // 刷新余额
+  fetchBalance() {
+    const address = this.profile.wallet.address;
+    this.network.getBalance(address).subscribe(
+      res => {
+        this.formatBalance(res);
+      },
+      err => {
+        this.logger.info('获取余额错误', err);
+      }
+    );
+  }
+  // 下拉刷新
+  refresh(refresher) {
+    refresher.preventDefault();
+    this.logger.info('getBalance start...');
+    this.logger.info(refresher);
+    const address = this.profile.wallet.address;
+    this.network.getBalance(address).subscribe(
+      res => {
+        this.formatBalance(res);
+        refresher.target.complete();
+      },
+      err => {
+        this.logger.info('获取余额错误', err);
+        refresher.target.cancel();
+      }
+    );
   }
 }
