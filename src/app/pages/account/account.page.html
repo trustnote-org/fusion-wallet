@@ -9,27 +9,25 @@
       </div>
     </div>
 
-    <!--
-    <div class="account">
+    <!-- 没有历史记录 -->
+    <div class="account" *ngIf="!hasHistory">
       <p>我的账单(MN) <span>不包含手续费</span></p>
       <h3>00.00</h3>
       <h1>您还没有账单产生</h1>
     </div>
-
-    <div class="noAccount">
+    <div class="noAccount" *ngIf="!hasHistory">
       <img src="assets/img/17ba1763.png">
       <p>没有账单</p>
     </div>
--->
 
 
-    <ion-list>
+    <!-- 历史记录 -->
+    <ion-list *ngIf="hasHistory">
       <div class="item" *ngFor='let item of historyArr'>
         <p class="tit">{{item.tit}}</p>
         <p class="date">{{item.date}}</p>
         <p class="amount">{{item.amount}}</p>
       </div>
-
     </ion-list>
 
 
