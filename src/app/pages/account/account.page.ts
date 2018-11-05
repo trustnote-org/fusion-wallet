@@ -38,7 +38,6 @@ export class AccountPage implements OnInit {
     this.profile.loadHistory().then(
       history => {
         if (history && Object.keys(history).length > 0) {
-          this.hasHistory = true;
           this.history = history;
           let action: string;
 
@@ -53,12 +52,14 @@ export class AccountPage implements OnInit {
             const obj = {
               action: action,
               date: this.formatDateTime(history[key].timestamp),
-              amount: history[key].amount.TTT,
+              amount: (history[key].amount.TTT / 1000000).toFixed(6),
               unit: history[key].unit
             };
 
             this.arrHistory.push(obj); // 前端页面遍历的 数组
           }
+          _.reverse(this.arrHistory);
+          this.hasHistory = true;
         }
         this.updateHistory();
       },
@@ -92,13 +93,13 @@ export class AccountPage implements OnInit {
             const obj = {
               action: action,
               date: this.formatDateTime(this.history[key].timestamp),
-              amount: this.history[key].amount.TTT,
+              amount: (this.history[key].amount.TTT / 1000000).toFixed(6),
               unit: this.history[key].unit
             };
             tempArrHistory.push(obj);
           }
 
-          this.arrHistory = tempArrHistory;
+          this.arrHistory = _.reverse(tempArrHistory);
           this.hasHistory = true;
           this.isUpdating = false;
 
