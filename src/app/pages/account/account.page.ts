@@ -99,6 +99,7 @@ export class AccountPage implements OnInit {
           }
 
           this.arrHistory = tempArrHistory;
+          this.hasHistory = true;
           this.isUpdating = false;
 
           this.profile.storeHistory(this.history).then(
