@@ -40,13 +40,13 @@ export class NetworkService {
   // 转账
   public transfer(data: any, option = this.httpOptions): Observable<ResponseType> {
     this.logger.info('transfer: ', data);
-    return this.api.post(this.restfulUrl, 'asset/transferttt', data, option);
+    return this.api.post(this.restfulUrl, 'asset/transfer', data, option);
   }
 
   // 提交签名
   public submitSig(data: any, option = this.httpOptions): Observable<ResponseType> {
     this.logger.info('submitSig: ', data);
-    return this.api.post(this.restfulUrl, 'asset/submittx', data, option);
+    return this.api.post(this.restfulUrl, 'asset/sign', data, option);
   }
 
   // 获取余额
