@@ -5,18 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ExamplesPage } from './examples.page';
+import { SendPage } from './send.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ExamplesPage
+    component: SendPage
   }
 ];
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes)],
-  entryComponents: [],
-  declarations: [ExamplesPage]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes)
+  ],
+  declarations: [SendPage]
 })
-export class ExamplesPageModule {}
+export class SendPageModule {}
