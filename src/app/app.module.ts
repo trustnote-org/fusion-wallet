@@ -17,19 +17,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 // gestures
 import { IonicGestureConfig } from './services/gesture.service';
-import { PaymentPageModule } from './modal/payment/payment.module';
+import { PaymentPage } from './modal/payment/payment.page';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslatePoHttpLoader(http, '../assets/i18n', '.po');
 }
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, PaymentPage],
+  entryComponents: [PaymentPage],
   imports: [
     BrowserModule,
     HttpClientModule,
-    PaymentPageModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot({
