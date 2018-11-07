@@ -72,10 +72,6 @@ export class HomePage implements OnInit {
   onTap($event) {
     this.router.navigate(['/more']);
   }
-  // 进入 发送
-  goSend(){
-    this.router.navigate(['/send']);
-  }
   // 格式化 余额显示
   formatBalance(res) {
     const strBalance = (res.data.stable / 1000000).toString();
