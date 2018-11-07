@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 // gestures
 import { IonicGestureConfig } from './services/gesture.service';
+import { PaymentPageModule } from './modal/payment/payment.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslatePoHttpLoader(http, '../assets/i18n', '.po');
@@ -28,6 +29,7 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    PaymentPageModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot({

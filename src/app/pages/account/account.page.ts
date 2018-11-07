@@ -58,6 +58,7 @@ export class AccountPage implements OnInit {
 
             this.arrHistory.push(obj); // 前端页面遍历的 数组
           }
+          
           _.reverse(this.arrHistory);
           this.hasHistory = true;
         }
