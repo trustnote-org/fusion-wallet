@@ -94,10 +94,12 @@ export class PaymentService {
       showBackdrop: true,
       backdropDismiss: true,
       componentProps: {
-        address: address,
-        amount: amount,
-        asset: asset,
-        message: msg
+        paymentInfo: {
+          address: address,
+          amount: amount,
+          asset: asset,
+          message: msg
+        }
       }
     });
     return await modal.present();

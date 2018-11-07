@@ -10,13 +10,7 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class PaymentPage implements OnInit {
   @Input()
-  address: string;
-  @Input()
-  amount: number;
-  @Input()
-  asset: string;
-  @Input()
-  message: string;
+  paymentInfo: any;
 
   constructor(
     public events: Events,
@@ -25,7 +19,7 @@ export class PaymentPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.logger.debug(this.address, this.amount, this.asset, this.message);
+    this.logger.debug(this.paymentInfo);
   }
 
   // 关闭模态框
@@ -34,6 +28,12 @@ export class PaymentPage implements OnInit {
   }
 
   open() {
-    this.events.publish('payment', this.address, this.amount, this.asset, this.message);
+    this.events.publish(
+      'payment',
+      this.paymentInfo.address,
+      this.paymentInfo.amount,
+      this.paymentInfo.asset,
+      this.paymentInfo.message
+    );
   }
 }
