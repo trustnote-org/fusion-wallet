@@ -39,7 +39,7 @@ export class WalletService {
         };
         resolve(this.wallet);
       } catch (error) {
-        this.logger.debug(error);
+        this.logger.error(error);
         rejects(this.result.error(error.message));
       }
     });
@@ -54,7 +54,7 @@ export class WalletService {
         }
         resolve(sig);
       } catch (error) {
-        this.logger.debug(error);
+        this.logger.error(error);
         rejects(this.result.error(error.message));
       }
     });

@@ -4,13 +4,19 @@ import { Router } from '@angular/router';
 import { PaymentPage } from '../../modal/payment/payment.page';
 import { ModalController } from '@ionic/angular';
 
+import { PaymentService } from '../../services/payment.service';
+
 @Component({
   selector: 'app-examples',
   templateUrl: './examples.page.html',
   styleUrls: ['./examples.page.scss']
 })
 export class ExamplesPage implements OnInit {
-  constructor(private router: Router, public modalController: ModalController) {}
+  constructor(
+    private router: Router,
+    public modalController: ModalController,
+    private paymentService: PaymentService
+  ) {}
 
   ngOnInit() {}
 
@@ -40,15 +46,19 @@ export class ExamplesPage implements OnInit {
     this.router.navigate(['/browser']);
   }
 
-  // 打开 模态框
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: PaymentPage,
-      leaveAnimation: this.customLeaveAnimation,
-      showBackdrop: true,
-      backdropDismiss: true
-      // componentProps: { value: 123 }
-    });
-    return await modal.present();
+  // // 打开 模态框
+  // async presentModal() {
+  //   const modal = await this.modalController.create({
+  //     component: PaymentPage,
+  //     leaveAnimation: this.customLeaveAnimation,
+  //     showBackdrop: true,
+  //     backdropDismiss: true
+  //     // componentProps: { value: 123 }
+  //   });
+  //   return await modal.present();
+  // }
+
+  presentModal() {
+    this.paymentService.confirmPay('KPQ3CRPBG5FSKVEH6Y76ETGD5D2N7QZ7', 123, 'TTT', 'hello');
   }
 }
