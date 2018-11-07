@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavParams, ModalController, Events } from '@ionic/angular';
+import { Component, OnInit, Input } from '@angular/core';
+import { ModalController, Events } from '@ionic/angular';
 
 import { NGXLogger } from 'ngx-logger';
 
@@ -9,19 +9,24 @@ import { NGXLogger } from 'ngx-logger';
   styleUrls: ['./payment.page.scss']
 })
 export class PaymentPage implements OnInit {
-  params: any;
+  @Input()
+  address: string;
+  @Input()
+  amount: number;
+  @Input()
+  asset: string;
+  @Input()
+  message: string;
 
   constructor(
     public events: Events,
-    private navParams: NavParams,
     private modalController: ModalController,
     private logger: NGXLogger
-  ) {
-    this.params = this.navParams.data;
-    this.logger.debug(this.params);
-  }
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.logger.debug(this.address, this.amount, this.asset, this.message);
+  }
 
   // 关闭模态框
   closeModal() {
@@ -29,12 +34,6 @@ export class PaymentPage implements OnInit {
   }
 
   open() {
-    this.events.publish(
-      'payment',
-      this.params.address,
-      this.params.amount,
-      this.params.asset,
-      this.params.message
-    );
+    this.events.publish('payment', this.address, this.amount, this.asset, this.message);
   }
 }
