@@ -11,6 +11,7 @@ import { NGXLogger } from 'ngx-logger';
 export class PaymentPage implements OnInit {
   @Input()
   paymentInfo: any;
+  amount: number;
 
   constructor(
     public events: Events,
@@ -20,6 +21,7 @@ export class PaymentPage implements OnInit {
 
   ngOnInit() {
     this.logger.debug(this.paymentInfo);
+    this.amount = this.paymentInfo.amount / 1000000;
   }
 
   // 关闭模态框
