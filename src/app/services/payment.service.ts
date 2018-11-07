@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Animation } from '@ionic/core';
 import { ModalController, Events } from '@ionic/angular';
 
 import { NGXLogger } from 'ngx-logger';
@@ -55,7 +56,6 @@ export class PaymentService {
                   resolve(res);
                 },
                 error => {
-                  this.logger.error(error);
                   reject(error);
                   return;
                 }
@@ -67,7 +67,6 @@ export class PaymentService {
             });
         },
         error => {
-          this.logger.error(error);
           reject(error);
           return;
         }
@@ -83,14 +82,19 @@ export class PaymentService {
       }
     ];
 
-    let ret = await this.pay(outputs, asset, message);
-    this.logger.debug(ret);
+    try {
+      let ret = await this.pay(outputs, asset, message);
+      this.logger.debug(ret);
+    } catch (error) {
+      this.logger.error(error);
+    }
   }
 
   async confirmPay(address, amount, asset, msg) {
     const modal = await this.modalController.create({
       component: PaymentPage,
-      leaveAnimation: this.customLeaveAnimation,
+      enterAnimation: this.modalAlertEnter,
+      leaveAnimation: this.modalAlertLeave,
       showBackdrop: true,
       backdropDismiss: true,
       componentProps: {
@@ -105,21 +109,59 @@ export class PaymentService {
     return await modal.present();
   }
 
-  customLeaveAnimation(AnimationC, baseEl) {
+  modalAlertEnter(AnimationC: Animation, baseEl: HTMLElement): Promise<Animation> {
     const baseAnimation = new AnimationC();
+
     const backdropAnimation = new AnimationC();
     backdropAnimation.addElement(baseEl.querySelector('ion-backdrop'));
+
     const wrapperAnimation = new AnimationC();
-    wrapperAnimation.addElement(baseEl.querySelector('.paymentModal'));
-    backdropAnimation.fromTo('opacity', 0.5, 0);
-    wrapperAnimation.fromTo('translateY', '0%', '100%');
-    const ani = baseAnimation
-      .addElement(baseEl)
-      .easing('cubic-bezier(.36,.66,.04,1)')
-      .duration(250)
-      .add(backdropAnimation)
-      .add(wrapperAnimation);
-    return Promise.resolve(ani);
+    wrapperAnimation.addElement(baseEl.querySelector('.modal-wrapper'));
+
+    wrapperAnimation
+      .beforeStyles({ opacity: 1, transform: 'none' })
+      .fromTo('opacity', 0.01, 1)
+      .fromTo('scale', '1.1', '1');
+
+    backdropAnimation.fromTo('opacity', 0.01, 0.3);
+
+    return Promise.resolve(
+      baseAnimation
+        .addElement(baseEl)
+        .easing('cubic-bezier(0.36,0.66,0.04,1)')
+        .duration(200)
+        .beforeAddClass('show-modal')
+        .add(backdropAnimation)
+        .add(wrapperAnimation)
+    );
+  }
+
+  modalAlertLeave(AnimationC: Animation, baseEl: HTMLElement): Promise<Animation> {
+    const baseAnimation = new AnimationC();
+
+    const backdropAnimation = new AnimationC();
+    backdropAnimation.addElement(baseEl.querySelector('ion-backdrop'));
+
+    const wrapperAnimation = new AnimationC();
+    const wrapperEl = baseEl.querySelector('.modal-wrapper');
+    wrapperAnimation.addElement(wrapperEl);
+    // const wrapperElRect = wrapperEl!.getBoundingClientRect();
+
+    wrapperAnimation
+      .beforeStyles({ translateY: 0 })
+      .fromTo('opacity', 0.99, 0)
+      .fromTo('scale', 1, 0.9);
+
+    backdropAnimation.fromTo('opacity', 0.3, 0.0);
+
+    return Promise.resolve(
+      baseAnimation
+        .addElement(baseEl)
+        .easing('ease-out')
+        .duration(200)
+        .add(backdropAnimation)
+        .add(wrapperAnimation)
+    );
   }
 
   // payMutiAddress()
