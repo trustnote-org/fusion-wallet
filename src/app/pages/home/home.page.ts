@@ -15,28 +15,28 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
   balance: any = 0;
   balanceDot: any = null;
-  loginDate: {
-    pubkey: string;
-  };
+  address: string;
 
   constructor(
     private logger: NGXLogger,
     private network: NetworkService,
     private profile: ProfileService,
     private router: Router
-  ) {}
+  ) {
+    this.address = this.profile.wallet.address;
+  }
 
   ngOnInit() {
     this.logger.debug('homepage');
-    this.logger.debug('wallet.address:', this.profile.wallet.address);
-    this.logger.debug('wallet.addressPubkey:', this.profile.wallet.addressPubkey);
+    this.logger.debug('address:', this.address);
+    this.logger.debug('pubkey:', this.profile.wallet.pubkey);
 
     // 登录注册
-    this.loginDate = {
+    const loginDate = {
       pubkey: this.profile.wallet.pubkey
     };
-    this.network.login(this.loginDate).subscribe(response => {
-      this.logger.info(response);
+    this.network.login(loginDate).subscribe(response => {
+      this.logger.debug(response);
     });
 
     // 刷新余额
@@ -90,29 +90,26 @@ export class HomePage implements OnInit {
   }
   // 刷新余额
   fetchBalance() {
-    const address = this.profile.wallet.address;
-    this.network.getBalance(address).subscribe(
+    this.network.getBalance(this.address).subscribe(
       res => {
         this.formatBalance(res);
       },
       err => {
-        this.logger.info('获取余额错误', err);
+        this.logger.error(err);
       }
     );
   }
   // 下拉刷新
   refresh(refresher) {
     refresher.preventDefault();
-    this.logger.info('getBalance start...');
-    this.logger.info(refresher);
-    const address = this.profile.wallet.address;
-    this.network.getBalance(address).subscribe(
+    this.logger.info('refreshing balance...');
+    this.network.getBalance(this.address).subscribe(
       res => {
         this.formatBalance(res);
         refresher.target.complete();
       },
       err => {
-        this.logger.info('获取余额错误', err);
+        this.logger.error(err);
         refresher.target.cancel();
       }
     );
