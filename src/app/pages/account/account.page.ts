@@ -20,6 +20,9 @@ export class AccountPage implements OnInit {
   hasHistory: boolean;
   isUpdating: boolean;
 
+  balance: any = 0;
+  balanceDot: any = null;
+
   constructor(
     private logger: NGXLogger,
     private network: NetworkService,
@@ -34,6 +37,10 @@ export class AccountPage implements OnInit {
   }
 
   ngOnInit() {
+    // 读取 profile中的余额
+    this.profile.loadAsset().then(balance => {
+      this.formatBalance(balance.TTT.balance);
+    });
     // 本地存储 账单 (首先加载本地历史)
     this.profile.loadHistory().then(
       history => {
@@ -58,7 +65,6 @@ export class AccountPage implements OnInit {
 
             this.arrHistory.push(obj); // 前端页面遍历的 数组
           }
-          
           _.reverse(this.arrHistory);
           this.hasHistory = true;
         }
@@ -141,5 +147,17 @@ export class AccountPage implements OnInit {
     minute = minute < 10 ? '0' + minute : minute;
     second = second < 10 ? '0' + second : second;
     return y + '-' + m + '-' + d + ' ' + '　' + h + ':' + minute + ':' + second;
+  }
+  // 格式化 余额显示
+  formatBalance(asset) {
+    const strBalance = (asset / 1000000).toString();
+    const dotNum = strBalance.indexOf('.');
+    if (dotNum === -1) {
+      this.balance = strBalance.replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
+      this.balanceDot = '.00';
+    } else {
+      this.balance = strBalance.substr(0, dotNum).replace(/(\d{1,3})(?=(\d{3})+$)/g, '$1,');
+      this.balanceDot = strBalance.substr(dotNum, 3);
+    }
   }
 }

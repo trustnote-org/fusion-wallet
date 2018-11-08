@@ -7,7 +7,7 @@
     <div class="banner">
       <h2>钱包</h2>
       <p>总资产 (MN)</p>
-      <h1>{{balance}}<span>{{balanceDot}}</span></h1>
+      <h1>{{balance}}<span>{{balanceDot}}</span><b *ngIf='isPending'>(其中{{isPending}}未稳定)</b></h1>
     </div>
 
     <div class="details" (click)='goAccount();'>
