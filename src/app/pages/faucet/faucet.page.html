@@ -1,7 +1,5 @@
 <ion-content>
   <div class="BGcolor" style='width: 100%;height: 100%;'>
-
-
     <div class="banner">
       <div class="content">
         <div class="left">
@@ -11,8 +9,18 @@
       </div>
     </div>
 
-    <button (click)='getCoin()'>get Coin</button>
+    <div class="account">
+      <p>钱包地址为：</p>
+      <h1>{{address}}</h1>
+      <div class="line"></div>
+    </div>
 
+    <div class="tips">
+      <h5>小贴士</h5>
+      <p>请在网络畅通的情况下领取测试TTT，提示领取成功后，需要经过一定时间的确认才能到帐。</p>
+      <p>如有疑问，可以加微信 xxxxx 我们的程序员小哥哥会给您耐心解答。</p>
+    </div>
 
+    <div class="btn" (click)='getCoin()'>立刻领取 200MN</div>
   </div>
 </ion-content>
