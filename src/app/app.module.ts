@@ -6,17 +6,18 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslatePoHttpLoader } from '@biesbjerg/ngx-translate-po-http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 // Services
 import { ProfileService } from './services/profile.service';
+import { IonicGestureConfig } from './services/gesture.service';
 // Components
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-// gestures
-import { IonicGestureConfig } from './services/gesture.service';
+// modal
 import { PaymentPage } from './modal/payment/payment.page';
 import { TipsPage } from './modal/tips/tips.page';
 
@@ -30,6 +31,14 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
+
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot({
