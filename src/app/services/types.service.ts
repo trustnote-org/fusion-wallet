@@ -161,6 +161,7 @@ export type configType = {
 // 状态存储类型
 export type statusType = {
   agree: boolean;
+  isGotCoin: boolean;
   wallet: boolean; // 是否创建钱包
   isLock: boolean; // 是否设置支付密码
 };

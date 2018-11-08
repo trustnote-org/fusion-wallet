@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
 import { NGXLogger } from 'ngx-logger';
+import { ProfileService } from '../../services/profile.service';
 import { NetworkService } from '../../services/network.service';
 import { TipsService } from '../../services/tips.service';
-import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-faucet',
@@ -13,15 +13,17 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class FaucetPage implements OnInit {
   address: string;
+  isGotCoin: boolean;
 
   constructor(
+    private profileService: ProfileService,
     private networkService: NetworkService,
     public loadingController: LoadingController,
     private tipsService: TipsService,
-    private profile: ProfileService,
     private logger: NGXLogger
   ) {
-    this.address = this.profile.wallet.address;
+    this.address = this.profileService.wallet.address;
+    this.isGotCoin = this.profileService.status.isGotCoin;
   }
 
   ngOnInit() {}
@@ -32,6 +34,12 @@ export class FaucetPage implements OnInit {
       success => {
         this.loadingController.dismiss();
         this.tipsService.alert('领取成功', null);
+        if (!this.isGotCoin) {
+          this.isGotCoin = true;
+          let status = this.profileService.status;
+          status.isGotCoin = true;
+          this.profileService.storeStatus(status);
+        }
         this.logger.debug(success);
       },
       error => {

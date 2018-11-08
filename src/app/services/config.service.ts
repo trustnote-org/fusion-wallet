@@ -8,6 +8,7 @@ import { statusType, configType, settingType, walletType, assetType } from './ty
 export class ConfigService {
   static statusDefault: statusType = {
     agree: true,
+    isGotCoin: false,
     wallet: false,
     isLock: false
   };
