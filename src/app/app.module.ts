@@ -18,14 +18,15 @@ import { AppRoutingModule } from './app-routing.module';
 // gestures
 import { IonicGestureConfig } from './services/gesture.service';
 import { PaymentPage } from './modal/payment/payment.page';
+import { TipsPage } from './modal/tips/tips.page';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslatePoHttpLoader(http, '../assets/i18n', '.po');
 }
 
 @NgModule({
-  declarations: [AppComponent, PaymentPage],
-  entryComponents: [PaymentPage],
+  declarations: [AppComponent, PaymentPage, TipsPage],
+  entryComponents: [PaymentPage, TipsPage],
   imports: [
     BrowserModule,
     HttpClientModule,

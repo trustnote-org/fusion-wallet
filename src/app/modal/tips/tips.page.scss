@@ -1,0 +1,31 @@
+// 黑色透明背景
+ion-backdrop {
+    display: block;
+    background-color: #000;
+    opacity: 0.4;
+}
+
+// 显示的内容
+.tipsModal {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 210px;
+    z-index: 3;
+}
+
+.tipsModal div.content {
+    height: 260px;
+    background: #fff;
+    // margin-top: 200px;
+}
+
+.tipsModal div.content h3 {
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #cbd5e3;
+    line-height: 50px;
+}
