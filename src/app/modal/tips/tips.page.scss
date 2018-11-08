@@ -7,10 +7,13 @@ ion-backdrop {
 
 // 显示的内容
 .tipsModal {
-    width: 80%;
-    margin-left: 10%;
+    height: 120px;
+    width: 270px;
+    margin: 0 auto;
     margin-top: 210px;
     z-index: 3;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .tipsModal div.content {
@@ -19,13 +22,23 @@ ion-backdrop {
     // margin-top: 200px;
 }
 
-.tipsModal div.content h3 {
-    font-family: PingFangSC-Medium;
+.tipsModal div.content h1 {
+    border-bottom: 1px solid #cbd5e3;
+    line-height: 70px;
+    font-family: PingFangSC-Regular;
     font-size: 18px;
-    color: #333333;
+    color: #030303;
     letter-spacing: 0;
     text-align: center;
     margin: 0;
-    border-bottom: 1px solid #cbd5e3;
+}
+
+.tipsModal div.content p {
+    font-family: PingFangSC-Regular;
+    font-size: 17px;
+    color: #007AFF;
+    letter-spacing: -0.41px;
+    text-align: center;
+    margin: 0;
     line-height: 50px;
 }
