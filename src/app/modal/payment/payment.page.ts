@@ -37,5 +37,6 @@ export class PaymentPage implements OnInit {
       this.paymentInfo.asset,
       this.paymentInfo.message
     );
+    this.modalController.dismiss();
   }
 }
