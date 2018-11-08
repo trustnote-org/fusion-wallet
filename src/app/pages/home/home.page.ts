@@ -45,6 +45,7 @@ export class HomePage implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart && event.url === '/home') {
         this.isGotCoin = this.profile.status.isGotCoin;
+        this.fetchBalance();
       }
     });
   }

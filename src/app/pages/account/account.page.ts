@@ -80,7 +80,7 @@ export class AccountPage implements OnInit {
     this.isUpdating = true;
     this.network.getHistory(this.address, 'TTT', 1, 10).subscribe(
       res => {
-        if (res.data) {
+        if (res.data.history.length > 0) {
           res.data.history.forEach(item => {
             let tx = this.factory.unpackUnit(item);
             this.history[tx.unit] = _.clone(tx);
