@@ -29,7 +29,7 @@ export class PaymentPage implements OnInit {
     this.modalController.dismiss();
   }
 
-  open() {
+  pay() {
     this.events.publish(
       'payment',
       this.paymentInfo.address,
