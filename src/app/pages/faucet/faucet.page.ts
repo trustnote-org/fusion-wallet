@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+
+import { NGXLogger } from 'ngx-logger';
+import { NetworkService } from '../../services/network.service';
+import { TipsService } from '../../services/tips.service';
 
 @Component({
   selector: 'app-faucet',
@@ -6,9 +11,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faucet.page.scss']
 })
 export class FaucetPage implements OnInit {
-  constructor() {}
+  constructor(
+    private networkService: NetworkService,
+    public loadingController: LoadingController,
+    private tipsService: TipsService,
+    private logger: NGXLogger
+  ) {}
 
   ngOnInit() {}
+
+  getCoin() {
+    this.presentLoading();
+    this.networkService.getCoin().subscribe(
+      success => {
+        this.loadingController.dismiss();
+        this.tipsService.alert('领取成功', null);
+        this.logger.debug(success);
+      },
+      error => {
+        this.loadingController.dismiss();
+        this.tipsService.alert('领取失败', '稍后再试');
+        this.logger.error(error);
+      }
+    );
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: '正在领取...',
+      duration: 10000
+    });
+    return await loading.present();
+  }
+
   goBack() {
     history.go(-1);
   }
