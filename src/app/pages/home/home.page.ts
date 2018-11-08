@@ -5,7 +5,7 @@ import { NGXLogger } from 'ngx-logger';
 import { NetworkService } from '../../services/network.service';
 import { ProfileService } from '../../services/profile.service';
 
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
   balanceDot: any = null;
   address: string;
   isPending: number;
+  isGotCoin: boolean;
 
   constructor(
     private logger: NGXLogger,
@@ -25,6 +26,7 @@ export class HomePage implements OnInit {
     private router: Router
   ) {
     this.address = this.profile.wallet.address;
+    this.isGotCoin = this.profile.status.isGotCoin;
   }
 
   ngOnInit() {
@@ -40,6 +42,11 @@ export class HomePage implements OnInit {
     });
     // 刷新余额
     this.fetchBalance();
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart && event.url === '/home') {
+        this.isGotCoin = this.profile.status.isGotCoin;
+      }
+    });
   }
 
   // 格式化 余额显示
