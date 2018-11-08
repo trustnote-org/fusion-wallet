@@ -11,6 +11,8 @@ ion-backdrop {
     margin-left: 10%;
     margin-top: 210px;
     z-index: 3;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .paymentModal div.content {
