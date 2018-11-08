@@ -95,13 +95,19 @@
     padding: 0 40px;
 }
 
+div.btnWrap {
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+}
+
 div.btn {
     width: 320px;
     background: linear-gradient(-230deg, #73A1F5 0%, #4F7FF0 100%);
     height: 50px;
     border-radius: 50px;
     margin: 0 auto;
-    margin-top: 80px;
+    // margin-top: 80px;
     line-height: 50px;
     text-align: center;
     color: #fff;
