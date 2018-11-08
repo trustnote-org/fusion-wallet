@@ -42,6 +42,10 @@ export class PaymentService {
       this.networkService.transfer(transData).subscribe(
         response => {
           this.logger.debug(response);
+          if (!response.data) {
+            reject(response.errMsg);
+            return;
+          }
           let textToSign = response.data.b64_to_sign;
           let txid = response.data.txid;
 
@@ -55,6 +59,10 @@ export class PaymentService {
               this.logger.debug('sign result: ', sigData);
               this.networkService.submitSig(sigData).subscribe(
                 res => {
+                  if (!res.data) {
+                    reject(res.errMsg);
+                    return;
+                  }
                   this.logger.debug('payment result:', res);
                   resolve(res);
                 },
