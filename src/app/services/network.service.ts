@@ -1,8 +1,9 @@
 import { ProfileService } from './profile.service';
+import { ConfigService } from './config.service';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { NGXLogger } from 'ngx-logger';
-import { ResponseType, configType } from './types.service';
+import { ResponseType } from './types.service';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -75,23 +76,16 @@ export class NetworkService {
     );
   }
 
-  /*
-  // 获取交易历史
-  public getHistory(
-    address: string,
-    asset: string,
-    start: number,
-    end: number,
-    option = this.httpOptions
-  ): Observable<ResponseType> {
-    this.logger.info("getHistory: ", address, asset, start, end);
-    return this.api.get(
-      this.restfulUrl,
-      `query/readabletxs/${address}/${asset}/${start}/${end}`,
-      option
-    );
+  public getCoin(option = this.httpOptions): Observable<any> {
+    this.logger.info('getCoin: ');
+    let data = {
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'sendtoaddress',
+      params: [this.profile.wallet.address, 10000000]
+    };
+    return this.api.post(ConfigService.configDefault.faucetAPI, null, data, option);
   }
-  */
 
   public getMiniApp(): Observable<any> {
     this.logger.info('getMiniApp: ');
