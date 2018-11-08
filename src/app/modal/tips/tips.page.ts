@@ -22,6 +22,9 @@ export class TipsPage implements OnInit {
 
   ngOnInit() {
     this.logger.debug(this.result, this.message);
+    if (this.message && this.message.match('not enough asset')) {
+      this.message = '余额不足';
+    }
   }
 
   // 关闭模态框
