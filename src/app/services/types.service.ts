@@ -147,6 +147,7 @@ export type settingType = {
 export type configType = {
   restAPI: string;
   restAPI_dev: string;
+  faucetAPI: string;
   assetAPI: string;
   assetAPI_dev: string;
   rateUrl: string;

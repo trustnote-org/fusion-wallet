@@ -27,19 +27,18 @@ export class ProfileService {
 
   constructor(
     private storage: StorageService,
-    private configService: ConfigService,
     private result: ResultService,
     private logger: NGXLogger
   ) {
     this.isLoaded = false;
     ProfileService.profile = {
-      status: this.configService.statusDefault,
-      config: this.configService.configDefault,
-      setting: this.configService.settingDefault,
-      wallet: this.configService.walletDefault
+      status: ConfigService.statusDefault,
+      config: ConfigService.configDefault,
+      setting: ConfigService.settingDefault,
+      wallet: ConfigService.walletDefault
     };
     ProfileService.history = {};
-    ProfileService.asset = this.configService.assetDefault;
+    ProfileService.asset = ConfigService.assetDefault;
   }
 
   get profile(): ProfileType {
