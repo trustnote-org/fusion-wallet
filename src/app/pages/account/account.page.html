@@ -20,15 +20,22 @@
       <p>没有账单</p>
     </div>
 
-
     <!-- 历史记录 -->
-    <ion-list *ngIf="hasHistory">
-      <div class="item" *ngFor='let item of arrHistory'>
-        <p class="title">{{item.action}}</p>
-        <p class="date">{{item.date}}</p>
-        <p class="amount">{{item.amount}}</p>
-      </div>
-    </ion-list>
+    <div class="balance" *ngIf="hasHistory">
+      <p>我的账单(MN) <span>不包含手续费</span></p>
+      <h3>{{balance}}{{balanceDot}}</h3>
+    </div>
+    <div class="details">
+      <ion-list *ngIf="hasHistory">
+        <div class="item" *ngFor='let item of arrHistory'>
+          <p class="title">{{item.action}}</p>
+          <p class="date">{{item.date}}</p>
+          <p class="amount">{{item.amount}}</p>
+        </div>
+      </ion-list>
+    </div>
+
+
 
 
   </div>

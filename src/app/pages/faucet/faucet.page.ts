@@ -12,6 +12,7 @@ import { TipsService } from '../../services/tips.service';
   styleUrls: ['./faucet.page.scss']
 })
 export class FaucetPage implements OnInit {
+  address: string;
   isGotCoin: boolean;
 
   constructor(
@@ -21,6 +22,7 @@ export class FaucetPage implements OnInit {
     private tipsService: TipsService,
     private logger: NGXLogger
   ) {
+    this.address = this.profileService.wallet.address;
     this.isGotCoin = this.profileService.status.isGotCoin;
   }
 

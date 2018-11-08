@@ -144,3 +144,50 @@ div p.amount {
     color: #111111;
     letter-spacing: 0;
 }
+
+.balance {
+    margin: -90px auto 0;
+    padding-left: 35px;
+    height: 120px;
+    width: 90%;
+    background: url(../../../assets/img/balance.png) no-repeat center center;
+    background-size: 100% 110px;
+    position: relative;
+}
+
+.balance h3 {
+    font-family: DINAlternate-Bold;
+    font-size: 24px;
+    color: #666c82;
+    letter-spacing: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.balance p {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #9196a5;
+    letter-spacing: 0;
+    margin: 0px;
+    padding-top: 30px;
+}
+
+.balance p span {
+    font-size: 10px;
+    color: #6786ee;
+    letter-spacing: 0;
+    background: #eef0ff;
+    border: 1px solid #cad1ff;
+    border-radius: 10px;
+    padding: 0 5px;
+    margin-left: 10px;
+}
+
+
+div.details {
+    height: calc(100% - 200px);
+    // background: rebeccapurple;
+    overflow: auto;
+    margin-top: 20px;
+}
