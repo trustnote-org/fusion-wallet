@@ -12,7 +12,7 @@ import { modalAlertEnter, modalAlertLeave } from '../modal/modal.style';
 export class TipsService {
   constructor(private modalController: ModalController) {}
 
-  async alert(message) {
+  async alert(result, message) {
     const modal = await this.modalController.create({
       component: TipsPage,
       enterAnimation: modalAlertEnter,
@@ -20,7 +20,8 @@ export class TipsService {
       showBackdrop: true,
       backdropDismiss: true,
       componentProps: {
-        message: message
+        message: message,
+        result: result
       }
     });
     return await modal.present();

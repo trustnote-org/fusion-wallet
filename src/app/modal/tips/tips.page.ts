@@ -10,6 +10,8 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class TipsPage implements OnInit {
   @Input()
+  result: any;
+  @Input()
   message: any;
 
   constructor(
@@ -19,7 +21,7 @@ export class TipsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.logger.debug(this.message);
+    this.logger.debug(this.result, this.message);
   }
 
   // 关闭模态框

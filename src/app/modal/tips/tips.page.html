@@ -3,7 +3,8 @@
 <!-- 显示的内容 -->
 <div class="tipsModal">
   <div class="content">
-    <h1>{{message}}</h1>
+    <h1>{{result}}</h1>
+    <div class="errmsg" *ngIf='message'>{{message}}</div>
     <p (click)='closeModal()'>确定</p>
   </div>
 </div>

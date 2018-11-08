@@ -88,9 +88,9 @@ export class PaymentService {
     try {
       let ret = await this.pay(outputs, asset, message);
       this.logger.debug(ret);
-      this.tipsService.alert('支付成功');
+      this.tipsService.alert('支付成功', null);
     } catch (error) {
-      this.tipsService.alert('支付失败');
+      this.tipsService.alert('支付失败', error);
       this.logger.error(error);
     }
   }
