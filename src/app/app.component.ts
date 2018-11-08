@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NGXLogger } from 'ngx-logger';
 
 import { ProfileService } from './services/profile.service';
+import { LanguageService } from './services/language.service';
 
 import { Router } from '@angular/router';
 
@@ -18,6 +19,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private profileService: ProfileService,
+    private languageService: LanguageService,
     private logger: NGXLogger,
     private route: Router
   ) {
