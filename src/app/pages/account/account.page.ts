@@ -31,7 +31,7 @@ export class AccountPage implements OnInit {
   ) {
     this.address = this.profile.wallet.address;
     this.history = {};
-    this.hasHistory = false;
+    this.hasHistory = true;
     this.arrHistory = [];
     this.isUpdating = false;
   }
@@ -66,7 +66,6 @@ export class AccountPage implements OnInit {
             this.arrHistory.push(obj); // 前端页面遍历的 数组
           }
           _.reverse(this.arrHistory);
-          this.hasHistory = true;
         }
         this.updateHistory();
       },
@@ -107,7 +106,6 @@ export class AccountPage implements OnInit {
           }
 
           this.arrHistory = _.reverse(tempArrHistory);
-          this.hasHistory = true;
           this.isUpdating = false;
 
           this.profile.storeHistory(this.history).then(
@@ -118,6 +116,8 @@ export class AccountPage implements OnInit {
               this.logger.error(err);
             }
           );
+        } else {
+          this.hasHistory = false;
         }
       },
       err => {
