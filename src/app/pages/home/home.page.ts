@@ -33,6 +33,7 @@ export class HomePage implements OnInit {
     this.logger.debug('homepage');
     this.logger.debug('address:', this.address);
     this.logger.debug('pubkey:', this.profile.wallet.pubkey);
+
     // 登录注册
     const loginDate = {
       pubkey: this.profile.wallet.pubkey
@@ -123,7 +124,7 @@ export class HomePage implements OnInit {
     this.router.navigate(['/help']);
   }
   // long press(长按)
-  onPressUp($event) {
+  onPress($event) {
     this.router.navigate(['/setting']);
   }
   // on tap(点击)
