@@ -10,6 +10,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
 
 // Services
 import { ProfileService } from './services/profile.service';
@@ -52,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
+    Toast,
     ProfileService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
