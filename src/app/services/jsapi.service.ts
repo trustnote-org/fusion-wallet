@@ -1,10 +1,12 @@
+import { Injectable } from '@angular/core';
+import { Events } from '@ionic/angular';
 import { ResultService } from './result.service';
 import { WalletService } from './wallet.service';
 import { ProfileService } from './profile.service';
 import { NetworkService } from './network.service';
 import { NGXLogger } from 'ngx-logger';
 import { paymentType, resultType } from './types.service';
-import { Injectable } from '@angular/core';
+import { PaymentService } from './payment.service';
 import _ from 'lodash';
 
 type eventType = {
@@ -18,10 +20,12 @@ type eventType = {
 })
 export class JSApiService {
   constructor(
+    public events: Events,
     private network: NetworkService,
     private profile: ProfileService,
     private walletClient: WalletService,
     private result: ResultService,
+    private paymentService: PaymentService,
     private logger: NGXLogger
   ) {
     this.initEventListener();
@@ -130,37 +134,15 @@ export class JSApiService {
       return;
     }
 
-    this.network.transfer(data).subscribe(
-      response => {
-        let textToSign = response.data.b64_to_sign;
-        let sigData = {
-          txid: response.data.txid,
-          sig: ''
-        };
-        let walletPrivkey = this.profile.wallet.privkey;
-        this.walletClient
-          .sign(textToSign, walletPrivkey)
-          .then(sig => {
-            sigData.sig = sig;
-            this.network.submitSig(sigData).subscribe(
-              response => {
-                this.logger.info(response);
-                onDone(response.data.unit.unit, null);
-              },
-              error => {
-                this.logger.info(error);
-                onDone(null, this.result.error(error));
-              }
-            );
-          })
-          .catch(error => {
-            onDone(null, this.result.error(error));
-          });
-      },
-      error => {
-        this.logger.info(error);
-        onDone(null, this.result.error(error));
-      }
+    this.events.subscribe('payment_success', message => {
+      onDone(message, null);
+    });
+
+    this.paymentService.confirmPay(
+      data.outputs[0].address,
+      data.outputs[0].amount,
+      'TTT',
+      data.message
     );
   }
 }

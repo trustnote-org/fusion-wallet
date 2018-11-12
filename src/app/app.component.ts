@@ -7,6 +7,7 @@ import { Toast } from '@ionic-native/toast/ngx';
 
 import { ProfileService } from './services/profile.service';
 import { LanguageService } from './services/language.service';
+import { JSApiService } from './services/jsapi.service';
 
 import { Router } from '@angular/router';
 
@@ -26,6 +27,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private profileService: ProfileService,
+    private jsapi: JSApiService,
     private languageService: LanguageService,
     private logger: NGXLogger,
     private toast: Toast,

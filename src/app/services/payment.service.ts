@@ -65,6 +65,7 @@ export class PaymentService {
                     return;
                   }
                   this.logger.debug('payment result:', res);
+                  this.events.publish('payment_success', res.data.unit);
                   resolve(res);
                 },
                 error => {

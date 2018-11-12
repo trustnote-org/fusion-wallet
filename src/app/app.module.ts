@@ -14,6 +14,7 @@ import { Toast } from '@ionic-native/toast/ngx';
 
 // Services
 import { ProfileService } from './services/profile.service';
+import { JSApiService } from './services/jsapi.service';
 import { IonicGestureConfig } from './services/gesture.service';
 // Components
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     Toast,
     ProfileService,
+    JSApiService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HAMMER_GESTURE_CONFIG,
