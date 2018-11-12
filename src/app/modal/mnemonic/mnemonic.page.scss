@@ -1,5 +1,6 @@
 // 黑色透明背景
 ion-backdrop {
+    position: fixed;
     display: block;
     background-color: #000;
     opacity: 0.4;
@@ -7,6 +8,7 @@ ion-backdrop {
 
 // 显示的内容
 .paymentModal {
+    position: relative;
     width: 80%;
     margin-left: 10%;
     margin-top: 210px;

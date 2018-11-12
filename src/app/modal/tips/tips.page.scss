@@ -1,5 +1,6 @@
 // 黑色透明背景
 ion-backdrop {
+    position: fixed;
     display: block;
     background-color: #000;
     opacity: 0.4;
@@ -7,6 +8,7 @@ ion-backdrop {
 
 // 显示的内容
 .tipsModal {
+    position: relative;
     // height: 120px;
     width: 270px;
     margin: 0 auto;
