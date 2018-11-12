@@ -62,10 +62,8 @@ export class AppComponent {
   // active hardware back button
   backButtonEvent() {
     this.platform.backButton.subscribe(() => {
-      // this.toast.show(this.router.url, '2000', 'bottom').subscribe(toast => {});
       if (this.router.url === '/home' || this.router.url === '/') {
         if (new Date().getTime() - this.lastTimeBackPress < this.timePeriodToExit) {
-          this.toast.show(this.router.url, '2000', 'bottom').subscribe(toast => {});
           navigator['app'].exitApp(); // work in ionic 4
         } else {
           this.toast.show(`Press back again to exit App.`, '2000', 'bottom').subscribe(toast => {});
