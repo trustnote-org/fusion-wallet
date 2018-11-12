@@ -36,19 +36,20 @@ ion-backdrop {
 
 .paymentModal div.content h1 {
     font-family: DINAlternate-Bold;
-    font-size: 40px;
     color: #010D34;
     letter-spacing: 0;
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0 10px;
+    font-size: 22px;
+    padding: 0 10px;
 }
 
 .paymentModal div.content div.btnWrap {
-    margin-top: 50px;
+    margin-top: 25px;
     position: relative;
 }
 
-.paymentModal div.content div.btnWrap span.btn {
+.paymentModal div.content div.btnWrap p.btn {
     font-family: PingFangSC-Regular;
     font-size: 16px;
     color: #2D66EA;
@@ -56,20 +57,21 @@ ion-backdrop {
     text-align: center;
     border-radius: 4px;
     border: 1px solid #2D66EA;
+    height: 40px;
     line-height: 40px;
-    padding: 0 25px;
+    // padding: 0 25px;
+    width: 110px;
     position: absolute;
-    top: 0;
+    // top: 0;
 }
 
-.paymentModal div.content div.btnWrap span.btnLeft {
+.paymentModal div.content div.btnWrap p.btnLeft {
     left: 20px;
 }
 
-.paymentModal div.content div.btnWrap span.btnRight {
+.paymentModal div.content div.btnWrap p.btnRight {
     background: linear-gradient(-90deg, #637CFE 0%, #4862FE 100%);
-    border-radius: 4px;
     color: #fff;
     right: 20px;
-    top: 0;
+    // top: 0;
 }
