@@ -90,4 +90,5 @@
     <plugin name="cordova-plugin-x-toast" spec="2.7.0" />
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.1.2" />
+    <plugin name="cordova-clipboard" spec="^1.2.1" />
 </widget>

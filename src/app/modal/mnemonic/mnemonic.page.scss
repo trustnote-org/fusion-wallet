@@ -1,0 +1,75 @@
+// 黑色透明背景
+ion-backdrop {
+    display: block;
+    background-color: #000;
+    opacity: 0.4;
+}
+
+// 显示的内容
+.paymentModal {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 210px;
+    z-index: 3;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.paymentModal div.content {
+    height: 260px;
+    background: #fff;
+    // margin-top: 200px;
+}
+
+.paymentModal div.content h3 {
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #CBD5E3;
+    line-height: 50px;
+}
+
+.paymentModal div.content h1 {
+    font-family: DINAlternate-Bold;
+    color: #010D34;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 20px 0 10px;
+    font-size: 22px;
+    padding: 0 10px;
+}
+
+.paymentModal div.content div.btnWrap {
+    margin-top: 25px;
+    position: relative;
+}
+
+.paymentModal div.content div.btnWrap p.btn {
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #2D66EA;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #2D66EA;
+    height: 40px;
+    line-height: 40px;
+    // padding: 0 25px;
+    width: 110px;
+    position: absolute;
+    // top: 0;
+}
+
+.paymentModal div.content div.btnWrap p.btnLeft {
+    left: 20px;
+}
+
+.paymentModal div.content div.btnWrap p.btnRight {
+    background: linear-gradient(-90deg, #637CFE 0%, #4862FE 100%);
+    color: #fff;
+    right: 20px;
+    // top: 0;
+}

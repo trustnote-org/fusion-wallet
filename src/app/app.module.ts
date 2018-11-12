@@ -21,14 +21,17 @@ import { AppRoutingModule } from './app-routing.module';
 // modal
 import { PaymentPage } from './modal/payment/payment.page';
 import { TipsPage } from './modal/tips/tips.page';
+import { MnemonicPage } from './modal/mnemonic/mnemonic.page';
+// Clipboard
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslatePoHttpLoader(http, '../assets/i18n', '.po');
 }
 
 @NgModule({
-  declarations: [AppComponent, PaymentPage, TipsPage],
-  entryComponents: [PaymentPage, TipsPage],
+  declarations: [AppComponent, PaymentPage, TipsPage, MnemonicPage],
+  entryComponents: [PaymentPage, TipsPage, MnemonicPage],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -54,6 +57,7 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     Toast,
+    Clipboard,
     ProfileService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
