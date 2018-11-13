@@ -1,0 +1,73 @@
+// 顶部 title
+.conWrap {
+    position: relative;
+    background: #fff;
+    // 顶部安全区
+    padding-top: constant(safe-area-inset-top) !important;
+    padding-top: env(safe-area-inset-top) !important;
+
+    .left {
+        position: absolute;
+        left: 0;
+        width: 50px;
+    }
+
+    .con {
+        font-family: PingFangSC-Medium;
+        font-size: 18px;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 40px;
+    }
+}
+
+// 分割线
+.segline {
+    height: 10px;
+    background: #f6f7f9;
+}
+
+// input 输入框
+.apptitle {
+    height: 45px;
+    width: 86%;
+    margin-left: 7%;
+    border-bottom: 1px solid #CBD5E3;
+    margin-top: 30px;
+
+    input {
+        border: 0;
+        outline: none;
+        width: 100%;
+        height: 44px;
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        color: #999999;
+        letter-spacing: 0;
+    }
+}
+
+.appaddress {
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+// 底部 添加按钮
+.addBtnWrap {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding-bottom: constant(safe-area-inset-bottom) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+
+    .btn {
+        width: 320px;
+        background: #4862FE;
+        margin: 0 auto;
+        height: 50px;
+        border-radius: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+    }
+}
