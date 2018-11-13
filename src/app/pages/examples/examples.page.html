@@ -1,38 +1,30 @@
 <ion-content>
-  <div class="BGcolor" style='display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;'>
+  <div
+    class="BGcolor"
+    style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;"
+  >
     <div class="content">
-      <div class="left">
-        <img src="../../../assets/icon/back-blue@2x.png" (click)='goBack()'>
-      </div>
-      <div class="con">示例程序</div>
+      <div class="left"><img src="../../../assets/icon/back-blue@2x.png" (click)="goBack()" /></div>
+      <div class="con">{{ 'Samples' | translate }}</div>
     </div>
 
     <ion-list>
-      <ion-item (click)='openOnBrowser()'>
-        <div class="imgleft">
-          <img src="../../../assets/img/FeeToRead.png">
-        </div>
+      <ion-item (click)="openOnBrowser()">
+        <div class="imgleft"><img src="../../../assets/img/FeeToRead.png" /></div>
         <div class="titright">
-          <p class="tit">付费阅读</p>
-          <p class="txt">支付后可查看原文</p>
+          <p class="tit">{{ 'Subscribe Books' | translate }}</p>
+          <p class="txt">{{ 'Read after subscription' | translate }}</p>
         </div>
       </ion-item>
       <ion-item>
-        <div class="imgleft">
-          <img src="../../../assets/img/FeeToArticle.png">
-        </div>
+        <div class="imgleft"><img src="../../../assets/img/FeeToArticle.png" /></div>
         <div class="titright">
-          <p class="tit">文章打赏</p>
-          <p class="txt">好文章值得打赏</p>
+          <p class="tit">{{ 'Reward Articles' | translate }}</p>
+          <p class="txt">{{ 'Good Articles deserves a reward' | translate }}</p>
         </div>
       </ion-item>
 
-
-
-      <ion-item>
-        <h1 (click)='presentModal()'>点弹出莫太狂</h1>
-      </ion-item>
+      <ion-item> <h1 (click)="presentModal()">Payment Test</h1> </ion-item>
     </ion-list>
-
   </div>
 </ion-content>

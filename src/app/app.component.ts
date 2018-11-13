@@ -4,6 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NGXLogger } from 'ngx-logger';
 import { Toast } from '@ionic-native/toast/ngx';
+import { TranslateService } from '@ngx-translate/core';
 
 import { ProfileService } from './services/profile.service';
 import { LanguageService } from './services/language.service';
@@ -29,6 +30,7 @@ export class AppComponent {
     private profileService: ProfileService,
     private jsapi: JSApiService,
     private languageService: LanguageService,
+    private translate: TranslateService,
     private logger: NGXLogger,
     private toast: Toast,
     private router: Router
@@ -40,6 +42,9 @@ export class AppComponent {
     this.profileService
       .loadProfile()
       .then(profile => {
+        this.profileService.profile.setting.language = this.languageService.load();
+        this.logger.debug(this.profileService.profile.setting.language);
+
         if (profile.status && profile.status.wallet) {
           this.profileService.profile = profile;
           this.router.navigate(['/home']);
@@ -68,7 +73,9 @@ export class AppComponent {
         if (new Date().getTime() - this.lastTimeBackPress < this.timePeriodToExit) {
           navigator['app'].exitApp(); // work in ionic 4
         } else {
-          this.toast.show(`Press back again to exit App.`, '2000', 'bottom').subscribe(toast => {});
+          this.toast
+            .show(this.translate.instant(`Press back again to exit App.`), '2000', 'bottom')
+            .subscribe(toast => {});
           this.lastTimeBackPress = new Date().getTime();
         }
       }

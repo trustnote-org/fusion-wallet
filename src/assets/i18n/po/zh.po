@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "For developers"
+msgstr "开发者专用版"
+
+msgid "Generate mnemonic phrase and enter wallet"
+msgstr "产生随机助记词并进入钱包"
+
+msgid "Press back again to exit App."
+msgstr "再次返回退出"
+
+msgid "TrustNote Fusion Wallet"
+msgstr "TrustNote通用钱包"

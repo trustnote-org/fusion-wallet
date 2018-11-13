@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { NetworkService } from '../../services/network.service';
 import { FactoryService } from '../../services/factory.service';
@@ -25,6 +26,7 @@ export class AccountPage implements OnInit {
 
   constructor(
     private logger: NGXLogger,
+    private translate: TranslateService,
     private network: NetworkService,
     private profile: ProfileService,
     private factory: FactoryService
@@ -50,10 +52,10 @@ export class AccountPage implements OnInit {
 
           for (const key of Object.keys(history)) {
             if (history[key].action === Action.RECEIVED) {
-              action = '收款';
+              action = this.translate.instant('Received');
             }
             if (history[key].action === Action.SENT) {
-              action = '转账';
+              action = this.translate.instant('Sent');
             }
 
             const obj = {
@@ -90,10 +92,10 @@ export class AccountPage implements OnInit {
 
           for (const key of Object.keys(this.history)) {
             if (this.history[key].action === Action.RECEIVED) {
-              action = '收款';
+              action = this.translate.instant('Received');
             }
             if (this.history[key].action === Action.SENT) {
-              action = '转账';
+              action = this.translate.instant('Sent');
             }
 
             const obj = {
