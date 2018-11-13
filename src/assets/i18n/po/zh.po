@@ -4,23 +4,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Confirm Password"
-msgstr ""
-
-msgid "Enter Password"
-msgstr ""
-
 msgid "For developers"
-msgstr ""
+msgstr "开发者专用版"
 
 msgid "Generate mnemonic phrase and enter wallet"
-msgstr ""
+msgstr "产生随机助记词并进入钱包"
 
 msgid "Press back again to exit App."
-msgstr ""
-
-msgid "Require Password"
-msgstr ""
+msgstr "再次返回退出"
 
 msgid "TrustNote Fusion Wallet"
-msgstr ""
+msgstr "TrustNote通用钱包"

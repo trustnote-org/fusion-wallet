@@ -27,7 +27,7 @@ import { MnemonicPage } from './modal/mnemonic/mnemonic.page';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslatePoHttpLoader(http, '../assets/i18n', '.po');
+  return new TranslatePoHttpLoader(http, '../assets/i18n/po', '.po');
 }
 
 @NgModule({

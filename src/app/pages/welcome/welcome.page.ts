@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Router } from '@angular/router';
 import { WalletService } from '../../services/wallet.service';
@@ -14,6 +15,7 @@ import { ProfileService } from '../../services/profile.service';
 export class WelcomePage implements OnInit {
   constructor(
     private route: Router,
+    private translate: TranslateService,
     private wallet: WalletService,
     private alertController: AlertController,
     private logger: NGXLogger,
@@ -25,17 +27,17 @@ export class WelcomePage implements OnInit {
   //  输入密码创建钱包 并进入主页
   async presentAlertPrompt() {
     const alert = await this.alertController.create({
-      header: '请输入密码',
+      header: this.translate.instant('Require Password'),
       inputs: [
         {
           name: 'password',
           type: 'number',
-          placeholder: '请输入密码'
+          placeholder: this.translate.instant('Enter Password')
         },
         {
           name: 're_password',
           type: 'number',
-          placeholder: '再一次输入密码'
+          placeholder: this.translate.instant('Confirm Password')
         }
       ],
       buttons: [
@@ -72,7 +74,7 @@ export class WelcomePage implements OnInit {
         this.profileService
           .storeWallet(res)
           .then(ret => {
-            this.logger.debug('store 成功', ret);
+            this.logger.debug('store success', ret);
             const status = this.profileService.status;
             status.wallet = true;
             this.profileService.storeStatus(status);

@@ -1,14 +1,13 @@
 <ion-content>
   <div class="topSafe"></div>
-  <div class="imgBox">
-    <img src="../../../assets/img/walletIcon.png">
-  </div>
+  <div class="imgBox"><img src="../../../assets/img/walletIcon.png" /></div>
 
-  <h1>TrustNote通用钱包</h1>
-  <h2>开发者专用版</h2>
+  <h1>{{ 'TrustNote Fusion Wallet' | translate }}</h1>
+  <h2>{{ 'For developers' | translate }}</h2>
 
   <div class="bottomBtnBox">
-    <div class="bottomBtn" (click)='presentAlertPrompt()'>产生随机助记词并进入钱包</div>
+    <div class="bottomBtn" (click)="presentAlertPrompt()">
+      {{ 'Generate mnemonic phrase and enter wallet' | translate }}
+    </div>
   </div>
-
 </ion-content>
