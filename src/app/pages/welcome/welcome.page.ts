@@ -42,7 +42,7 @@ export class WelcomePage implements OnInit {
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: this.translate.instant('Cancel'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
@@ -50,7 +50,7 @@ export class WelcomePage implements OnInit {
           }
         },
         {
-          text: 'Ok',
+          text: this.translate.instant('Ok'),
           handler: res => {
             this.logger.debug('click Ok');
             if (res.password && res.re_password && res.password === res.re_password) {

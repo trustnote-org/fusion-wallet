@@ -1,85 +1,94 @@
 <ion-content>
-  <!--下拉刷新-->
-  <ion-refresher slot="fixed" snapbackDuration=200 (ionRefresh)="refresh($event)">
-    <ion-refresher-content pullingIcon="arrow-down" refreshingSpinner="circles"></ion-refresher-content>
+  <!-- 下拉刷新 -->
+  <ion-refresher slot="fixed" snapbackDuration="200" (ionRefresh)="refresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      refreshingSpinner="circles"
+    ></ion-refresher-content>
   </ion-refresher>
-  <div class="BGcolor" style='display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;'>
+  <div
+    class="BGcolor"
+    style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;"
+  >
     <div class="banner">
-      <h2>钱包</h2>
-      <p>总资产 (MN)</p>
-      <h1>{{balance}}<span>{{balanceDot}}</span><b *ngIf='isPending'>(其中{{isPending}}未稳定)</b></h1>
+      <h2>{{ 'Wallet' | translate }}</h2>
+      <p>{{ 'Balance' | translate }} (MN)</p>
+      <h1>
+        {{ balance }}<span>{{ balanceDot }}</span>
+        <!-- <b *ngIf="isPending">(其中{{ isPending }}未稳定)</b> -->
+      </h1>
     </div>
 
-    <div class="details" (click)='goAccount();'>
-      <div><img src="../../../assets/img/detailsIcon.png"></div>
-      <h3>账单</h3>
-      <div class="right"><img src="../../../assets/icon/arrorDetails.png"></div>
+    <div class="details" (click)="goAccount()">
+      <div><img src="../../../assets/img/detailsIcon.png" /></div>
+      <h3>{{ 'Transactions' | translate }}</h3>
+      <div class="right"><img src="../../../assets/icon/arrorDetails.png" /></div>
     </div>
 
-
-    <div style='flex: 1;overflow: auto;'>
-      <div class="gettt" *ngIf='!isGotCoin'>
-        <p (click)="goDrawttt()">领取测试TTT</p>
-        <img src="../../../assets/icon/waitTo.png">
+    <div style="flex: 1;overflow: auto;">
+      <div class="gettt" *ngIf="!isGotCoin">
+        <p (click)="goDrawttt()">{{ 'Get test TTT' | translate }}</p>
+        <img src="../../../assets/icon/waitTo.png" />
       </div>
 
       <ion-grid>
         <ion-row>
           <ion-col>
-            <div><img src="../../../assets/img/shili.png" (click)="goExamples()"></div>
-            <p>示例程序</p>
+            <div><img src="../../../assets/img/shili.png" (click)="goExamples()" /></div>
+            <p>{{ 'Samples' | translate }}</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/img/wendang.png" (click)="goDocs()"></div>
-            <p>文档中心</p>
+            <div><img src="../../../assets/img/wendang.png" (click)="goDocs()" /></div>
+            <p>{{ 'Documents' | translate }}</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/img/help.png" (click)="goHelp()"></div>
-            <p>帮助</p>
+            <div><img src="../../../assets/img/help.png" (click)="goHelp()" /></div>
+            <p>{{ 'Supports' | translate }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png"></div>
-            <p class="tobeAdded">待添加</p>
+            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png"></div>
-            <p class="tobeAdded">待添加</p>
+            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png"></div>
-            <p class="tobeAdded">待添加</p>
+            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png"></div>
-            <p class="tobeAdded">待添加</p>
+            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
+          </ion-col>
+
+          <ion-col>
+            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
           </ion-col>
 
           <ion-col>
             <div>
-              <img src="../../../assets/icon/tianjia.png">
+              <img
+                src="../../../assets/icon/gegnduo.png"
+                (press)="onPress($event)"
+                (tap)="onTap()"
+              />
             </div>
-            <p class="tobeAdded">待添加</p>
-          </ion-col>
-
-          <ion-col>
-            <div>
-              <img src="../../../assets/icon/gegnduo.png" (press)="onPress($event)" (tap)="onTap()">
-            </div>
-            <p class="tobeAdded">更多</p>
+            <p class="tobeAdded">{{ 'More' | translate }}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-
   </div>
 </ion-content>
 

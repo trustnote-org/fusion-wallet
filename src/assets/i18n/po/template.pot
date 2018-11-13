@@ -4,23 +4,85 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Add App"
+msgstr ""
+
+msgid "Balance"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
 msgid "Confirm Password"
+msgstr ""
+
+msgid "Documents"
 msgstr ""
 
 msgid "Enter Password"
 msgstr ""
 
-msgid "For developers"
+msgid "For Developers"
 msgstr ""
 
-msgid "Generate mnemonic phrase and enter wallet"
+msgid "Generate Wallet"
+msgstr ""
+
+msgid "Get Some TTT-Test"
+msgstr ""
+
+msgid "Get TTT"
+msgstr ""
+
+msgid ""
+"If you have any questions, please contact us on twitter @TrustNote or "
+"Telegram https://t.me/TrustNote"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "No transactions yet"
+msgstr ""
+
+msgid "Ok"
 msgstr ""
 
 msgid "Press back again to exit App."
 msgstr ""
 
+msgid "Received"
+msgstr ""
+
+msgid "Receiving..."
+msgstr ""
+
 msgid "Require Password"
 msgstr ""
 
+msgid "Samples"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "Supports"
+msgstr ""
+
+msgid "Tips"
+msgstr ""
+
+msgid "Transactions"
+msgstr ""
+
 msgid "TrustNote Fusion Wallet"
+msgstr ""
+
+msgid "Wallet"
+msgstr ""
+
+msgid "Wallet Address:"
+msgstr ""
+
+msgid "fees not included"
 msgstr ""

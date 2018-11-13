@@ -1,28 +1,41 @@
 <ion-content>
-  <div class="BGcolor" style='width: 100%;height: 100%;'>
+  <div class="BGcolor" style="width: 100%;height: 100%;">
     <div class="banner">
       <div class="content">
         <div class="left">
-          <img src="../../../assets/icon/back-white@2x.png" (click)='goBack()'>
+          <img src="../../../assets/icon/back-white@2x.png" (click)="goBack()" />
         </div>
-        <div class="con">领取测试TTT</div>
+        <div class="con">{{ 'Get Some TTT-Test' | translate }}</div>
       </div>
     </div>
 
     <div class="account">
-      <p>钱包地址为：</p>
-      <h1>{{address}}</h1>
+      <p>{{ 'Wallet Address:' | translate }}</p>
+      <h1>{{ address }}</h1>
       <div class="line"></div>
     </div>
 
     <div class="tips">
-      <h5>小贴士</h5>
-      <p>请在网络畅通的情况下领取测试TTT，提示领取成功后，需要经过一定时间的确认才能到帐。</p>
-      <p>如有疑问，可以加微信 xxxxx 我们的程序员小哥哥会给您耐心解答。</p>
+      <h5>{{ 'Tips' | translate }}</h5>
+      <p>
+        {{
+          'Please make sure your Internet is properly connected when applying for TTT-Test. The transaction may take a couple
+      minutes.'
+            | translate
+        }}
+      </p>
+      <p>
+        {{
+          'If you have any questions, please contact us on twitter @TrustNote or Telegram https://t.me/TrustNote'
+            | translate
+        }}
+      </p>
     </div>
 
     <div class="btnWrap">
-      <div *ngIf='!isGotCoin' class="btn" (click)='getCoin()'>立刻领取 10MN</div>
+      <div *ngIf="!isGotCoin" class="btn" (click)="getCoin()">
+        {{ 'Get 10MN of TTT-Test now' | translate }}
+      </div>
     </div>
   </div>
 </ion-content>

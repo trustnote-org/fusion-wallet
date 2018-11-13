@@ -1,42 +1,42 @@
 <ion-content>
-  <div class="BGcolor" style='width: 100%;height: 100%;'>
+  <div class="BGcolor" style="width: 100%;height: 100%;">
     <div class="banner">
       <div class="content">
         <div class="left">
-          <img src="../../../assets/icon/back-white@2x.png" (click)='goBack()'>
+          <img src="../../../assets/icon/back-white@2x.png" (click)="goBack()" />
         </div>
-        <div class="con">账单</div>
+        <div class="con">{{ 'Transactions' | translate }}</div>
       </div>
     </div>
 
     <!-- 没有历史记录 -->
     <div class="account" *ngIf="!hasHistory">
-      <p>我的账单(MN) <span>不包含手续费</span></p>
+      <p>
+        {{ 'Balance' | translate }}(MN) <span>{{ 'fees not included' | translate }}</span>
+      </p>
       <h3>00.00</h3>
-      <h1>您还没有账单产生</h1>
+      <h1>{{ 'No transactions yet' | translate }}</h1>
     </div>
     <div class="noAccount" *ngIf="!hasHistory">
-      <img src="assets/img/17ba1763.png">
-      <p>没有账单</p>
+      <img src="assets/img/17ba1763.png" />
+      <p>{{ 'No transactions yet' | translate }}</p>
     </div>
 
     <!-- 历史记录 -->
     <div class="balance" *ngIf="hasHistory">
-      <p>我的账单(MN) <span>不包含手续费</span></p>
-      <h3>{{balance}}{{balanceDot}}</h3>
+      <p>
+        {{ 'Balance' | translate }}(MN) <span>{{ 'fees not included' | translate }}</span>
+      </p>
+      <h3>{{ balance }}{{ balanceDot }}</h3>
     </div>
     <div class="details">
       <ion-list *ngIf="hasHistory">
-        <div class="item" *ngFor='let item of arrHistory'>
-          <p class="title">{{item.action}}</p>
-          <p class="date">{{item.date}}</p>
-          <p class="amount">{{item.amount}}</p>
+        <div class="item" *ngFor="let item of arrHistory">
+          <p class="title">{{ item.action }}</p>
+          <p class="date">{{ item.date }}</p>
+          <p class="amount">{{ item.amount }}</p>
         </div>
       </ion-list>
     </div>
-
-
-
-
   </div>
 </ion-content>

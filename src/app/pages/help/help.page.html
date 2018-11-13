@@ -1,23 +1,25 @@
 <ion-content>
-  <div class="BGcolor" style='display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;'>
+  <div
+    class="BGcolor"
+    style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;"
+  >
     <div class="content">
-      <div class="left">
-        <img src="../../../assets/icon/back-blue@2x.png" (click)='goBack()'>
-      </div>
-      <div class="con">帮助</div>
+      <div class="left"><img src="../../../assets/icon/back-blue@2x.png" (click)="goBack()" /></div>
+      <div class="con">{{ 'Supports' | translate }}</div>
     </div>
 
     <ion-list>
       <ion-item>
-        <ion-label>如何参加TrustNote开发者大赛？</ion-label>
+        <ion-label>{{ 'How to join the TrustNote Hackathon?' | translate }}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>提交代码需要注意什么？</ion-label>
+        <ion-label>{{
+          'What should be paid attention to when submitting the code?' | translate
+        }}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>人工服务</ion-label>
+        <ion-label>{{ 'Contact us' | translate }}</ion-label>
       </ion-item>
     </ion-list>
-
   </div>
 </ion-content>

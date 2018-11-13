@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-browser',
@@ -13,7 +14,7 @@ export class BrowserPage implements OnInit {
     proObj: null, // 进度条对象
     progress: 0, // 网页访问的进度条
     secUrl: '', // 安全链接
-    title: '加载中',
+    title: this.translate.instant('Loading...'),
     url: '',
     share: null // 是否具有分享功能（传递一个分享对象ShareModel过来）
   };
@@ -21,7 +22,11 @@ export class BrowserPage implements OnInit {
     isShow: false
   }; // 分享控制的配置
 
-  constructor(private sanitizer: DomSanitizer, private router: Router) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private translate: TranslateService,
+    private router: Router
+  ) {
     // let browser = this.params.get('browser');
     // let url = this.params.get('url');
     // let title = this.params.get('title');

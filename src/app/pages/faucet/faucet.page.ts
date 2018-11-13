@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 import { NGXLogger } from 'ngx-logger';
 import { ProfileService } from '../../services/profile.service';
@@ -16,6 +17,7 @@ export class FaucetPage implements OnInit {
   isGotCoin: boolean;
 
   constructor(
+    private translate: TranslateService,
     private profileService: ProfileService,
     private networkService: NetworkService,
     public loadingController: LoadingController,
@@ -33,7 +35,7 @@ export class FaucetPage implements OnInit {
     this.networkService.getCoin().subscribe(
       success => {
         this.loadingController.dismiss();
-        this.tipsService.alert('领取成功', null);
+        this.tipsService.alert(this.translate.instant('10MN TTT-Test received'), null);
         if (!this.isGotCoin) {
           this.isGotCoin = true;
           let status = this.profileService.status;
@@ -44,7 +46,10 @@ export class FaucetPage implements OnInit {
       },
       error => {
         this.loadingController.dismiss();
-        this.tipsService.alert('领取失败', '稍后再试');
+        this.tipsService.alert(
+          this.translate.instant('Failed'),
+          this.translate.instant('Service is busy, Please try again later')
+        );
         this.logger.error(error);
       }
     );
@@ -52,7 +57,7 @@ export class FaucetPage implements OnInit {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: '正在领取...',
+      message: this.translate.instant('Receiving...'),
       duration: 10000
     });
     return await loading.present();
