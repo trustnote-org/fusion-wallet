@@ -10,7 +10,8 @@ export enum StorageKeys {
   CONFIG = 'config',
   STATUS = 'status',
   ASSET = 'asset',
-  HISTORY = 'history'
+  HISTORY = 'history',
+  MINIAPP = 'miniapp'
 }
 
 @Injectable({

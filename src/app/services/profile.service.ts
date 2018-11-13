@@ -8,7 +8,8 @@ import {
   walletType,
   assetType,
   resultType,
-  historyType
+  historyType,
+  miniAppType
 } from './types.service';
 import { ResultService } from './result.service';
 import { ConfigService } from './config.service';
@@ -35,6 +36,7 @@ export class ProfileService {
       status: ConfigService.statusDefault,
       config: ConfigService.configDefault,
       setting: ConfigService.settingDefault,
+      miniapp: {},
       wallet: ConfigService.walletDefault
     };
     ProfileService.history = {};
@@ -97,6 +99,14 @@ export class ProfileService {
     ProfileService.asset = asset;
   }
 
+  get miniApp(): miniAppType {
+    return ProfileService.profile.miniapp;
+  }
+
+  set miniApp(miniapp: miniAppType) {
+    ProfileService.profile.miniapp = miniapp;
+  }
+
   // 从数据库中读取 profile 并返回
   async loadProfile(): Promise<ProfileType> {
     const profile: any = {};
@@ -109,6 +119,8 @@ export class ProfileService {
       profile.config = config;
       const setting = await this.loadSetting();
       profile.setting = setting;
+      const miniapp = await this.loadMiniApp();
+      profile.miniapp = miniapp;
       this.isLoaded = true;
       return profile;
     } catch (error) {
@@ -189,6 +201,15 @@ export class ProfileService {
 
   loadHistory(): Promise<historyType> {
     return this.storage.get(StorageKeys.HISTORY);
+  }
+
+  storeMiniApp(miniapp: miniAppType) {
+    ProfileService.profile.miniapp = miniapp;
+    return this.storage.set(StorageKeys.MINIAPP, miniapp);
+  }
+
+  loadMiniApp(): Promise<miniAppType> {
+    return this.storage.get(StorageKeys.MINIAPP);
   }
 
   storeHistory(history: historyType): Promise<resultType> {

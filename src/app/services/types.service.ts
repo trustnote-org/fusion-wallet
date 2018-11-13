@@ -10,6 +10,7 @@ export type ProfileType = {
   status: statusType;
   config: configType;
   setting: settingType;
+  miniapp: miniAppType;
   wallet: walletType;
 };
 
@@ -177,6 +178,14 @@ export type ResponseType = {
   errCode: number;
   errMsg: string;
   data: any;
+};
+
+export type miniAppType = {
+  [key: number]: {
+    title: string;
+    icon: string;
+    url: string;
+  };
 };
 
 @Injectable({
