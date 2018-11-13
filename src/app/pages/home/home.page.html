@@ -44,12 +44,12 @@
 
         <ion-row>
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png" (tap)="addMini1()"></div>
-            <p class="tobeAdded">待添加</p>
+            <div><img [src]="sourceSet.miniappurl1? sourceSet.miniappurl1 : '../../../assets/icon/tianjia.png'" (tap)="addMini1()"></div>
+            <p class="tobeAdded apptitle">待添加</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png"></div>
+            <div><img [src]="sourceSet.miniappurl2? sourceSet.miniappurl2 : '../../../assets/icon/tianjia.png'"></div>
             <p class="tobeAdded">待添加</p>
           </ion-col>
 

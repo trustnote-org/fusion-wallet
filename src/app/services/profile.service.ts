@@ -203,7 +203,7 @@ export class ProfileService {
     return this.storage.get(StorageKeys.HISTORY);
   }
 
-  storeMiniApp(miniapp: miniAppType) {
+  storeMiniApp(miniapp: miniAppType): Promise<resultType> {
     ProfileService.profile.miniapp = miniapp;
     return this.storage.set(StorageKeys.MINIAPP, miniapp);
   }

@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   address: string;
   isPending: number;
   isGotCoin: boolean;
+  sourceSet = {};
 
   constructor(
     private logger: NGXLogger,
@@ -34,10 +35,14 @@ export class HomePage implements OnInit {
     this.logger.debug('address:', this.address);
     this.logger.debug('pubkey:', this.profile.wallet.pubkey);
 
+    for (const key of Object.keys(this.profile.miniApp)) {
+      this.sourceSet['miniappurl' + key] = this.profile.miniApp[key].icon;
+      console.log('***********', key);
+      // document.getElementsByClassName('apptitle')[key - 1].text = this.profile.miniApp[key].title;
+    }
+
     // 登录注册
-    const loginDate = {
-      pubkey: this.profile.wallet.pubkey
-    };
+    const loginDate = { pubkey: this.profile.wallet.pubkey };
     this.network.login(loginDate).subscribe(response => {
       this.logger.debug(response);
     });
@@ -133,6 +138,6 @@ export class HomePage implements OnInit {
   }
   // 添加 小程序1
   addMini1() {
-    this.router.navigate(['/miniapp']);
+    this.router.navigate(['/miniapp'], { queryParams: { id: 1 } });
   }
 }

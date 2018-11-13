@@ -13,15 +13,15 @@
     <div style='flex:1; position: relative;'>
       <!-- 应用标题 -->
       <div class='apptitle'>
-        <input type="text" placeholder="输入应用标题">
+        <input type="text" placeholder="输入应用标题" [(ngModel)]="apptitle">
       </div>
       <!-- 应用地址 -->
       <div class='apptitle appaddress'>
-        <input type="text" placeholder="输入应用地址">
+        <input type="text" placeholder="输入应用地址" [(ngModel)]="appaddress">
       </div>
       <!-- 添加按钮 -->
       <div class='addBtnWrap'>
-        <div class="btn">添加</div>
+        <div class="btn" (click)='storeApp()'>添加</div>
       </div>
     </div>
 
