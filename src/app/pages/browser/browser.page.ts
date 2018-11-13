@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-browser',
@@ -21,14 +21,21 @@ export class BrowserPage implements OnInit {
     isShow: false
   }; // 分享控制的配置
 
-  constructor(private sanitizer: DomSanitizer, private router: Router) {
+  constructor(
+    private sanitizer: DomSanitizer,
+    private router: Router,
+    private activate: ActivatedRoute
+  ) {
     // let browser = this.params.get('browser');
     // let url = this.params.get('url');
     // let title = this.params.get('title');
     // let unit = this.params.get('unit');
+    this.activate.queryParams.subscribe(params => {
+      console.log('-------*********', params);
+      this.browser.title = params.title;
+      this.browser.url = params.url;
+    });
 
-    this.browser.title = 'example title';
-    this.browser.url = 'https://www.baidu.com/';
     // this.browser.url = 'https://github.com/trustnote';
 
     // if (unit) {
