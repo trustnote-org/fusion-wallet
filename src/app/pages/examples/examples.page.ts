@@ -9,10 +9,12 @@ import { PaymentService } from '../../services/payment.service';
   styleUrls: ['./examples.page.scss']
 })
 export class ExamplesPage implements OnInit {
-  constructor(
-    private router: Router,
-    private paymentService: PaymentService
-  ) {}
+  obj: any = {
+    url: 'https://www.baidu.com/',
+    title: '百度一下',
+    msg: '附加信息'
+  };
+  constructor(private router: Router, private paymentService: PaymentService) {}
 
   ngOnInit() {}
 
@@ -22,7 +24,7 @@ export class ExamplesPage implements OnInit {
   }
   // 打开 浏览器
   openOnBrowser() {
-    this.router.navigate(['/browser']);
+    this.router.navigate(['/browser'], { queryParams: this.obj });
   }
   // 点击 付款
   presentModal() {
