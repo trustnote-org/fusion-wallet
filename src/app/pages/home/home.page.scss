@@ -126,27 +126,33 @@ ion-refresher {
 }
 
 ion-col {
+
     // border: 1px solid #000;
+    div {
+        width: 60px;
+        // background: red;
+        margin: 0 auto;
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    p {
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #5180f0;
+        letter-spacing: 0;
+        text-align: center;
+        margin: 5px 10px;
+    }
+
+    p.tobeAdded {
+        color: #acbbcf;
+    }
 }
 
-ion-col div {
-    width: 60px;
-    // background: red;
-    margin: 0 auto;
-}
-
-ion-col p {
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #5180f0;
-    letter-spacing: 0;
-    text-align: center;
-    margin: 5px 10px;
-}
-
-ion-col p.tobeAdded {
-    color: #acbbcf;
-}
 
 // 底部安全区
 .safeBottom {

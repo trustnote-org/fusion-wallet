@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'help', loadChildren: './pages/help/help.module#HelpPageModule' },
   { path: 'more', loadChildren: './pages/more/more.module#MorePageModule' },
   { path: 'setting', loadChildren: './pages/setting/setting.module#SettingPageModule' },
-  { path: 'browser', loadChildren: './pages/browser/browser.module#BrowserPageModule' }
+  { path: 'browser', loadChildren: './pages/browser/browser.module#BrowserPageModule' },
+  { path: 'miniapp', loadChildren: './pages/miniapp/miniapp.module#MiniappPageModule' }
 ];
 
 @NgModule({
