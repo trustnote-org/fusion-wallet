@@ -7,7 +7,13 @@ msgstr ""
 msgid "10MN TTT-Test received"
 msgstr ""
 
+msgid "Add"
+msgstr ""
+
 msgid "Add App"
+msgstr ""
+
+msgid "Add H5 Applications"
 msgstr ""
 
 msgid "Balance"
@@ -28,10 +34,22 @@ msgstr ""
 msgid "Contact us"
 msgstr ""
 
+msgid "Delete"
+msgstr ""
+
 msgid "Documents"
 msgstr ""
 
+msgid "Edit H5 Applications"
+msgstr ""
+
 msgid "Enter Password"
+msgstr ""
+
+msgid "Enter application address here"
+msgstr ""
+
+msgid "Enter application name here"
 msgstr ""
 
 msgid "Failed"
@@ -132,6 +150,9 @@ msgid "TrustNote Fusion Wallet"
 msgstr ""
 
 msgid "TrustNote Mainnet Introduction"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "View Mnemonic"

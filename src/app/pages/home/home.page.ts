@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
   isPending: number;
   isGotCoin: boolean;
   sourceSet = {};
+  sourceSetTitle = {};
 
   constructor(
     private logger: NGXLogger,
@@ -34,12 +35,8 @@ export class HomePage implements OnInit {
     this.logger.debug('homepage');
     this.logger.debug('address:', this.address);
     this.logger.debug('pubkey:', this.profile.wallet.pubkey);
-
-    for (const key of Object.keys(this.profile.miniApp)) {
-      this.sourceSet['miniappurl' + key] = this.profile.miniApp[key].icon;
-      console.log('***********', key);
-      // document.getElementsByClassName('apptitle')[key - 1].text = this.profile.miniApp[key].title;
-    }
+    // miniApp 列表
+    this.deployMiniApp();
 
     // 登录注册
     const loginDate = { pubkey: this.profile.wallet.pubkey };
@@ -48,14 +45,27 @@ export class HomePage implements OnInit {
     });
     // 刷新余额
     this.fetchBalance();
+    // 路由返回home 检查 isGotCoin
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart && event.url === '/home') {
+        this.deployMiniApp();
         this.isGotCoin = this.profile.status.isGotCoin;
         this.fetchBalance();
       }
     });
   }
 
+  // miniApp 列表
+  deployMiniApp() {
+    if (this.profile.miniApp) {
+      this.sourceSet = {};
+      this.sourceSetTitle = {};
+      for (const key of Object.keys(this.profile.miniApp)) {
+        this.sourceSet['miniappurl' + key] = this.profile.miniApp[key].icon;
+        this.sourceSetTitle['miniapptitle' + key] = this.profile.miniApp[key].title;
+      }
+    }
+  }
   // 格式化 余额显示
   formatBalance(res) {
     const strBalance = ((res.data.stable + res.data.pending) / 1000000).toString();
@@ -136,8 +146,27 @@ export class HomePage implements OnInit {
   onTap($event) {
     this.router.navigate(['/more']);
   }
-  // 添加 小程序1
-  addMini1() {
-    this.router.navigate(['/miniapp'], { queryParams: { id: 1 } });
+  // 添加 小程序
+  addMiniApp(num) {
+    if (this.sourceSetTitle['miniapptitle' + num]) {
+      this.router.navigate(['/browser'], {
+        queryParams: {
+          url: this.profile.miniApp[num].url,
+          title: this.profile.miniApp[num].title,
+          fromHome: true
+        }
+      });
+    } else {
+      this.router.navigate(['/miniapp'], { queryParams: { id: num } });
+    }
+  }
+  // onPress 编辑 小程序
+  editMiniApp(num) {
+    if (this.sourceSetTitle['miniapptitle' + num]) {
+      this.router.navigate(['/miniapp'], { queryParams: { id: num, edit: true } });
+    } else {
+      this.logger.info('none miniApp...');
+      return false;
+    }
   }
 }

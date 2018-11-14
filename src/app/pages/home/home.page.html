@@ -1,17 +1,11 @@
 <ion-content>
   <!-- 下拉刷新 -->
   <ion-refresher slot="fixed" snapbackDuration="200" (ionRefresh)="refresh($event)">
-    <ion-refresher-content
-      pullingIcon="arrow-down"
-      refreshingSpinner="circles"
-    ></ion-refresher-content>
+    <ion-refresher-content pullingIcon="arrow-down" refreshingSpinner="circles"></ion-refresher-content>
   </ion-refresher>
 
   <!-- 下拉刷新 end -->
-  <div
-    class="BGcolor"
-    style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;"
-  >
+  <div class="BGcolor" style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;">
     <div class="banner">
       <h2>{{ 'Wallet' | translate }}</h2>
       <p>{{ 'Balance' | translate }} (MN)</p>
@@ -35,56 +29,72 @@
 
       <ion-grid>
         <ion-row>
-          <ion-col>
+          <ion-col size='4'>
             <div><img src="../../../assets/img/shili.png" (click)="goExamples()" /></div>
             <p>{{ 'Samples' | translate }}</p>
           </ion-col>
 
-          <ion-col>
+          <ion-col size='4'>
             <div><img src="../../../assets/img/wendang.png" (click)="goDocs()" /></div>
             <p>{{ 'Documents' | translate }}</p>
           </ion-col>
 
-          <ion-col>
+          <ion-col size='4'>
             <div><img src="../../../assets/img/help.png" (click)="goHelp()" /></div>
             <p>{{ 'Supports' | translate }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
-            <div><img [src]="sourceSet.miniappurl1? sourceSet.miniappurl1 : '../../../assets/icon/tianjia.png'" (tap)="addMini1()"></div>
-            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
+          <ion-col size='4'>
+            <div>
+              <img [src]="sourceSet.miniappurl1? sourceSet.miniappurl1 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(1)"
+                (press)="editMiniApp(1)">
+            </div>
+            <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle1'>{{ 'Add App' | translate }}</p>
+            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle1'>{{sourceSetTitle.miniapptitle1}}</p>
           </ion-col>
 
-          <ion-col>
-            <div><img [src]="sourceSet.miniappurl2? sourceSet.miniappurl2 : '../../../assets/icon/tianjia.png'"></div>
-            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
+          <ion-col size='4'>
+            <div>
+              <img [src]="sourceSet.miniappurl2? sourceSet.miniappurl2 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(2)"
+                (press)="editMiniApp(2)">
+            </div>
+            <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle2'>{{ 'Add App' | translate }}</p>
+            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle2'>{{sourceSetTitle.miniapptitle2}}</p>
           </ion-col>
 
-          <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png" /></div>
-            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
+          <ion-col size='4'>
+            <div>
+              <img [src]="sourceSet.miniappurl3? sourceSet.miniappurl3 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(3)"
+                (press)="editMiniApp(3)" />
+            </div>
+            <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle3'>{{ 'Add App' | translate }}</p>
+            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle3'>{{sourceSetTitle.miniapptitle3}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png" /></div>
-            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
-          </ion-col>
-
-          <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png" /></div>
-            <p class="tobeAdded">{{ 'Add App' | translate }}</p>
-          </ion-col>
-
-          <ion-col>
+          <ion-col size='4'>
             <div>
-              <img
-                src="../../../assets/icon/gegnduo.png"
-                (press)="onPress($event)"
-                (tap)="onTap()"
-              />
+              <img [src]="sourceSet.miniappurl4? sourceSet.miniappurl4 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(4)"
+                (press)="editMiniApp(4)" />
+            </div>
+            <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle4'>{{ 'Add App' | translate }}</p>
+            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle4'>{{sourceSetTitle.miniapptitle4}}</p>
+          </ion-col>
+
+          <ion-col size='4'>
+            <div>
+              <img [src]="sourceSet.miniappurl5? sourceSet.miniappurl5 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(5)"
+                (press)="editMiniApp(5)" />
+            </div>
+            <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle5'>{{ 'Add App' | translate }}</p>
+            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle5'>{{sourceSetTitle.miniapptitle5}}</p>
+          </ion-col>
+
+          <ion-col size='4'>
+            <div>
+              <img src="../../../assets/icon/gegnduo.png" (press)="onPress($event)" (tap)="onTap()" />
             </div>
             <p class="tobeAdded">{{ 'More' | translate }}</p>
           </ion-col>
