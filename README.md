@@ -1,3 +1,5 @@
+## Fusion Wallet
+
 #### 易使用、轻量级、更安全；支持 Dapp 小应用的 TrustNote 内容聚合客户端
 
 - 为什么会有 Fusion Wallet？
