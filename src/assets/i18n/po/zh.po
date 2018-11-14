@@ -4,14 +4,150 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "For developers"
-msgstr "开发者专用版"
+msgid "10MN TTT-Test received"
+msgstr "领取测试TTT"
 
-msgid "Generate mnemonic phrase and enter wallet"
-msgstr "产生随机助记词并进入钱包"
+msgid "Add App"
+msgstr "添加应用"
+
+msgid "Balance"
+msgstr "余额"
+
+msgid "Be careful!"
+msgstr "谨慎操作！"
+
+msgid "Beware, everything will be reset"
+msgstr "所有数据将被清空"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Confirm Password"
+msgstr "确认密码"
+
+msgid "Contact us"
+msgstr "联系我们"
+
+msgid "Documents"
+msgstr "文档中心"
+
+msgid "Enter Password"
+msgstr "输入密码"
+
+msgid "Failed"
+msgstr "失败"
+
+msgid "For Developers"
+msgstr "开发者专用"
+
+msgid "Generate Wallet"
+msgstr "生成钱包"
+
+msgid "Get 10MN of TTT-Test now"
+msgstr "立即领取10MN"
+
+msgid "Get Some TTT-Test"
+msgstr "领取测试TTT"
+
+msgid "Get test TTT"
+msgstr "领取测试TTT"
+
+msgid "Good Articles deserves a reward"
+msgstr "好的文章应该得到赞赏"
+
+msgid "How to join the TrustNote Hackathon?"
+msgstr "如何参加TrustNote开发者大赛"
+
+msgid ""
+"If you have any questions, please contact us on twitter @TrustNote or "
+"Telegram https://t.me/TrustNote"
+msgstr "如有疑问，可以加微信xxxx,我们会给您耐心解答"
+
+msgid "JSSDK API Introduction"
+msgstr "JSSDK API介绍"
+
+msgid "Loading..."
+msgstr "载入..."
+
+msgid "More"
+msgstr "更多"
+
+msgid "No transactions yet"
+msgstr "没有账单产生"
+
+msgid "Ok"
+msgstr "确定"
+
+msgid ""
+"Please make sure your Internet is properly connected when applying for "
+"TTT-Test."
+msgstr "请在网络畅通的情况下领取测试TTT。"
 
 msgid "Press back again to exit App."
 msgstr "再次返回退出"
 
+msgid "Read after subscription"
+msgstr "订阅之后可以阅读"
+
+msgid "Received"
+msgstr "接收"
+
+msgid "Receiving..."
+msgstr "正在领取..."
+
+msgid "Require Password"
+msgstr "设置密码"
+
+msgid "Reset wallet"
+msgstr "重置钱包"
+
+msgid "Reward Articles"
+msgstr "文章打赏"
+
+msgid "Samples"
+msgstr "示例程序"
+
+msgid "Sent"
+msgstr "发送"
+
+msgid "Service is busy, Please try again later"
+msgstr "服务忙，稍后再试"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Subscribe Books"
+msgstr "订阅图书"
+
+msgid "Supports"
+msgstr "帮助"
+
+msgid "Tips"
+msgstr "提示"
+
+msgid "Transactions"
+msgstr "交易记录"
+
 msgid "TrustNote Fusion Wallet"
 msgstr "TrustNote通用钱包"
+
+msgid "TrustNote Mainnet Introduction"
+msgstr "TrustNote主网介绍"
+
+msgid "View Mnemonic"
+msgstr "查看助记词"
+
+msgid "Wallet"
+msgstr "钱包"
+
+msgid "Wallet Address:"
+msgstr "钱包地址"
+
+msgid "What should be paid attention to when submitting the code?"
+msgstr "提交代码需要注意事项"
+
+msgid "fees not included"
+msgstr "不含手续费"
+
+msgid "transaction may take a couple minutes."
+msgstr "提示领取成功后，需要经过一定时间的确认才能到账"

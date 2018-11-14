@@ -4,10 +4,19 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "10MN TTT-Test received"
+msgstr ""
+
 msgid "Add App"
 msgstr ""
 
 msgid "Balance"
+msgstr ""
+
+msgid "Be careful!"
+msgstr ""
+
+msgid "Beware, everything will be reset"
 msgstr ""
 
 msgid "Cancel"
@@ -16,10 +25,16 @@ msgstr ""
 msgid "Confirm Password"
 msgstr ""
 
+msgid "Contact us"
+msgstr ""
+
 msgid "Documents"
 msgstr ""
 
 msgid "Enter Password"
+msgstr ""
+
+msgid "Failed"
 msgstr ""
 
 msgid "For Developers"
@@ -28,15 +43,30 @@ msgstr ""
 msgid "Generate Wallet"
 msgstr ""
 
+msgid "Get 10MN of TTT-Test now"
+msgstr ""
+
 msgid "Get Some TTT-Test"
 msgstr ""
 
-msgid "Get TTT"
+msgid "Get test TTT"
+msgstr ""
+
+msgid "Good Articles deserves a reward"
+msgstr ""
+
+msgid "How to join the TrustNote Hackathon?"
 msgstr ""
 
 msgid ""
 "If you have any questions, please contact us on twitter @TrustNote or "
 "Telegram https://t.me/TrustNote"
+msgstr ""
+
+msgid "JSSDK API Introduction"
+msgstr ""
+
+msgid "Loading..."
 msgstr ""
 
 msgid "More"
@@ -48,7 +78,15 @@ msgstr ""
 msgid "Ok"
 msgstr ""
 
+msgid ""
+"Please make sure your Internet is properly connected when applying for "
+"TTT-Test."
+msgstr ""
+
 msgid "Press back again to exit App."
+msgstr ""
+
+msgid "Read after subscription"
 msgstr ""
 
 msgid "Received"
@@ -60,10 +98,25 @@ msgstr ""
 msgid "Require Password"
 msgstr ""
 
+msgid "Reset wallet"
+msgstr ""
+
+msgid "Reward Articles"
+msgstr ""
+
 msgid "Samples"
 msgstr ""
 
 msgid "Sent"
+msgstr ""
+
+msgid "Service is busy, Please try again later"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Subscribe Books"
 msgstr ""
 
 msgid "Supports"
@@ -78,11 +131,23 @@ msgstr ""
 msgid "TrustNote Fusion Wallet"
 msgstr ""
 
+msgid "TrustNote Mainnet Introduction"
+msgstr ""
+
+msgid "View Mnemonic"
+msgstr ""
+
 msgid "Wallet"
 msgstr ""
 
 msgid "Wallet Address:"
 msgstr ""
 
+msgid "What should be paid attention to when submitting the code?"
+msgstr ""
+
 msgid "fees not included"
+msgstr ""
+
+msgid "transaction may take a couple minutes."
 msgstr ""
