@@ -53,12 +53,12 @@
 
         <ion-row>
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <div><img [src]="sourceSet.miniappurl1? sourceSet.miniappurl1 : '../../../assets/icon/tianjia.png'" (tap)="addMini1()"></div>
             <p class="tobeAdded">{{ 'Add App' | translate }}</p>
           </ion-col>
 
           <ion-col>
-            <div><img src="../../../assets/icon/tianjia.png" /></div>
+            <div><img [src]="sourceSet.miniappurl2? sourceSet.miniappurl2 : '../../../assets/icon/tianjia.png'"></div>
             <p class="tobeAdded">{{ 'Add App' | translate }}</p>
           </ion-col>
 
