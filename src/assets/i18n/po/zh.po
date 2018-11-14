@@ -7,11 +7,17 @@ msgstr ""
 msgid "10MN TTT-Test received"
 msgstr "领取测试TTT"
 
+msgid "Add"
+msgstr "添加"
+
 msgid "Add App"
 msgstr "添加应用"
 
 msgid "Balance"
 msgstr "余额"
+
+msgid "Add H5 Applications"
+msgstr "添加H5应用"
 
 msgid "Be careful!"
 msgstr "谨慎操作！"
@@ -28,14 +34,26 @@ msgstr "确认密码"
 msgid "Contact us"
 msgstr "联系我们"
 
+msgid "Delete"
+msgstr "删除"
+
 msgid "Documents"
 msgstr "文档中心"
+
+msgid "Edit H5 Applications"
+msgstr "编辑H5应用"
 
 msgid "Enter Password"
 msgstr "输入密码"
 
 msgid "Failed"
 msgstr "失败"
+
+msgid "Enter application address here"
+msgstr "这里输入应用地址"
+
+msgid "Enter application name here"
+msgstr "这里输入应用标题"
 
 msgid "For Developers"
 msgstr "开发者专用"
@@ -133,6 +151,9 @@ msgstr "TrustNote通用钱包"
 
 msgid "TrustNote Mainnet Introduction"
 msgstr "TrustNote主网介绍"
+
+msgid "Update"
+msgstr "更新"
 
 msgid "View Mnemonic"
 msgstr "查看助记词"

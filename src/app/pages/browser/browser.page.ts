@@ -22,6 +22,8 @@ export class BrowserPage implements OnInit {
     isShow: false
   }; // 分享控制的配置
 
+  fromHome = false;
+
   constructor(
     private sanitizer: DomSanitizer,
     private translate: TranslateService,
@@ -36,6 +38,9 @@ export class BrowserPage implements OnInit {
       console.log('-------*********', params);
       this.browser.title = params.title;
       this.browser.url = params.url;
+      if (params.fromHome) {
+        this.fromHome = params.fromHome;
+      }
     });
 
     // this.browser.url = 'https://github.com/trustnote';
@@ -88,10 +93,11 @@ export class BrowserPage implements OnInit {
   }
   // 关闭浏览器页面
   closePage(myEvent) {
-    // this.navCtrl.pop();
-    // history.go(-1);
-    // history.back();
-    this.router.navigate(['/examples']);
+    if (this.fromHome) {
+      this.router.navigate(['/home']);
+    } else {
+      this.router.navigate(['/examples']);
+    }
   }
   // 重新加载页面
   reload() {
