@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "10MN TTT-Test received"
-msgstr "领取测试TTT"
+msgstr "已领取测试TTT"
 
 msgid "Add"
 msgstr "添加"
@@ -90,6 +90,9 @@ msgstr "载入..."
 msgid "More"
 msgstr "更多"
 
+msgid "Need to restart the app"
+msgstr "需要重启应用"
+
 msgid "No transactions yet"
 msgstr "没有账单产生"
 
@@ -116,6 +119,12 @@ msgstr "正在领取..."
 msgid "Require Password"
 msgstr "设置密码"
 
+msgid "Reset Failed"
+msgstr "重置错误"
+
+msgid "Reset Success"
+msgstr "完成重置"
+
 msgid "Reset wallet"
 msgstr "重置钱包"
 
@@ -136,6 +145,9 @@ msgstr "设置"
 
 msgid "Subscribe Books"
 msgstr "订阅图书"
+
+msgid "Success"
+msgstr "完成"
 
 msgid "Supports"
 msgstr "帮助"
