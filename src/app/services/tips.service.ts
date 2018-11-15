@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, LoadingController } from '@ionic/angular';
 
 import { TipsPage } from '../modal/tips/tips.page';
 import { modalAlertEnter, modalAlertLeave } from '../modal/modal.style';
@@ -8,9 +8,17 @@ import { modalAlertEnter, modalAlertLeave } from '../modal/modal.style';
   providedIn: 'root'
 })
 export class TipsService {
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController, public loadingController: LoadingController) {}
 
-  async alert(result, message) {
+  async loading(message?: string) {
+    const loading = await this.loadingController.create({
+      message: message,
+      duration: 60000
+    });
+    return await loading.present();
+  }
+
+  async alert(title, message) {
     const modal = await this.modalController.create({
       component: TipsPage,
       enterAnimation: modalAlertEnter,
@@ -18,10 +26,11 @@ export class TipsService {
       showBackdrop: true,
       backdropDismiss: true,
       componentProps: {
-        message: message,
-        result: result
+        title: title,
+        message: message
       }
     });
+    this.loadingController.dismiss();
     return await modal.present();
   }
 }
