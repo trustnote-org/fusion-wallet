@@ -103,6 +103,9 @@ export class PaymentService {
       this.tipsService.alert(this.translate.instant('Success'), null);
     } catch (error) {
       // TODO: 处理失败翻译
+      if (error.match('not enough asset')) {
+        error = this.translate.instant('Not enough assets');
+      }
       this.tipsService.alert(this.translate.instant('Failed'), error);
       this.logger.error(error);
     }

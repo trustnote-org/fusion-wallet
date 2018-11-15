@@ -96,6 +96,9 @@ msgstr ""
 msgid "No transactions yet"
 msgstr ""
 
+msgid "Not enough assets"
+msgstr ""
+
 msgid "Ok"
 msgstr ""
 
