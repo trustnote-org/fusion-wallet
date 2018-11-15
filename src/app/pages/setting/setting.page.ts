@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+
 import { modalAlertEnter, modalAlertLeave } from '../../modal/modal.style';
 import { MnemonicPage } from '../../modal/mnemonic/mnemonic.page';
-import { ModalController, LoadingController, Events } from '@ionic/angular';
+
+import { ProfileService } from '../../services/profile.service';
+import { TipsService } from '../../services/tips.service';
 
 @Component({
   selector: 'app-setting',
@@ -9,7 +14,12 @@ import { ModalController, LoadingController, Events } from '@ionic/angular';
   styleUrls: ['./setting.page.scss']
 })
 export class SettingPage implements OnInit {
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private modalController: ModalController,
+    private translate: TranslateService,
+    private profileService: ProfileService,
+    private tipsService: TipsService
+  ) {}
 
   ngOnInit() {}
   goBack() {
@@ -27,5 +37,17 @@ export class SettingPage implements OnInit {
       componentProps: {}
     });
     return await modal.present();
+  }
+
+  resetWallet() {
+    this.tipsService.loading();
+    this.profileService
+      .clearAllProfile()
+      .then(ret => {
+        this.tipsService.alert(this.translate.instant('Reset Success'), this.translate.instant('Need to restart the app'));
+      })
+      .catch(err => {
+        this.tipsService.alert(this.translate.instant('Reset Failed'), null);
+      });
   }
 }
