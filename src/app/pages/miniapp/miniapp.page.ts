@@ -13,32 +13,48 @@ export class MiniappPage implements OnInit {
   apptitle: string;
   appaddress: string;
   isEdit = false;
-  // localTitle: string;
-  // localUrl: string;
+  couldClick: boolean;
 
-  constructor(
-    private router: Router,
-    private activate: ActivatedRoute,
-    private profile: ProfileService,
-    private logger: NGXLogger
-  ) {
+  constructor(private router: Router, private activate: ActivatedRoute, private profile: ProfileService, private logger: NGXLogger) {
     this.activate.queryParams.subscribe(params => {
+      this.couldClick = false;
       this.miniAppId = params.id;
       if (params.edit) {
         this.isEdit = params.edit;
         this.apptitle = this.profile.miniApp[this.miniAppId].title;
         this.appaddress = this.profile.miniApp[this.miniAppId].url;
+        this.couldClick = true;
       }
     });
   }
 
   ngOnInit() {}
+
   // 返回
   goBack() {
     this.router.navigate(['/home']);
   }
+
+  // 判断 按钮是否可以点击
+  onClickItem(val) {
+    if (this.apptitle && this.appaddress) {
+      this.couldClick = true;
+    } else {
+      this.couldClick = false;
+    }
+    this.logger.info(this.couldClick);
+  }
+
   // 保存 mini app
   storeApp() {
+    if (!this.couldClick) {
+      this.logger.info('****不能保存 格式不正确*****');
+      return false;
+    }
+    let pattern = /^((https|http)?:\/\/)/; // 正则表达式
+    if (!pattern.test(this.appaddress)) {
+      this.appaddress = 'http://' + this.appaddress;
+    }
     let appid = this.miniAppId;
     this.profile.miniApp[appid] = {
       title: this.apptitle,
@@ -54,6 +70,7 @@ export class MiniappPage implements OnInit {
         this.logger.error(rej);
       });
   }
+
   // 删除 mini app
   delteApp() {
     let tepmObj = this.profile.miniApp;

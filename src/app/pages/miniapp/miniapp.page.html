@@ -14,19 +14,25 @@
     <div style='flex:1; position: relative;'>
       <!-- 应用标题 -->
       <div class='apptitle'>
-        <input type="text" placeholder="{{'Enter application name here' | translate }}" [(ngModel)]="apptitle">
+        <input type="text" placeholder="{{'Enter application name here' | translate }}" [(ngModel)]="apptitle" #title
+          (keyup)="onClickItem(title.value)">
       </div>
       <!-- 应用地址 -->
       <div class='apptitle appaddress'>
-        <input type="text" placeholder="{{'Enter application address here' | translate }}" [(ngModel)]="appaddress">
+        <input type="text" placeholder="{{'Enter application address here' | translate }}" [(ngModel)]="appaddress"
+          #address (keyup)="onClickItem(address.value)">
       </div>
-      <!-- 添加按钮 -->
-      <div class='addBtnWrap'>
-        <div class="btn" (click)='storeApp()' *ngIf='!isEdit'>{{ 'Add' | translate }}</div>
-        <div class="btn" (click)='storeApp()' *ngIf='isEdit'>{{ 'Update' | translate }}</div>
-        <div class="btn btnM" (click)='delteApp()' *ngIf='isEdit'>{{ 'Delete' | translate }}</div>
-      </div>
+
     </div>
 
   </div>
 </ion-content>
+
+<!-- 底部 添加按钮 -->
+<ion-footer>
+  <div class='addBtnWrap'>
+    <div class="btn" (click)='storeApp()' *ngIf='!isEdit'>{{ 'Add' | translate }}</div>
+    <div class="btn" (click)='storeApp()' *ngIf='isEdit'>{{ 'Update' | translate }}</div>
+    <div class="btn btnM" (click)='delteApp()' *ngIf='isEdit'>{{ 'Delete' | translate }}</div>
+  </div>
+</ion-footer>
