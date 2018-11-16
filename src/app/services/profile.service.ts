@@ -26,11 +26,7 @@ export class ProfileService {
   private static asset: assetType;
   private isLoaded: boolean;
 
-  constructor(
-    private storage: StorageService,
-    private result: ResultService,
-    private logger: NGXLogger
-  ) {
+  constructor(private storage: StorageService, private result: ResultService, private logger: NGXLogger) {
     this.isLoaded = false;
     ProfileService.profile = {
       status: ConfigService.statusDefault,
@@ -150,7 +146,33 @@ export class ProfileService {
       return this.result.success(profile);
     } catch (error) {
       this.logger.error(error);
-      return this.result.error('storeProfile fault');
+      throw this.result.error('storeProfile fault');
+    }
+  }
+
+  async clearAllProfile() {
+    let profile = {
+      status: ConfigService.statusDefault,
+      config: ConfigService.configDefault,
+      setting: ProfileService.profile.setting,
+      miniapp: {},
+      wallet: ConfigService.walletDefault,
+      history: {},
+      asset: ConfigService.assetDefault
+    };
+
+    try {
+      await this.storeStatus(profile.status);
+      await this.storeConfig(profile.config);
+      await this.storeSetting(profile.setting);
+      await this.storeWallet(profile.wallet);
+      await this.storeHistory(profile.history);
+      await this.storeAsset(profile.asset);
+      await this.storeMiniApp(profile.miniapp);
+      return this.result.success('Clear Success');
+    } catch (error) {
+      this.logger.error(error);
+      throw this.result.error('Clear Fault');
     }
   }
 
@@ -223,10 +245,7 @@ export class ProfileService {
         rejects(this.result.warn('Already is locked'));
       } else {
         try {
-          ProfileService.profile.wallet.privkeyEncrypted = sjcl.encrypt(
-            password,
-            ProfileService.profile.wallet.privkey
-          );
+          ProfileService.profile.wallet.privkeyEncrypted = sjcl.encrypt(password, ProfileService.profile.wallet.privkey);
           ProfileService.profile.wallet.privkey = null;
           ProfileService.profile.status.isLock = true;
           this.storeWallet(ProfileService.profile.wallet).then(ret => {
@@ -253,10 +272,7 @@ export class ProfileService {
         rejects(this.result.warn('Already is unlocked'));
       } else {
         try {
-          ProfileService.profile.wallet.privkey = sjcl.decrypt(
-            password,
-            ProfileService.profile.wallet.privkeyEncrypted
-          );
+          ProfileService.profile.wallet.privkey = sjcl.decrypt(password, ProfileService.profile.wallet.privkeyEncrypted);
           ProfileService.profile.wallet.privkeyEncrypted = null;
           ProfileService.profile.status.isLock = false;
           this.storeWallet(ProfileService.profile.wallet).then(ret => {

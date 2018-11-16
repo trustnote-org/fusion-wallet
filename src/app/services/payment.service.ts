@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ModalController, LoadingController, Events } from '@ionic/angular';
+import { ModalController, Events } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 import { NGXLogger } from 'ngx-logger';
 import { NetworkService } from './network.service';
@@ -18,7 +19,7 @@ export class PaymentService {
   constructor(
     public events: Events,
     private modalController: ModalController,
-    public loadingController: LoadingController,
+    private translate: TranslateService,
     private logger: NGXLogger,
     private networkService: NetworkService,
     private walletService: WalletService,
@@ -96,14 +97,13 @@ export class PaymentService {
     ];
 
     try {
-      this.presentLoading();
+      this.tipsService.loading();
       let ret = await this.pay(outputs, asset, message);
       this.logger.debug(ret);
-      this.loadingController.dismiss();
-      this.tipsService.alert('支付成功', null);
+      this.tipsService.alert(this.translate.instant('Success'), null);
     } catch (error) {
-      this.loadingController.dismiss();
-      this.tipsService.alert('支付失败', error);
+      // TODO: 处理失败翻译
+      this.tipsService.alert(this.translate.instant('Failed'), error);
       this.logger.error(error);
     }
   }
@@ -125,14 +125,6 @@ export class PaymentService {
       }
     });
     return await modal.present();
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      message: '正在支付...',
-      duration: 10000
-    });
-    return await loading.present();
   }
 
   // payMutiAddress()

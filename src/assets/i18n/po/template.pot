@@ -90,6 +90,9 @@ msgstr ""
 msgid "More"
 msgstr ""
 
+msgid "Need to restart the app"
+msgstr ""
+
 msgid "No transactions yet"
 msgstr ""
 
@@ -110,10 +113,13 @@ msgstr ""
 msgid "Received"
 msgstr ""
 
-msgid "Receiving..."
+msgid "Require Password"
 msgstr ""
 
-msgid "Require Password"
+msgid "Reset Failed"
+msgstr ""
+
+msgid "Reset Success"
 msgstr ""
 
 msgid "Reset wallet"
@@ -135,6 +141,9 @@ msgid "Settings"
 msgstr ""
 
 msgid "Subscribe Books"
+msgstr ""
+
+msgid "Success"
 msgstr ""
 
 msgid "Supports"

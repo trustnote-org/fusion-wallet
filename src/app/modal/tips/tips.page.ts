@@ -10,21 +10,14 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class TipsPage implements OnInit {
   @Input()
-  result: any;
+  title: any;
   @Input()
   message: any;
 
-  constructor(
-    public events: Events,
-    private modalController: ModalController,
-    private logger: NGXLogger
-  ) {}
+  constructor(public events: Events, private modalController: ModalController, private logger: NGXLogger) {}
 
   ngOnInit() {
-    this.logger.debug(this.result, this.message);
-    if (this.message && this.message.match('not enough asset')) {
-      this.message = '余额不足';
-    }
+    this.logger.debug(this.title, this.message);
   }
 
   // 关闭模态框
