@@ -1,18 +1,22 @@
-<ion-header>
-  <div class="left" (click)="closePage($event)">
-    <img src="../../../assets/icon/back-blue@2x.png">
-  </div>
-  <div class="con">{{browser.title}}</div>
-</ion-header>
+<!-- <panel-share [(isShow)]="shareConfig.isShow" [share]="browser.share"></panel-share> -->
 
 <ion-content>
-  <div class="progress" [hidden]="browser.isLoaded">
-    <div class="progress-inner" id="progress"></div>
+  <div style="display:flex; flex-direction:column;height: 100%;">
+    <!-- title -->
+    <div class='conWrap'>
+      <div class="left" (click)="closePage($event)">
+        <img src="../../../assets/icon/back-blue@2x.png">
+      </div>
+      <div class="con">{{browser.title}}</div>
+    </div>
+    <!-- iframe -->
+    <div style='flex:1;position: relative;'>
+      <div class="progress" [hidden]="browser.isLoaded">
+        <div class="progress-inner" id="progress"></div>
+      </div>
+      <iframe id="iframe" class="iframe e2e-iframe-trusted-src" sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-forms"
+        [src]="browser.secUrl" (load)="loaded()">
+      </iframe>
+    </div>
   </div>
-
-  <iframe id="iframe" class="iframe e2e-iframe-trusted-src" sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-forms"
-    [src]="browser.secUrl" (load)="loaded()">
-  </iframe>
 </ion-content>
-
-<!-- <panel-share [(isShow)]="shareConfig.isShow" [share]="browser.share"></panel-share> -->
