@@ -71,7 +71,14 @@
         text-align: center;
     }
 
+    .nonClick {
+        opacity: 0.7;
+    }
+
     .btnM {
         margin-top: 25px;
+        background: #fff;
+        color: #4862FE;
+        border: 1px solid #4862FE;
     }
 }

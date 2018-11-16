@@ -31,7 +31,7 @@
 <!-- 底部 添加按钮 -->
 <ion-footer>
   <div class='addBtnWrap'>
-    <div class="btn" (click)='storeApp()' *ngIf='!isEdit'>{{ 'Add' | translate }}</div>
+    <div class="btn" [ngClass]="{'nonClick':!couldClick}" (click)='storeApp()' *ngIf='!isEdit'>{{ 'Add' | translate }}</div>
     <div class="btn" (click)='storeApp()' *ngIf='isEdit'>{{ 'Update' | translate }}</div>
     <div class="btn btnM" (click)='delteApp()' *ngIf='isEdit'>{{ 'Delete' | translate }}</div>
   </div>
