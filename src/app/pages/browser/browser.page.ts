@@ -24,12 +24,7 @@ export class BrowserPage implements OnInit {
 
   fromHome = false;
 
-  constructor(
-    private sanitizer: DomSanitizer,
-    private translate: TranslateService,
-    private router: Router,
-    private activate: ActivatedRoute
-  ) {
+  constructor(private sanitizer: DomSanitizer, private translate: TranslateService, private router: Router, private activate: ActivatedRoute) {
     // let browser = this.params.get('browser');
     // let url = this.params.get('url');
     // let title = this.params.get('title');
@@ -57,36 +52,36 @@ export class BrowserPage implements OnInit {
     if (!this.browser.proObj) {
       this.browser.proObj = document.getElementById('progress');
     }
-    this.onprogress();
+    // this.onprogress();
   }
   // 生成随机数
   private random(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
   // 网页访问进度
-  private onprogress() {
-    // 随机时间
-    let timeout = this.random(10, 30);
+  // private onprogress() {
+  //   // 随机时间
+  //   let timeout = this.random(10, 30);
 
-    let timer = setTimeout(() => {
-      if (this.browser.isLoaded) {
-        this.browser.proObj.style.width = '100%';
-        clearTimeout(timer);
-        return;
-      }
+  //   let timer = setTimeout(() => {
+  //     if (this.browser.isLoaded) {
+  //       this.browser.proObj.style.width = '100%';
+  //       clearTimeout(timer);
+  //       return;
+  //     }
 
-      // 随机进度
-      this.browser.progress += this.random(1, 5);
+  //     // 随机进度
+  //     this.browser.progress += this.random(1, 5);
 
-      // 随机进度不能超过 90%，以免页面还没加载完毕，进度已经 100% 了
-      if (this.browser.progress > 90) {
-        this.browser.progress = 90;
-      }
+  //     // 随机进度不能超过 90%，以免页面还没加载完毕，进度已经 100% 了
+  //     if (this.browser.progress > 90) {
+  //       this.browser.progress = 90;
+  //     }
 
-      this.browser.proObj.style.width = this.browser.progress + '%';
-      this.onprogress();
-    }, timeout);
-  }
+  //     this.browser.proObj.style.width = this.browser.progress + '%';
+  //     this.onprogress();
+  //   }, timeout);
+  // }
   // 如果iframe页面加载成功后
   loaded() {
     this.browser.isLoaded = true;
@@ -112,7 +107,7 @@ export class BrowserPage implements OnInit {
       if (!this.browser.proObj) {
         this.browser.proObj = document.getElementById('progress');
       }
-      this.onprogress();
+      // this.onprogress();
       this.browser.title = title;
       this.browser.secUrl = url;
     }, 10);

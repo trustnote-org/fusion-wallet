@@ -13,56 +13,53 @@ ion-refresher {
     background: url(../../../assets/img/bannarBG.png) no-repeat center center;
     background-size: 105% 205px;
     position: relative;
-}
 
-.banner h2 {
-    font-family: PingFangSC-Medium;
-    font-size: 18px;
-    color: #ffffff;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 40px;
-    margin: 0;
-    // 顶部安全区
-    padding-top: constant(safe-area-inset-top) !important;
-    padding-top: env(safe-area-inset-top) !important;
-}
+    h2 {
+        font-family: PingFangSC-Medium;
+        font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 40px;
+        margin: 0;
+        // 顶部安全区
+        padding-top: constant(safe-area-inset-top) !important;
+        padding-top: env(safe-area-inset-top) !important;
+    }
 
-.banner p {
-    opacity: 0.5;
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 0;
-    text-align: left;
-    // margin: 0;
-    // margin-top: 40px;
-    position: absolute;
-    bottom: 90px;
-    padding-left: 15px;
-}
+    p {
+        opacity: 0.5;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #ffffff;
+        letter-spacing: 0;
+        text-align: left;
+        position: absolute;
+        bottom: 90px;
+        padding-left: 15px;
+    }
 
-.banner h1 {
-    font-family: DINAlternate-Bold;
-    font-size: 46px;
-    color: #ffffff;
-    letter-spacing: 0;
-    text-align: left;
-    line-height: 46px;
-    // margin: 0;
-    // margin-top: 25px;
-    position: absolute;
-    bottom: 20px;
-    padding-left: 15px;
-}
+    h1 {
+        font-family: DINAlternate-Bold;
+        font-size: 46px;
+        color: #ffffff;
+        letter-spacing: 0;
+        text-align: left;
+        line-height: 46px;
+        position: absolute;
+        bottom: 20px;
+        padding-left: 15px;
 
-.banner h1 span {
-    font-size: 36px;
-}
+        span {
+            font-size: 36px;
+        }
 
-.banner h1 b {
-    font-weight: normal;
-    font-size: 14px;
+        b {
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+
 }
 
 // banner 部分 结束
@@ -73,31 +70,32 @@ ion-refresher {
     background: url(../../../assets/img/details.png) no-repeat center center;
     background-size: 105% 75px;
     line-height: 60px;
-}
 
-.details div {
-    float: left;
-    line-height: 70px;
-    padding-left: 15px;
-    margin-right: 10px;
-}
+    div {
+        float: left;
+        line-height: 70px;
+        padding-left: 15px;
+        margin-right: 10px;
 
-.details div img {
-    width: 22px;
-}
+        img {
+            width: 22px;
+        }
+    }
 
-.details h3 {
-    font-family: PingFangSC-Regular;
-    font-size: 16px;
-    color: #ffffff;
-    letter-spacing: 0;
-    text-align: left;
-    line-height: 30px;
-    float: left;
-}
+    h3 {
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        color: #ffffff;
+        letter-spacing: 0;
+        text-align: left;
+        line-height: 30px;
+        float: left;
+    }
 
-.details div.right {
-    float: right;
+    div.right {
+        float: right;
+    }
+
 }
 
 // 账单 部分 结束
@@ -108,21 +106,21 @@ ion-refresher {
     line-height: 66px;
     background: url(../../../assets/img/gett.png) no-repeat;
     background-size: contain;
-}
 
-.gettt p {
-    float: left;
-    padding-left: 56px;
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #263568;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 26px;
-}
+    p {
+        float: left;
+        padding-left: 56px;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #263568;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 26px;
+    }
 
-.gettt img {
-    width: 26px;
+    img {
+        width: 26px;
+    }
 }
 
 ion-col {
