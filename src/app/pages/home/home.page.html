@@ -52,7 +52,7 @@
                 (press)="editMiniApp(1)">
             </div>
             <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle1'>{{ 'Add App' | translate }}</p>
-            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle1'>{{sourceSetTitle.miniapptitle1}}</p>
+            <p *ngIf='sourceSetTitle.miniapptitle1'>{{sourceSetTitle.miniapptitle1}}</p>
           </ion-col>
 
           <ion-col size='4'>
@@ -61,7 +61,7 @@
                 (press)="editMiniApp(2)">
             </div>
             <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle2'>{{ 'Add App' | translate }}</p>
-            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle2'>{{sourceSetTitle.miniapptitle2}}</p>
+            <p *ngIf='sourceSetTitle.miniapptitle2'>{{sourceSetTitle.miniapptitle2}}</p>
           </ion-col>
 
           <ion-col size='4'>
@@ -70,7 +70,7 @@
                 (press)="editMiniApp(3)" />
             </div>
             <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle3'>{{ 'Add App' | translate }}</p>
-            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle3'>{{sourceSetTitle.miniapptitle3}}</p>
+            <p *ngIf='sourceSetTitle.miniapptitle3'>{{sourceSetTitle.miniapptitle3}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -80,7 +80,7 @@
                 (press)="editMiniApp(4)" />
             </div>
             <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle4'>{{ 'Add App' | translate }}</p>
-            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle4'>{{sourceSetTitle.miniapptitle4}}</p>
+            <p *ngIf='sourceSetTitle.miniapptitle4'>{{sourceSetTitle.miniapptitle4}}</p>
           </ion-col>
 
           <ion-col size='4'>
@@ -89,7 +89,7 @@
                 (press)="editMiniApp(5)" />
             </div>
             <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle5'>{{ 'Add App' | translate }}</p>
-            <p class="tobeAdded" *ngIf='sourceSetTitle.miniapptitle5'>{{sourceSetTitle.miniapptitle5}}</p>
+            <p *ngIf='sourceSetTitle.miniapptitle5'>{{sourceSetTitle.miniapptitle5}}</p>
           </ion-col>
 
           <ion-col size='4'>
