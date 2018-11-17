@@ -1,44 +1,7 @@
-<!-- <ion-header no-shadow>
-  <ion-buttons end>
-    <button ion-button icon-only (click)="reload()">
-      <ion-icon name="refresh"></ion-icon>
-    </button>
-    <button ion-button icon-only>
-      <ion-icon name="close"></ion-icon>
-    </button>
-  </ion-buttons>
-</ion-header> -->
-
-<!-- <ion-content class="content"> -->
-<!--scroll="true" overflow-scroll="true"-->
-<!-- <div class="progress" [hidden]="browser.isLoaded">
-    <div class="progress-inner" id="progress"></div>
-  </div> -->
-
-<!-- <iframe id="iframe" class="iframe" sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-forms"
-    [src]="browser.secUrl" (load)="loaded()">
-  </iframe> -->
-<!-- </ion-content> -->
 <!-- <panel-share [(isShow)]="shareConfig.isShow" [share]="browser.share"></panel-share> -->
-
-
-
-<!-- <ion-content>
-  <div class="BGcolor" style='display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;'>
-    
-
-    <div class="progress" [hidden]="browser.isLoaded">
-      <div class="progress-inner" id="progress"></div>
-    </div>
-
-
-
-  </div>
-</ion-content> -->
 
 <ion-content>
   <div style="display:flex; flex-direction:column;height: 100%;">
-
     <!-- title -->
     <div class='conWrap'>
       <div class="left" (click)="closePage($event)">
@@ -47,11 +10,13 @@
       <div class="con">{{browser.title}}</div>
     </div>
     <!-- iframe -->
-    <div style='flex:1;'>
+    <div style='flex:1;position: relative;'>
+      <div class="progress" [hidden]="browser.isLoaded">
+        <div class="progress-inner" id="progress"></div>
+      </div>
       <iframe id="iframe" class="iframe e2e-iframe-trusted-src" sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-forms"
         [src]="browser.secUrl" (load)="loaded()">
       </iframe>
     </div>
-
   </div>
 </ion-content>
