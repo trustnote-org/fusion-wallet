@@ -99,6 +99,9 @@ msgstr "没有账单产生"
 msgid "Not enough assets"
 msgstr "余额不足"
 
+msgid "Note"
+msgstr "注意"
+
 msgid "Ok"
 msgstr "确定"
 
