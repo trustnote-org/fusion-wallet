@@ -27,6 +27,8 @@ export class BrowserPage implements OnInit {
 
   // 是否 直接从home页面过来
   fromHome = false;
+  // 是否 直接从More页面过来
+  fromMore = false;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -41,6 +43,9 @@ export class BrowserPage implements OnInit {
       this.browser.url = params.url;
       if (params.fromHome) {
         this.fromHome = params.fromHome;
+      }
+      if (params.fromMore) {
+        this.fromMore = params.fromMore;
       }
     });
     this.browser.secUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.browser.url);
@@ -92,6 +97,8 @@ export class BrowserPage implements OnInit {
   closePage(myEvent) {
     if (this.fromHome) {
       this.router.navigate(['/home']);
+    } else if (this.fromMore) {
+      this.router.navigate(['/more']);
     } else {
       this.router.navigate(['/examples']);
     }

@@ -1,8 +1,5 @@
 <ion-content>
-  <div
-    class="BGcolor"
-    style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;"
-  >
+  <div class="BGcolor" style="display: -webkit-flex;display: flex;-webkit-flex-direction: column;flex-direction: column;width: 100%;height: 100%;">
     <div class="content">
       <div class="left"><img src="assets/icon/back-blue@2x.png" (click)="goBack()" /></div>
       <div class="con">{{ 'More' | translate }}</div>
@@ -10,7 +7,7 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <!-- <ion-col>
           <div><img src="../../../assets/icon/tianjia.png" /></div>
           <p class="tobeAdded">{{ 'Add App' | translate }}</p>
         </ion-col>
@@ -23,6 +20,35 @@
         <ion-col>
           <div><img src="../../../assets/icon/tianjia.png" /></div>
           <p class="tobeAdded">{{ 'Add App' | translate }}</p>
+        </ion-col> -->
+
+
+
+        <ion-col size='4'>
+          <div>
+            <img [src]="sourceSet.miniappurl6? sourceSet.miniappurl6 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(6)"
+              (press)="editMiniApp(6)">
+          </div>
+          <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle6'>{{ 'Add App' | translate }}</p>
+          <p *ngIf='sourceSetTitle.miniapptitle6'>{{sourceSetTitle.miniapptitle6}}</p>
+        </ion-col>
+
+        <ion-col size='4'>
+          <div>
+            <img [src]="sourceSet.miniappurl7? sourceSet.miniappurl7 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(7)"
+              (press)="editMiniApp(7)">
+          </div>
+          <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle7'>{{ 'Add App' | translate }}</p>
+          <p *ngIf='sourceSetTitle.miniapptitle7'>{{sourceSetTitle.miniapptitle7}}</p>
+        </ion-col>
+
+        <ion-col size='4'>
+          <div>
+            <img [src]="sourceSet.miniappurl8? sourceSet.miniappurl8 : '../../../assets/icon/tianjia.png'" (tap)="addMiniApp(8)"
+              (press)="editMiniApp(8)">
+          </div>
+          <p class="tobeAdded" *ngIf='!sourceSetTitle.miniapptitle8'>{{ 'Add App' | translate }}</p>
+          <p *ngIf='sourceSetTitle.miniapptitle8'>{{sourceSetTitle.miniapptitle8}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
