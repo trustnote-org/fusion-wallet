@@ -17,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, TranslateModule.forChild(), RouterModule.forChild(routes)],
-  declarations: [TipsPage]
+  declarations: []
 })
 export class TipsPageModule {}
