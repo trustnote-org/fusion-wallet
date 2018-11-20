@@ -99,6 +99,9 @@ msgstr ""
 msgid "Not enough assets"
 msgstr ""
 
+msgid "Note"
+msgstr ""
+
 msgid "Ok"
 msgstr ""
 

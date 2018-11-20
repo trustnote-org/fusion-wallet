@@ -146,7 +146,7 @@ export class HomePage implements OnInit {
   onTap($event) {
     this.router.navigate(['/more']);
   }
-  // 添加 小程序
+  // 添加 or 进入 小程序
   addMiniApp(num) {
     if (this.sourceSetTitle['miniapptitle' + num]) {
       this.router.navigate(['/browser'], {

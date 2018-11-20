@@ -14,11 +14,15 @@ export class MiniappPage implements OnInit {
   appaddress: string;
   isEdit = false;
   couldClick: boolean;
+  fromMore: boolean;
 
   constructor(private router: Router, private activate: ActivatedRoute, private profile: ProfileService, private logger: NGXLogger) {
     this.activate.queryParams.subscribe(params => {
       this.couldClick = false;
       this.miniAppId = params.id;
+      if (params.fromMore) {
+        this.fromMore = params.fromMore;
+      }
       if (params.edit) {
         this.isEdit = params.edit;
         this.apptitle = this.profile.miniApp[this.miniAppId].title;
@@ -32,7 +36,11 @@ export class MiniappPage implements OnInit {
 
   // 返回
   goBack() {
-    this.router.navigate(['/home']);
+    if (this.fromMore) {
+      this.router.navigate(['/more']);
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 
   // 判断 按钮是否可以点击
