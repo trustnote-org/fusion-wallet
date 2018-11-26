@@ -10,8 +10,8 @@ import { PaymentService } from '../../services/payment.service';
 })
 export class ExamplesPage implements OnInit {
   obj: any = {
-    url: 'https://www.baidu.com/',
-    title: '百度一下',
+    url: 'http://150.109.57.242/demo/readbook',
+    title: '小王子',
     msg: '附加信息'
   };
   constructor(private router: Router, private paymentService: PaymentService) {}
