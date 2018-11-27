@@ -16,3 +16,5 @@ Fusion Wallet 在支持 TrustNote 网络资产的操作外，最大的更新是�
 在 Fusion Wallet 中，生成钱包的过程添加了密钥，简单说就是 助记词+密钥 才能生成钱包，即使助记词泄露，也无法仅依靠助记词恢复该钱包。钱包私钥只存储在设备里，在设置中可以对私钥进行二次加密。支付过程不会使私钥离开设备。
 
 ### 开发者文档
+
+[development_CN](docs/development_CN.md)
