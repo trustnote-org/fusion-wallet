@@ -15,7 +15,7 @@ export class ConfigService {
 
   static configDefault: configType = {
     restAPI: 'https://beta.itoken.top/api/v1',
-    restAPI_dev: 'http://150.109.57.242:6001/api/v1',
+    restAPI_dev: 'http://150.109.57.242:6002/api/v1',
     faucetAPI: 'http://150.109.196.219:6553',
     assetAPI: 'https://itoken.top/token/query-token-detal.htm',
     assetAPI_dev: 'https://beta.itoken.top//v1/token/query-token-detal',

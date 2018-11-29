@@ -11,8 +11,99 @@
 .content {
     position: relative;
     // 顶部安全区
-    padding-top: constant(safe-area-inset-top) !important;
-    padding-top: env(safe-area-inset-top) !important;
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+
+    // 没有历史记录
+    div.account {
+        margin-top: 15px;
+        padding-left: 35px;
+        height: 177px;
+        width: 90%;
+        margin-left: 5%;
+        background: url(../../../assets/img/accountBG.png) no-repeat center center;
+        background-size: 100% 177px;
+        position: absolute;
+
+        p {
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #9196a5;
+            letter-spacing: 0;
+            margin: 0px;
+            padding-top: 30px;
+
+            span {
+                font-size: 10px;
+                color: #6786ee;
+                letter-spacing: 0;
+                background: #eef0ff;
+                border: 1px solid #cad1ff;
+                border-radius: 10px;
+                padding: 0 5px;
+                margin-left: 10px;
+            }
+        }
+
+        h3 {
+            font-family: DINAlternate-Bold;
+            font-size: 24px;
+            color: #666c82;
+            letter-spacing: 0;
+            margin: 0;
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-family: PingFangSC-Medium;
+            font-size: 26px;
+            color: #010d34;
+            letter-spacing: 0;
+            position: absolute;
+            bottom: 10px;
+        }
+    }
+
+    // 历史记录
+    .balance {
+        padding-left: 35px;
+        height: 120px;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 15px;
+        background: url(../../../assets/img/balance.png) no-repeat center center;
+        background-size: 100% 110px;
+        position: absolute;
+
+        h3 {
+            font-family: DINAlternate-Bold;
+            font-size: 24px;
+            color: #666c82;
+            letter-spacing: 0;
+            margin: 0;
+            margin-top: 10px;
+        }
+
+        p {
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #9196a5;
+            letter-spacing: 0;
+            margin: 0px;
+            padding-top: 30px;
+
+            span {
+                font-size: 10px;
+                color: #6786ee;
+                letter-spacing: 0;
+                background: #eef0ff;
+                border: 1px solid #cad1ff;
+                border-radius: 10px;
+                padding: 0 5px;
+                margin-left: 10px;
+            }
+        }
+    }
 }
 
 .left {
@@ -31,81 +122,36 @@
     line-height: 40px;
 }
 
-.account {
-    margin: -87px auto 0;
-    padding-left: 35px;
-    height: 177px;
-    width: 90%;
-    background: url(../../../assets/img/accountBG.png) no-repeat center center;
-    background-size: 100% 177px;
-    position: relative;
-}
 
-.account p {
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #9196a5;
-    letter-spacing: 0;
-    margin: 0px;
-    padding-top: 30px;
-}
 
-.account p span {
-    font-size: 10px;
-    color: #6786ee;
-    letter-spacing: 0;
-    background: #eef0ff;
-    border: 1px solid #cad1ff;
-    border-radius: 10px;
-    padding: 0 5px;
-    margin-left: 10px;
-}
-
-.account h3 {
-    font-family: DINAlternate-Bold;
-    font-size: 24px;
-    color: #666c82;
-    letter-spacing: 0;
-    margin: 0;
-    margin-top: 10px;
-}
-
-.account h1 {
-    font-family: PingFangSC-Medium;
-    font-size: 26px;
-    color: #010d34;
-    letter-spacing: 0;
-    position: absolute;
-    bottom: 10px;
-}
-
-.noAccount {
+div.noAccount {
     position: absolute;
     bottom: 100px;
     width: 100%;
     text-align: center;
+
+    img {
+        height: 127px;
+    }
+
+    p {
+        font-family: PingFangSC-Light;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 22px;
+    }
 }
 
-.noAccount img {
-    height: 127px;
-}
-
-.noAccount p {
-    font-family: PingFangSC-Light;
-    font-size: 14px;
-    color: #333333;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 22px;
-}
 
 // 账单历史
 div.item {
     width: 95%;
-    // background: red;
     float: right;
     border-bottom: 1px solid #eee;
     position: relative;
+    background: #fff;
 }
 
 div p.title {
@@ -145,49 +191,19 @@ div p.amount {
     letter-spacing: 0;
 }
 
-.balance {
-    margin: -90px auto 0;
-    padding-left: 35px;
-    height: 120px;
-    width: 90%;
-    background: url(../../../assets/img/balance.png) no-repeat center center;
-    background-size: 100% 110px;
-    position: relative;
-}
-
-.balance h3 {
-    font-family: DINAlternate-Bold;
-    font-size: 24px;
-    color: #666c82;
-    letter-spacing: 0;
-    margin: 0;
-    margin-top: 10px;
-}
-
-.balance p {
-    font-family: PingFangSC-Regular;
-    font-size: 14px;
-    color: #9196a5;
-    letter-spacing: 0;
-    margin: 0px;
-    padding-top: 30px;
-}
-
-.balance p span {
-    font-size: 10px;
-    color: #6786ee;
-    letter-spacing: 0;
-    background: #eef0ff;
-    border: 1px solid #cad1ff;
-    border-radius: 10px;
-    padding: 0 5px;
-    margin-left: 10px;
-}
-
-
 div.details {
-    height: calc(100% - 260px);
+    height: calc(100% - 150px);
     // background: rebeccapurple;
     overflow: auto;
-    margin-top: 20px;
+    padding-top: 45px;
+}
+
+ion-list {
+    margin-top: constant(safe-area-inset-top);
+    margin-top: env(safe-area-inset-top);
+
+    div.back {
+        width: 100%;
+        background: #fff;
+    }
 }

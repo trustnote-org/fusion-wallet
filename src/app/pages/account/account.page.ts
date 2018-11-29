@@ -62,12 +62,19 @@ export class AccountPage implements OnInit {
               action: action,
               date: this.formatDateTime(history[key].timestamp),
               amount: (history[key].amount.TTT / 1000000).toFixed(6),
-              unit: history[key].unit
+              unit: history[key].unit,
+              timestamp: history[key].timestamp
             };
 
             this.arrHistory.push(obj); // 前端页面遍历的 数组
           }
           _.reverse(this.arrHistory);
+          // for (let i = 0; i < this.arrHistory.length; i++) {
+          //   console.log('***********', new Date(this.arrHistory[i].timestamp * 1000).getMonth() + 1);
+          //   if (new Date(this.arrHistory[i].timestamp * 1000).getMonth() + 1 === new Date().getMonth() + 1) {
+          //     console.log(555555555555);
+          //   }
+          // }
         }
         this.updateHistory();
       },
