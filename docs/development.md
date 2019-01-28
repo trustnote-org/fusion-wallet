@@ -10,7 +10,7 @@
 
 <hr />
 
-# <p id="1">一. Client Develop</p>
+# <p id="1">Client Develop</p>
 
 Description: The client is responsible for generating mnemonics, private keys, addresses, and persistent storage, which are used to participate in blockchain network trading behavior. Next, we will introduce the open API interface of the blockchain network. The client needs to perform network interaction through the API.
 
@@ -70,7 +70,7 @@ let walletPubkey = Client.walletPubKey(privkey, 0)
 let address = Client.walletAddress(walletPubkey, 0, 0)
 ```
 
-# <p id="2">二. Open Blockchain API</p>
+# <p id="2">Open Blockchain API</p>
 
 Testnet Node IP  -  http://150.109.57.242:6002
 Mainnet Node IP  -  http://150.109.50.199:6002
@@ -210,7 +210,7 @@ response：
 }
 ```
 
-## 4. sign
+## 4. sign the Unit
 
 **Description：** Submit signature to complete the transfer transaction
 
@@ -586,7 +586,7 @@ response：
 
 ```
 
-# <p id="3">三. HTML5 APP developing</p>
+# <p id="3">HTML5 APP developing</p>
 
 Open H5 web pages within the TrustNote app, you can use JSApi and wallet to communicate, JSApi makes it easy for developers' small apps to call the wallet open function in the TrustNote environment.
 
