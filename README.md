@@ -1,5 +1,24 @@
 ## Fusion Wallet
 
+#### Easy to use, lightweight, and more secure; TrustNote content aggregation client that supports Dapp applets
+
+- Why is there a Fusion Wallet?
+
+The official TrustNote wallet and the main chain are too highly coupled; the previous service interface is specially customized for the wallet and is not easy to expand; the main chain upgrade requires the wallet to update the relevant logic code; the wallet follows the HD wallet design and generates a large number of addresses. Ordinary users are inconvenient to use.
+Considering the scalability of TrustNote's post-upgrade and facilitating developers to use the TrustNote network to complete their own applications and works, we redesigned the lightweight wallet communication interface and created the Fusion Wallet.
+
+- What new features does Fusion Wallet bring?
+
+In addition to supporting the operation of TrustNote network assets, Fusion Wallet's biggest update is to enable developers to submit their own applets to the platform. Developers can easily build their own work using Web-side technology, which is easy for other users to use after review, and can be used in any payment scenario.
+
+- How safe is it?
+
+In Fusion Wallet, the process of generating a wallet adds a key, simply a mnemonic + key to generate a wallet, and even if the mnemonic leaks, it cannot rely on mnemonics to recover the wallet. The wallet private key is only stored in the device, and the private key can be encrypted twice in the settings. The payment process does not cause the private key to leave the device.
+
+### Developer Documentation
+
+##############################################################################################################################
+
 #### 易使用、轻量级、更安全；支持 Dapp 小应用的 TrustNote 内容聚合客户端
 
 - 为什么会有 Fusion Wallet？
