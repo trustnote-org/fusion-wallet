@@ -704,20 +704,20 @@ trustnote.callPay(data, function(resp){})
 
 ##### Create wallet
 
-![image](./pic/1.png)
+![image](./pic/6.png)
 
 ##### homepage
 
-![image](./pic/2.png)
+![image](./pic/7.png)
 
 ##### history
 
-![image](./pic/3.png)
+![image](./pic/8.png)
 
 ##### settings
 
-![image](./pic/4.png)
+![image](./pic/9.png)
 
 ##### add H5 application
 
-![image](./pic/5.png)
+![image](./pic/10.png)
